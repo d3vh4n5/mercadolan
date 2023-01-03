@@ -12,10 +12,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <link rel="stylesheet" type="text/css" href="../../assets/css/estilos.css">
     </head>
     <body>
-        <p> Este sera el texto ed error pero el de la PC</p>
-
-
-
+        
+        
+        
 <?php
 include './class/autoload.php';
 
