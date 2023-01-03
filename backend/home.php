@@ -88,7 +88,7 @@
        
         </div>-->
     
-
+<hr></hr>
 <table width='100%'>
 <?php
 
@@ -122,10 +122,13 @@ while($contador<$lista_largo){ ?>
                 <?php 
                 $contador++;
                 ?>
+                <hr></hr>
             </td>
+            
         <?php 
         
         } ?> 
+            
     </tr>    
 <?php } ?> 
              

@@ -53,9 +53,6 @@ class base_datos {
         if ($limit != null){
             $sql .= " LIMIT " . $limit;
         }
-        echo "<pre>";
-        print_r($sql);
-        echo "</pre>";
         $resource = $this->gbd->prepare($sql);
         $resource->execute($arr_prepare);
         if ($resource){
