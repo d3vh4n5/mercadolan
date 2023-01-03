@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Categorias</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../../assets/css/estilos.css">
+        <!-- hago otro link igual, pero desde la perspectiva del controlador,
+            es decir, como si el controlador fuera el html midmo. Sino no me 
+            toma el css-->
+        <link rel="stylesheet" type="text/css" href="../assets/css/estilos.css">
+    </head>
+    <body>
+        <div class="contenedor">
+            <form method="post" action="../categorias.php" id="form_categorias">
+                <label>ID</label>
+                <br>
+                <input type="text" name="id" id="id">
+                <br>
+                <label>Nombre de la categoria</label>
+                <br>
+                <input type="text" name="categoria" id="categoria">
+                <br><br>
+                <button type="button" class="btn_cancelar">Cancelar</button>
+                <button type="submit" name="guardar" class="btn_guardar">Guardar</button>
+            </form>
+        </div>
+        <p>API de Juan Basgall</p>
+        
+        
+        
+        <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+        <script src="../../assets/js/main.js"></script>
+        <script src="../../assets/js/validaciones.js"></script>
+                            

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Lista de categorias</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../../assets/css/estilos.css">
+    </head>
+    <body>
+    </body>
+        <center>  
+       <div> <h1>Lista de categorias </h1>
+        <table>
+          <thead> 
+            <tr> 
+               <th> ID categorias</th> 
+               <th>Nombre</th>  
+            <tr>    
+          </thead> 
+          <tbody>   
+              <?php foreach($lista_ctg as $listaCategorias){ ?> 
+              <tr>  
+                  <td><?php echo $listaCategorias['id'] ?></td> 
+                  <td><?php echo $listaCategorias['nombre_categoria'] ?></td> 
+              </tr>    
+              <?php } ?> 
+          </tbody>   
+        </table>      
+     </div>         
+       <br>
+       <a class="a" href="./views/categorias.html">Agregar</a> 
+       <a class="a" href="./views/productos.html">
+    Agregar Productos</a>
+       <br>
+       <br>
+       <h2>Juan Angel Basgall</h2>
+   </center>
+ </body>  
+</html> 

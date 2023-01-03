@@ -1,0 +1,21 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 27 nov 2022, 20:04:47
+    Author     : Hans
+*/
+
+body{
+    height: 100vh;
+            padding: 5rem;
+            background: black;
+            font-family: monospace;
+            font-size: 20px;
+            font-style: italic;
+            color: green;
+}
+h1:first-line{
+    color: lightblue;
+}

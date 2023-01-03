@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Productos</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" type="text/css" href="../../assets/css/estilos.css">
+    </head>
+    <body>
+        <div class="contenedor">
+            <form method="post" action="./productos.php" id="form_productos" enctype="multipart/form-data">
+                <!-- 
+                <label>ID</label>
+                <br>
+                <input type="text" name="id" id="pId">
+                <br>
+                 -->
+                <label>Nombre del producto</label>
+                <br>
+                <input type="text" value="" name="producto" id="pNombre">
+                <br>
+                <label>Imagen del producto</label>
+                <br>
+                <input type="file" name="imagen" class="input_text" id="pImagen">
+                <br>
+                <label>Descripción</label>
+                <br>
+                <textarea type="text" name="descripcion" id="pDescripcion"></textarea>
+                <br>
+                <label>Precio</label>
+                <br>
+                <input type="number" step="0.01" placeholder="Ingrese el precio" name="precio" id="pPrecio">
+                <br>
+                <label>Categoria</label>
+                <br>
+                <select name="categoria" autocomplete="off">
+                    <option value="">(seleccionar)</option>
+                    <?php foreach ($categorias as $cat) { ?>
+                    <option value="<?php echo $cat['id']; ?>">
+                    <?php echo $cat['nombre_categoria']; ?>
+                    </option>
+                    <?php } ?>
+                </select>
+                <br>
+                
+                <br><br>
+                <button type="button" class="btn_cancelar">Cancelar</button>
+                <button type="submit" name="guardar" class="btn_guardar">Guardar</button>
+            </form>
+        </div>
+        <p>API de Juan Basgall</p>
+        <?php echo "prueba de php"; ?>
+        
+        
+        
+        <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+        <script src="../../assets/js/main.js"></script>
+        <script src="../../assets/js/validaciones.js"></script>
+    </body>
+</html>
