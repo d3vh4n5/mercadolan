@@ -1,7 +1,4 @@
-/*
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
-*/
+
 /* 
     Created on : 24 nov 2022, 22:04:29
     Author     : Hans
@@ -17,8 +14,10 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    overflow: scroll;
+    overflow: hidden;
 }
+/*================== Heather ====================*/
+
 header{
     display: flex;
     justify-content: center;
@@ -33,40 +32,94 @@ header{
     border: 50px solid #222222;
     border-radius: 30px;
 }
-.boton{
+.botonLog{
+    background: transparent;
     padding: 5px 50px 9px 50px;
-     color: rgb(132, 132, 252);
-     border: 1px solid rgb(132, 132, 252);
-     display: flex;
-     position: absolute;
-     top: 25px;
-     right: 20px;
+    color: rgb(132, 132, 252);
+    border: 1px solid rgb(132, 132, 252);
+    display: flex;
+    position: absolute;
+    top: 25px;
+    right: 20px;
+}
+.botonLog:hover{
+    cursor:pointer;
+    box-shadow: 0px 0px 10px 3px rgb(132, 132, 252),
+                0px 0px 5px 1px rgb(132, 132, 252) inset;
 }
 .autor{
-    padding: 5px 50px 9px 50px;
-     color: rgb(250, 253, 253);
-     display: flex;
-     position: absolute;
-     top: 25px;
-     left: 20px;
+    text-decoration: none;
+    font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace !important;
+    font-size: 15px;
+    padding: 5px 50px 9px 30px;
+    color: lightgreen;
+    display: flex;
+    position: absolute;
+    top: 25px;
+    left: 3%;
 }
 .imgProd{
     box-shadow: 0px 0px 1px 1px black;
     width:auto;
     height: 200px;
 }
-.contenedorProductos{
-    margin-top: 200px;
-    width: 60%;
-    padding: 2rem;
-    overflow: scroll;
-}
+
+
+/*================== Títulos ====================*/
+
 h2{
-    border: 1px solid white;
     font-size: 40px;
     font-weight: 150;
     font-variant: small-caps;
-    
+    width: 100%;
+    margin-bottom: 0px; 
+}
+.tituloPrincipal{
+    width: 60%;
+}
+hr{
+    color: red;
+    margin-bottom: 30px;
+}
+
+/*== Este es el contenedor principal del cuerpo ==*/
+
+.contenedorPrincipal{
+    display: grid;
+    place-items: center;
+    margin-top: 200px;
+    width: 100%;
+    padding: 2rem;
+    overflow: scroll;
+}
+/*======= Tabla de tarjetas de productos =======*/
+
+.tablaProductos{
+    width: 60%;
+}
+
+/*================ Tarjetas ===================*/
+.tarjetaProducto{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 400px;
+    width: 300px;
+    color: black;
+    transition: 0.1s;
+    border: 1px solid rgb(87, 86, 86);
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 1px rgba(70, 69, 69, 0.349);
+    background: rgb(250, 253, 253);
+  
+}
+.tarjetaProducto:hover{
+    cursor: pointer;
+    transition: 0.2s;
+    transform: scale(1.05);
+    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.4);
+    background: rgb(250, 253, 253);
 }
 .nombre{
     margin-top: 10px;
@@ -78,6 +131,8 @@ h2{
     margin-left: 4px;
     font-weight: 700;
     margin-bottom: 0;
+    font-weight: 400;
+    font-variant: small-caps;
 }
 .precio{
     margin-top: 10px;
@@ -91,28 +146,12 @@ h2{
     font-weight: 400;
     color: #555454;
 }
-.producto{
-    display: flex;
-    flex-direction: column;
-    justify-content:;
-    height: 400px;
-    width: 300px;
-    color: black;
-    transition: 0.1s;
-    border: 1px solid rgb(87, 86, 86);
-    border-radius: 10px;
-    box-shadow: 0px 0px 20px 1px rgba(70, 69, 69, 0.349);
-    background: rgb(250, 253, 253);
-  
-}
-.producto:hover{
-    cursor: pointer;
-    transition: 0.2s;
-    transform: scale(1.2);
-    box-shadow: 0px 0px 50px 8px rgba(0, 0, 0, 0.87);
-}
+/*================ Filas tabla ===================*/
 .fila{
     display: flex;
     justify-content: space-between;
+    border-bottom: 1px solid grey;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
 
 }
