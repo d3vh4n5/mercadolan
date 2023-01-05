@@ -13,7 +13,7 @@
     <header>head
         <div class="contenedorLogo">
             <img class="logo" sizes="" src="../assets/img/Logo.png" alt="">
-            <button class="botonLog">Loguearse y cargar productos</button>
+            <a class="botonLog" href="./productos.php" >Loguearse y cargar productos</a>
             <a class="autor" href="https://www.linkedin.com/in/juanangelbasgall/">"Mercado Lan" -> Por @Juan Angel Basgall</a>
         </div>
     </header>
@@ -40,13 +40,7 @@
                             <p class="nombre"><?php echo $lista_prod[$contador]['nombre_producto'] ?></p>
                             <img class="imgProd" src="../assets/img/imagen.png" name="imagen producto" alt="">
 
-                            <p class="cat"><?php 
-                                            #$nc = new categorias();
-                                            #$nombre2 = $nc->nombrecat($lista_prod[$contador]['id_categoria']);
-                                            #echo $nombre2;
-                                            echo categorias::nombrecat($lista_prod[$contador]['id_categoria']);
-
-                                          ?>
+                            <p class="cat"><?php echo categorias::nombrecat($lista_prod[$contador]['id_categoria']); ?>
                             </p>
                             <p class="precio"><?php echo $lista_prod[$contador]['precio'] ?></p>
                             <p class="descripcion"><?php echo $lista_prod[$contador]['descripcion'] ?> </p>
