@@ -8,6 +8,14 @@
     alert("Listo");
     })*/
 
+
+
+/* Las validaciones de esta manera no permiten que se
+ * ingresen espacios en blanco, ni uno ni varios, ya que 
+ * con el "required" del HTML, podes pasarlo ingresando
+ * un espacio en blanco y no te sale el aviso de "requerido",
+ * pero con estas validaciones en JS evitamos ese problema. */
+
 //Código para el formulario de las categorías
 
 $("#form_categorias").submit(function(){
@@ -18,7 +26,7 @@ $("#form_categorias").submit(function(){
         alert('Agregar un ID / Basgall Juan');
         return false;
     }else*/ if ($.trim(categoria)===''){
-        alert('Agregar una categoria / Basgall Juan');
+        alert('Espacio en blanco en el nombre de la categoria.. \n\n Elimínelo y coloque un nombre correcto por favor.');
         return false;
     }
     return true;
@@ -37,27 +45,27 @@ $("#form_productos").submit(function(){
     var descripcion = $("#pDescripcion").val();
     var errores = [];
     
-    if ($.trim(id)===''){
-        errores.push("Agregar ID del producto");
-        console.log(errores);
-    };
+    //if ($.trim(id)===''){
+     //   errores.push("Agregar ID del producto");
+    //    console.log(errores);
+    //};
     if ($.trim(nombreProducto)===''){
-        errores.push("Agregar Nombre del producto");
+        errores.push("Espacio en blanco en: Nombre del producto");
     };
     if ($.trim(imagenProducto)===''){
         errores.push("Agregar Imagen del producto");
     };
     if ($.trim(descripcion)===''){
-        errores.push("Agregar Descripción del producto");
+        errores.push("Espacio en blanco en: Descripción del producto");
     };
-    if ($.trim(categoria)===''){
-        errores.push("Agregar Categoria del producto");
-    };
+    //if ($.trim(categoria)===''){
+    //    errores.push("Agregar Categoria del producto");
+    //};
     if ($.trim(precio)===''){
         errores.push("Agregar Precio del producto");
     };
     if (errores.length > 0){
-        errores.push("Basgall Juan A");
+        errores.push("Por favor elimine los espacios en blanco y coloque la información correcta para continuar.");
         alert(errores.join("\n"));
         errores = [];
         return false;

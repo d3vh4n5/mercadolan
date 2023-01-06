@@ -43,6 +43,8 @@ if(isset($_POST['action']) && $_POST['action'] == 'agregar'){/* Con el action so
     }
  }else if (isset($_GET['edit'])){
      $prod = new productos($_GET['id']);
+     $prod->nombre_producto = $prod->nombre;
+     $prod->id_categoria = $prod->categoria;
      include './views/productos.html';
      die();
  }
