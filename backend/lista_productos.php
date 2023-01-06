@@ -36,7 +36,7 @@
                        <td><?php echo $listaProductos['id'] ?></td> 
                        <td><?php echo $listaProductos['nombre_producto'] ?></td> 
                        <td><?php echo $listaProductos['descripcion'] ?></td>
-                       <td><?php echo $listaProductos['precio'] ?></td>
+                       <td><?php echo "$ ".$listaProductos['precio'] ?></td>
                        <td><?php echo $listaProductos['id_categoria'] ?></td>
                        <td><?php echo categorias::nombrecat($listaProductos['id_categoria']); ?></td>
                    </tr>    
