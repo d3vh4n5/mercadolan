@@ -17,9 +17,10 @@ body{
     flex-direction: column;
     overflow: scroll;
 }
-.a{
-    color: lightskyblue;
+.botonFoot{
     text-decoration: none;
+    cursor: pointer;
+    color: lightskyblue;
     margin: 1rem;
     padding: 1rem;
     border: 1px solid lightskyblue;
@@ -28,12 +29,11 @@ body{
     border-radius: 10px;
     background: rgba(0, 0, 0, 0.312);
 }
-.a:hover{
+.botonFoot:hover{
 	transform: scale(1.1);
 	box-shadow: 0px 0px 10px 20px rgba(47, 79, 79, 0.651);
-	animation: none;
 	transition: 0.2s;
-        color: white;
+        color: red;
         background: rgba(20, 200, 80, 0.55);
         border: 1px solid white;
 }
@@ -91,7 +91,12 @@ label,input,form,button {
 	transition: 0.2s;
 }
 table,td,th,tr {
+    text-align: center;
     border: 1px solid lightgreen;
+}
+.tfoot{
+    text-align: center;
+    padding: 20px;
 }
 
 @keyframes pulso {

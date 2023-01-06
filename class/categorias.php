@@ -52,32 +52,23 @@ class categorias {
     }
     
     public function guardar(){
-        echo "<br>Se está ejecutando el guardar..";
         if($this->exist){
-            echo "<br>Se intentará actualizar el objeto en la base de datos..";
             return $this->actualizar();
         } else {
-            echo "<br>Se intentará agregar el objeto en la base de datos..";
             return $this->insertar();
         }
     }
     
     public function eliminar(){
         $db = new base_datos("mysql", "miproyecto", "127.0.0.1", "root", "");
-        return $db->delete("categoria", "id=?" . $this->id);
+        return $db->delete("categorias", "id=" . $this->id);
     }
     public function insertar(){
-        echo "<br>Insertando..<br>";
         $db = new base_datos("mysql", "miproyecto", "127.0.0.1", "root", "");
         $resp = $db->insert("categorias", "nombre_categoria", "?", array($this->nombre_categoria));
         
-        
-        echo"<br> Respuesta de la base de datos:";
-        print_r($resp);
-        
-        
         if ($resp){
-            echo "<br>Recibiendo información de la base de datos..<br>";
+            echo "<br>Categoría guardada con éxito..<br>";
             $this->id = $resp;
             $this->exist = true;
             return true;

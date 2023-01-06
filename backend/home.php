@@ -13,7 +13,7 @@
     <header>head
         <div class="contenedorLogo">
             <img class="logo" sizes="" src="../assets/img/Logo.png" alt="">
-            <a class="botonLog" href="./productos.php" >Loguearse y cargar productos</a>
+            <input type="button" class="botonLog" value="Loguearse y cargar productos" onclick="document.location.href='./productos.php'">
             <a class="autor" href="https://www.linkedin.com/in/juanangelbasgall/">"Mercado Lan" -> Por @Juan Angel Basgall</a>
         </div>
     </header>

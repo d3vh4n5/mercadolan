@@ -35,15 +35,12 @@ if(isset($_POST['action']) && $_POST['action'] == 'guardar'){
 //$lista_ctg = categorias::listar();
 //include 'views/lista_categorias.html';
 
-if(isset($_REQUEST['guardar'])){
-        $nom=$_REQUEST['categoria'];
-        $id=$_REQUEST['id'];
-        $nuevaCategoria = new categorias($id);
-        $nuevaCategoria->nombre_categoria = $nom;
+if(isset($_POST['action']) && $_POST['action'] == 'guardar'){
+        /*$nuevaCategoria = new categorias($id); de momento no usamos el id */
+        $nuevaCategoria = new categorias();
+        $nuevaCategoria->nombre_categoria = $_POST['categoria'];
         $nuevaCategoria->guardar();
-
-        //var_dump($nuevaCategoria);
-        
+        /*
         echo '<p style="'
         . 'color: lightgreen;'
         . 'font-size: 30px;'
@@ -52,17 +49,29 @@ if(isset($_REQUEST['guardar'])){
         echo "→ El nombre ingresado es : $nom <br>"
                 . "→               ID: $id";
         
-        echo '</p>';
+        echo '</p>';*/
         
-        
-     }
-     
+}else if (isset($_GET['add'])){
+    $lista_ctg = categorias::listar();
+    include 'views/categorias.html';
+    die();
+}else if (isset($_GET['rem'])) {
+   $nuevaCategoria = new categorias($_GET['id']);
+   if ($nuevaCategoria->eliminar()){
+       header("location: ".$_SERVER['SCRIPT_NAME']);// esto direcciona la url al script actual quitando el GET
+   } else{
+       die("En estos momenos no podemos eliminar la categoria");
+   }
+}else if (isset($_GET['edit'])){
+    $nuevaCategoria = new categorias($_GET['id']);
+    include './views/categorias.html';
+    die();
+}
+
      /*      
 Probar estos comandos que me tiró marisa, porque al hacer el post le tomaba el id como
 si fuera un string entonces le tiraba error
       * 
-      * 
-
 $categoria= new Categorias(intval($_POST["numeroCategoria"]));  // esto convierte el string en integer
 $categoria->guardar($arr_prepare=[htmlspecialchars($_POST["descripcion"])]); // esto convierte el texto en algo para que el araay funciona
       
@@ -70,14 +79,8 @@ $categoria->guardar($arr_prepare=[htmlspecialchars($_POST["descripcion"])]); // 
      
      
      
-     
+$lista_ctg = categorias::listar();
+$basepath = $_SERVER['SCRIPT_NAME']; //indica la url del script en el navegador
+include './lista_categorias.php';
      
 ?>
-        <a  class="a" href="./views/categorias.html">
-    Volver a cargar otra categoría</a>
-<a class="a" href="./lista_categorias.php">
-    Listar Categorias</a>
-        <a class="a" href="./views/productos.html">
-    Agregar Productos</a>
-        
-        

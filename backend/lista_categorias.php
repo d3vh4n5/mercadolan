@@ -10,35 +10,44 @@
     <body>
     
         <center>  
-       <div> <h1>Lista de categorias </h1>
-        <table>
-          <thead> 
-            <tr> 
-               <th> ID categorias</th> 
-               <th>Nombre</th>  
-            <tr>    
-          </thead> 
-          <tbody>   
-              <?php 
-              include '../class/autoload.php';
-              $lista_ctg = categorias::listar();
-              foreach($lista_ctg as $listaCategorias){ ?> 
-              <br>
-              <tr>  
-                  <td><?php echo $listaCategorias['id'] ?></td> 
-                  <td><?php echo $listaCategorias['nombre_categoria'] ?></td> 
-              </tr>    
-              <?php } ?> 
-          </tbody>   
-        </table>      
-     </div>  
-      </center>
+            <div> 
+                <h1>Lista de categorías </h1>
+                <p style="color: orangered;">Si la categoría está en uso no se podrá borrar</p>
+                <table>
+                    <thead> 
+                        <tr>
+                            <th>Acción</th>
+                            <th> ID categorias</th> 
+                            <th>Nombre</th>  
+                        <tr>    
+                    </thead> 
+                    <tbody>   
+                        <?php 
+                        //include '../class/autoload.php';
+                        $lista_ctg = categorias::listar();
+                        foreach($lista_ctg as $listaCategorias){ ?>
+                        <tr>
+                            <td>
+                                <a href="<?php echo $basepath."?edit&id=".$listaCategorias['id']; ?>">Editar</a>
+                                <a href="<?php echo $basepath."?rem&id=".$listaCategorias['id'];?>">Eliminar</a>
+                            </td>
+                            <td><?php echo $listaCategorias['id'] ?></td> 
+                            <td><?php echo $listaCategorias['nombre_categoria'] ?></td> 
+                        </tr>    
+                        <?php } ?> 
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3" class="tfoot">
+                                <input type="button" class="botonFoot" value="Agregar Categoría" onclick="document.location.href='<?php echo $basepath."?add" ?>'">
+                                <input type="button" class="botonFoot" value="Agregar Productos" onclick="document.location.href='./views/productos.html'">
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>      
+            </div>  
+        </center>
        <br><br><br><br>
-       <a class="a" href="./views/categorias.html">Agregar más categorías</a>
-       <a class="a" href="./views/productos.html">
-    Agregar Productos</a>
-       <br>
-       <br>
        <h2>Juan Angel Basgall</h2>
   
  </body>  

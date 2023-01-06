@@ -14,10 +14,10 @@ $("#form_categorias").submit(function(){
     var id = $("#id").val();
     var categoria = $("#categoria").val();
     
-    if ($.trim(id)===''){
+    /*if ($.trim(id)===''){
         alert('Agregar un ID / Basgall Juan');
         return false;
-    }else if ($.trim(categoria)===''){
+    }else*/ if ($.trim(categoria)===''){
         alert('Agregar una categoria / Basgall Juan');
         return false;
     }
