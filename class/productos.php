@@ -38,12 +38,7 @@ class productos {
         echo "</pre>";
         echo "<br>-------------------------------------";
     }
-    
-    
-    
-   
-    
-    
+
     public function guardar(){
         if ($this->exist) {
             return $this->actualizar();
@@ -61,9 +56,6 @@ class productos {
         $db = new base_datos("mysql", "miproyecto", "127.0.0.1", "root", "");
         $resp = $db->insert("productos", "id, nombre_producto, descripcion, precio, id_categoria", "?,?,?,?,?",
                 array($this->id, $this->nombre_producto, $this->descripcion, $this->precio, $this->id_categoria));
-        
-        
-        
         
         if($resp){
             $this->id = $resp;

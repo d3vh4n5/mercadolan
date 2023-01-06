@@ -1,15 +1,80 @@
+
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
-<html>
-    <head>
-        <title>Home</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        tengo que copiar el diseño de home php y llamarla desde el controlador
-    </body>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/estiloshp.css">
+    <link rel="stylesheet" href="./assets/css/normalyze.css">
+    <title>Mercado Lan</title>
+</head>
+<body>
+    <header>head
+        <div class="contenedorLogo">
+            <img class="logo" sizes="" src="./assets/img/Logo.png" alt="">
+            <input type="button" class="botonLog" value="Loguearse y cargar productos" onclick="document.location.href='./backend/productos.php'">
+            <a class="autor" href="https://www.linkedin.com/in/juanangelbasgall/">"Mercado Lan" -> Por @Juan Angel Basgall</a>
+        </div>
+    </header>
+    <section class="contenedorPrincipal">
+        <div class="tituloPrincipal">
+            <h2 class="titulo">Productos</h2>
+            <hr></hr>
+        </div>
+
+
+        <table class="tablaProductos">
+            <tbody>
+                <?php
+                //include '../class/autoload.php';
+                while($contador<$lista_largo){ ?> 
+                    <tr class="fila">  
+                        <?php 
+                        //count($lista_prod);
+                        for ($i=1; $i<=4 && $contador<$lista_largo; $i++) { ?>
+                            <td>
+                                <div class="tarjetaProducto">
+                                    <p class="nombre"><?php echo $lista_prod[$contador]['nombre_producto'] ?></p>
+                                    <img class="imgProd" src="./assets/img/imagen.png" name="imagen producto" alt="">
+
+                                    <p class="cat"><?php echo categorias::nombrecat($lista_prod[$contador]['id_categoria']); ?>
+                                    </p>
+                                    <p class="precio"><?php echo $lista_prod[$contador]['precio'] ?></p>
+                                    <p class="descripcion"><?php echo $lista_prod[$contador]['descripcion'] ?> </p>
+                                </div>
+                                <?php $contador++; ?>
+                            </td>
+                        <?php } ?> 
+
+                    </tr>
+                <?php } ?> 
+            </tbody>
+        </table>
+        <table class="tablaMiguel">
+            <thead>
+                <tr class="tablaMiguel">
+                    <th class="tablaMiguel">Productos</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <tr class="tablaMiguel">
+                    <?php
+                    foreach ($lp as $indice => $producto){ ?>
+                    <td class="tablaMiguel"><?php 
+                    echo $producto['nombre_producto'];
+                    echo $producto['id_categoria'];
+                    $cat = new categorias($producto['id_categoria']);
+                    echo $cat->nombre_categoria; ?></td>
+                    <?php if (($indice + 1) % 4 == 0){ ?>
+                </tr>
+                <tr class="tablaMiguel">
+                    <?php } } ?> <!-- uno es del foreach y el otro es del if -->
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <footer></footer>
+</body>
 </html>

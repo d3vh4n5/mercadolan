@@ -157,3 +157,9 @@ hr{
     margin-bottom: 30px;
 
 }
+/* estilo de prueba para la tabla del tutor*/
+.tablaMiguel{
+    padding: 4px;
+    text-align: center;
+    border: 1px solid red;
+}

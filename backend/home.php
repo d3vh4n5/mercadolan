@@ -17,6 +17,7 @@
             <a class="autor" href="https://www.linkedin.com/in/juanangelbasgall/">"Mercado Lan" -> Por @Juan Angel Basgall</a>
         </div>
     </header>
+    <!-- comento aca para diferenciar el archivo, asíe ste ya no funciona
     <section class="contenedorPrincipal">
         <div class="tituloPrincipal">
             <h2 class="titulo">Productos</h2>
