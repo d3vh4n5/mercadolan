@@ -30,8 +30,8 @@
                    foreach($lista_prod as $listaProductos){ ?> 
                    <tr> 
                        <td>
-                           <a href="<?php echo $basepath."?edit&id=".$listaProductos['id']; ?>">Editar</a>
-                           <a href="<?php echo $basepath."?rem&id=".$listaProductos['id'];?>">Eliminar</a>
+                           <a class="botonActionTabla E" href="<?php echo $basepath."?edit&id=".$listaProductos['id']; ?>">Editar</a>
+                           <a class="botonActionTabla" href="<?php echo $basepath."?rem&id=".$listaProductos['id'];?>">Eliminar</a>
                        </td>
                        <td><?php echo $listaProductos['id'] ?></td> 
                        <td><?php echo $listaProductos['nombre_producto'] ?></td> 
@@ -46,7 +46,7 @@
                    <tr>
                        <td colspan="7" style="text-align: center; padding: 20px;">
                            <input type="button" class="botonFoot" value="Agregar Producto" onclick="document.location.href='<?php echo $basepath."?add" ?>'">
-                           <input type="button" class="botonFoot" value="Agregar Categorías" onclick="document.location.href='./views/categorias.html'">
+                           <input type="button" class="botonFoot" value="Agregar Categorías" onclick="document.location.href='./categorias.php'">
                        </td>
                    </tr>
                </tfoot>

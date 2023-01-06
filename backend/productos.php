@@ -16,7 +16,7 @@ include '../class/autoload.php';
 
 if(isset($_POST['action']) && $_POST['action'] == 'agregar'){/* Con el action solo tambien funciona, pero chequeando el valor es mas seguro y además mas ordenado por si tenemos varios botones*/
     /*$nuevoProducto = new productos(intval($id)); el formulario ya no pide id*/
-    $nuevoProducto = new productos();
+    $nuevoProducto = new productos($_POST['codigo_producto']);
     $nuevoProducto->nombre_producto = $_POST['producto'];
     $nuevoProducto->descripcion = $_POST['descripcion'];
     $nuevoProducto->precio = $_POST['precio'];
@@ -30,7 +30,8 @@ if(isset($_POST['action']) && $_POST['action'] == 'agregar'){/* Con el action so
     
   
  } else if (isset($_GET['add'])) {
-     $categorias = categorias::listar();
+     //$categorias = categorias::listar();
+     $prod = new productos();
      include './views/productos.html';
      die();
  }else if (isset($_GET['rem'])) {
@@ -41,7 +42,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'agregar'){/* Con el action so
         die("En estos momenos no podemos eliminar el producto");
     }
  }else if (isset($_GET['edit'])){
-     $nuevoProd = new productos($_GET['id']);
+     $prod = new productos($_GET['id']);
      include './views/productos.html';
      die();
  }

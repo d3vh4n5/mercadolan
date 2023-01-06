@@ -33,9 +33,25 @@ body{
 	transform: scale(1.1);
 	box-shadow: 0px 0px 10px 20px rgba(47, 79, 79, 0.651);
 	transition: 0.2s;
-        color: red;
+        color: white;
         background: rgba(20, 200, 80, 0.55);
         border: 1px solid white;
+}
+.botonActionTabla{
+    text-decoration: none;
+    color: orangered;
+    border: 1px solid orangered;
+    padding: 2px;
+    margin: 10px;
+}
+.botonActionTabla:hover{
+    background: black;
+    transform: scale(1.2);
+    box-shadow: 0px 0px 10px 2px white;
+}
+.E{
+    color: lightblue;
+    border: 1px solid lightblue;
 }
 .contenedor{
 	padding: 4rem;
@@ -91,6 +107,7 @@ label,input,form,button {
 	transition: 0.2s;
 }
 table,td,th,tr {
+    padding: 4px;
     text-align: center;
     border: 1px solid lightgreen;
 }

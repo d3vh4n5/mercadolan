@@ -15,18 +15,14 @@ class categorias {
     
     public function __construct($id = null) {
         if ($id != null){
-            echo "id: ".$id;
-            var_dump($id);
             $db = new base_datos("mysql", "miproyecto", "127.0.0.1", "root", "");
             $resp = $db->select("categorias", "id=?", array($id));
             
             if (isset($resp)){
-                echo "<br>El método construct se conectó con la base de datos..<br>";
-                
-           } else {
+                //echo "<br>El método construct se conectó con la base de datos..<br>";  
+            } else {
                 echo "<br>No se conectó con la base de datos..<br> ";
             }
-            
             if (isset($resp[0]['id'])){
                 $this->id = $resp[0]['id'];
                 $this->nombre_categoria = $resp[0]['nombre_categoria'];
@@ -97,6 +93,9 @@ class categorias {
         $nombre = $nombrecat[0]['nombre_categoria'];
         return $nombre;
         
+    }
+    public function get_codigo(){
+        return $this->id;
     }
 }
 

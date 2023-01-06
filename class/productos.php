@@ -85,6 +85,9 @@ class productos {
         $db = new base_datos("mysql", "miproyecto", "127.0.0.1", "root", "");
         return $db->select("productos");
     }
+    public function get_codigo(){
+        return $this->id;
+    }
 }
 
 

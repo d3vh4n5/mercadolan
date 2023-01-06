@@ -14,45 +14,26 @@
     <body>
 
 
-<?php #echo '<span style="font-size: 20px; color: blue; font-style: italic">HOLA MUNDO!!!</span><br>'; 
+<?php
 
 
 
 /*@autor Juan Angel Basgall*/
 include '../class/autoload.php';
 
-/*
-if(isset($_POST['action']) && $_POST['action'] == 'guardar'){
-    $miCategoria = new categorias();
-    $miCategoria->nombre = $_POST['categoria'];
-    $miCategoria->guardar();
-}else if (isset($_GET['add'])){
-    include 'views/categorias.html';
-    die();
-}
- * 
- */
-//$lista_ctg = categorias::listar();
-//include 'views/lista_categorias.html';
-
 if(isset($_POST['action']) && $_POST['action'] == 'guardar'){
         /*$nuevaCategoria = new categorias($id); de momento no usamos el id */
-        $nuevaCategoria = new categorias();
+        $nuevaCategoria = new categorias($_POST['codigo_categoria']);
         $nuevaCategoria->nombre_categoria = $_POST['categoria'];
-        $nuevaCategoria->guardar();
-        /*
-        echo '<p style="'
-        . 'color: lightgreen;'
-        . 'font-size: 30px;'
-                . '">';
-        
-        echo "→ El nombre ingresado es : $nom <br>"
-                . "→               ID: $id";
-        
-        echo '</p>';*/
+        if (!$nuevaCategoria->guardar()){
+        die("En estos momentos, no podemos realizar la operación solicitada");
+        } else {
+            header("location: ".$_SERVER['SCRIPT_NAME']);//esto redirecciona la url al script actual quitando el post
+        } 
         
 }else if (isset($_GET['add'])){
-    $lista_ctg = categorias::listar();
+    //$lista_ctg = categorias::listar();
+    $cate= new categorias();
     include 'views/categorias.html';
     die();
 }else if (isset($_GET['rem'])) {
@@ -63,7 +44,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'guardar'){
        die("En estos momenos no podemos eliminar la categoria");
    }
 }else if (isset($_GET['edit'])){
-    $nuevaCategoria = new categorias($_GET['id']);
+    $cate = new categorias($_GET['id']);
     include './views/categorias.html';
     die();
 }

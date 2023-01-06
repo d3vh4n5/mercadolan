@@ -12,7 +12,7 @@
         <center>  
             <div> 
                 <h1>Lista de categorías </h1>
-                <p style="color: orangered;">Si la categoría está en uso no se podrá borrar</p>
+                <p style="color: orangered;">→ Si la categoría está en uso no se podrá borrar</p>
                 <table>
                     <thead> 
                         <tr>
@@ -28,8 +28,8 @@
                         foreach($lista_ctg as $listaCategorias){ ?>
                         <tr>
                             <td>
-                                <a href="<?php echo $basepath."?edit&id=".$listaCategorias['id']; ?>">Editar</a>
-                                <a href="<?php echo $basepath."?rem&id=".$listaCategorias['id'];?>">Eliminar</a>
+                                <a class="botonActionTabla E" href="<?php echo $basepath."?edit&id=".$listaCategorias['id']; ?>">Editar</a>
+                                <a class="botonActionTabla" href="<?php echo $basepath."?rem&id=".$listaCategorias['id'];?>">Eliminar</a>
                             </td>
                             <td><?php echo $listaCategorias['id'] ?></td> 
                             <td><?php echo $listaCategorias['nombre_categoria'] ?></td> 
@@ -40,7 +40,7 @@
                         <tr>
                             <td colspan="3" class="tfoot">
                                 <input type="button" class="botonFoot" value="Agregar Categoría" onclick="document.location.href='<?php echo $basepath."?add" ?>'">
-                                <input type="button" class="botonFoot" value="Agregar Productos" onclick="document.location.href='./views/productos.html'">
+                                <input type="button" class="botonFoot" value="Agregar Productos" onclick="document.location.href='./productos.php'">
                             </td>
                         </tr>
                     </tfoot>

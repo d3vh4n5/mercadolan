@@ -22,7 +22,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                  -->
                 <label>Nombre del producto</label>
                 <br>
-                <input type="text" value="" name="producto" id="pNombre">
+                <input type="text" value="<?php echo $prod->nombre_producto; ?>" name="producto" id="pNombre">
                 <br>
                 <label>Imagen del producto</label>
                 <br>
@@ -30,24 +30,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <br>
                 <label>Descripción</label>
                 <br>
-                <textarea type="text" name="descripcion" id="pDescripcion"></textarea>
+                <textarea type="text" name="descripcion" value="<?php echo $prod->descripcion; ?>" id="pDescripcion"></textarea>
                 <br>
                 <label>Precio</label>
                 <br>
-                <input type="number" step="0.01" placeholder="Ingrese el precio" name="precio" id="pPrecio">
+                <input type="number" step="0.01" placeholder="Ingrese el precio" value="<?php echo $prod->precio; ?>" name="precio" id="pPrecio">
                 <br>
                 <label>Categoria</label>
                 <br>
                 <select name="categoria" autocomplete="off">
                     <option value="">(seleccionar)</option>
-                    <?php foreach ($categorias as $cat) { ?>
+                    <?php 
+                    $categorias = categorias::listar();
+                    foreach ($categorias as $cat) { ?>
                     <option value="<?php echo $cat['id']; ?>">
                     <?php echo $cat['nombre_categoria']; ?>
                     </option>
                     <?php } ?>
                 </select>
                 <br>
-                
+                <input type="hidden" name="codigo_producto" value="<?php echo $prod->get_codigo(); ?>">
                 <br><br>
                 <button type="button" class="btn_cancelar">Cancelar</button>
                 <button type="submit" name="action" value="agregar" class="btn_guardar">Guardar</button>
