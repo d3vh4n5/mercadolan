@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 include './class/autoload.php';
-//comentario
+echo "comentario de prueba";
 $lista_prod = productos::listar();
 $lista_largo = count($lista_prod);
 $contador = 0;
