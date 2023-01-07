@@ -36,7 +36,15 @@
                             <td>
                                 <div class="tarjetaProducto">
                                     <p class="nombre"><?php echo $lista_prod[$contador]['nombre_producto'] ?></p>
-                                    <img class="imgProd" src="./assets/img/imagen.png" name="imagen producto" alt="">
+                                    <img class="imgProd" src="
+                                         <?php
+                                         if ($lista_prod[$contador]['imagen']){
+                                            echo "./assets/img/productos/".$lista_prod[$contador]['imagen'];
+                                         }else{
+                                            echo "./assets/img/imagen.png";
+                                         }       
+                                         ?>
+                                         " name="imagen producto" alt="">
 
                                     <p class="cat"><?php echo categorias::nombrecat($lista_prod[$contador]['id_categoria']); ?>
                                     </p>

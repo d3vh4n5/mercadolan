@@ -16,11 +16,28 @@ include '../class/autoload.php';
 
 if(isset($_POST['action']) && $_POST['action'] == 'agregar'){/* Con el action solo tambien funciona, pero chequeando el valor es mas seguro y además mas ordenado por si tenemos varios botones*/
     /*$nuevoProducto = new productos(intval($id)); el formulario ya no pide id*/
+    
+    $folder = explode("\\", __DIR__);//Convertimos la direccion de url en un array, quitarmos los separadores y cada palabra pasa a ser 1 valor del array
+    array_pop($folder);//Eliminamos el último valor del array
+    
+    $folder = implode("\\", $folder)."\\assets\\img\\productos\\";//rearmamos el array y terminamos de completar la dirección a la que queremos ir
+    
+    //print_r(pathinfo($_FILES['imagen']['name']));
+    /*Usamos pathinfo para ver y obtener ciertas cosas del archivo file que cargamos.
+     * en este caso obtendremos la extención.
+     */
+    $nombre_archivo = md5($_FILES['imagen']['tmp_name'].date("Y-m-d H:i:s")).".".pathinfo($_FILES['imagen']['name'], PATHINFO_EXTENSION);
+ 
+    if(!move_uploaded_file($_FILES['imagen']['tmp_name'], $folder.$nombre_archivo)){
+        die("No se pudo mover el archivo a ".$folder.$nombre_archivo);
+    }
+    //die();
     $nuevoProducto = new productos($_POST['codigo_producto']);
     $nuevoProducto->nombre_producto = $_POST['producto'];
     $nuevoProducto->descripcion = $_POST['descripcion'];
     $nuevoProducto->precio = $_POST['precio'];
     $nuevoProducto->id_categoria = $_POST['categoria'];
+    $nuevoProducto->imagen = $nombre_archivo;
     $nuevoProducto->guardar();
     if (!$nuevoProducto->guardar()){
         die("En estos momentos, no podemos realizar la operación solicitada");

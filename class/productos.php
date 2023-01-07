@@ -9,6 +9,7 @@ class productos {
     public $descripcion;
     public $precio;
     public $id_categoria;
+    public $imagen;
     private $exist;
    
     public function __construct($id = null) {
@@ -22,6 +23,7 @@ class productos {
                 $this->descripcion = $resp[0]["descripcion"];
                 $this->precio = $resp[0]["precio"];
                 $this->categoria = $resp[0]["id_categoria"];
+                $this->imagen = $resp[0]['imagen'];
                 $this->exist = true;
                 echo "<br>Carga correcta..<br>";
             }
@@ -54,8 +56,8 @@ class productos {
     
     public function insertar(){
         $db = new base_datos("mysql", "miproyecto", "127.0.0.1", "root", "");
-        $resp = $db->insert("productos", "id, nombre_producto, descripcion, precio, id_categoria", "?,?,?,?,?",
-                array($this->id, $this->nombre_producto, $this->descripcion, $this->precio, $this->id_categoria));
+        $resp = $db->insert("productos", "id, nombre_producto, descripcion, precio, id_categoria, imagen", "?,?,?,?,?,?",
+                array($this->id, $this->nombre_producto, $this->descripcion, $this->precio, $this->id_categoria, $this->imagen));
         
         if($resp){
             $this->id = $resp;
@@ -69,8 +71,8 @@ class productos {
     
     public function actualizar(){
         $db = new base_datos("mysql", "miproyecto", "127.0.0.1", "root", "");
-        return $db->update("productos", "id=?, nombre_producto=?, descripcion=?, precio=?, id_categoria=?", "id=?",
-                array($this->id, $this->nombre_producto, $this->descripcion, $this->precio, $this->id_categoria, $this->id));
+        return $db->update("productos", "id=?, nombre_producto=?, descripcion=?, precio=?, id_categoria=?, imagen=?", "id=?",
+                array($this->id, $this->nombre_producto, $this->descripcion, $this->precio, $this->id_categoria, $this->imagen, $this->id));
     } //en el array anterior creo que falta imagen y id
     
     static function listar(){

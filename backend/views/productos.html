@@ -22,7 +22,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                  -->
                 <label>Nombre del producto</label>
                 <br>
-                <input type="text" value="<?php echo $prod->nombre_producto; ?>" name="producto" id="pNombre" required>
+                <input type="text" value="<?php echo $prod->nombre_producto; ?>" placeholder="Ej: pan" name="producto" id="pNombre" required>
                 <br>
                 <label>Imagen del producto</label>
                 <br>
@@ -30,7 +30,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <br>
                 <label>Descripción</label>
                 <br>
-                <textarea type="text" id="pDescripcion" name="descripcion" value="<?php echo $prod->descripcion; ?>" id="pDescripcion" required><?php echo $prod->descripcion; ?></textarea>
+                <textarea type="text" id="pDescripcion" name="descripcion" placeholder="Ej: marca y caracteristicas" value="<?php echo $prod->descripcion; ?>" id="pDescripcion" required><?php echo $prod->descripcion; ?></textarea>
                 <br>
                 <label>Precio</label>
                 <br>
@@ -63,7 +63,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <button type="submit" name="action" value="agregar" class="btn_guardar">Guardar</button>
             </form>
         </div>
-        <p>API de Juan Basgall</p>
+        <a class="a" href="../index.php">HOME</a>
         
         
         
