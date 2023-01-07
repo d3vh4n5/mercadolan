@@ -10,4 +10,4 @@ $lp = productos::listar();
 
 include './views/home.html';
 
-?>
+

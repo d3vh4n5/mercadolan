@@ -1,43 +1,53 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
+
 <html>
     <head>
         <title>Lista de categorias</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="../../assets/css/estilos.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/estilos.css">
     </head>
     <body>
-    </body>
         <center>  
-       <div> <h1>Lista de categorias </h1>
-        <table>
-          <thead> 
-            <tr> 
-               <th> ID categorias</th> 
-               <th>Nombre</th>  
-            <tr>    
-          </thead> 
-          <tbody>   
-              <?php foreach($lista_ctg as $listaCategorias){ ?> 
-              <tr>  
-                  <td><?php echo $listaCategorias['id'] ?></td> 
-                  <td><?php echo $listaCategorias['nombre_categoria'] ?></td> 
-              </tr>    
-              <?php } ?> 
-          </tbody>   
-        </table>      
-     </div>         
-       <br>
-       <a class="a" href="./views/categorias.html">Agregar</a> 
-       <a class="a" href="./views/productos.html">
-    Agregar Productos</a>
-       <br>
-       <br>
-       <h2>Juan Angel Basgall</h2>
-   </center>
+            <div> 
+                <h1>Lista de categorías </h1>
+                <p style="color: orangered;">→ Si la categoría está en uso no se podrá borrar</p>
+                <table>
+                    <thead> 
+                        <tr>
+                            <th>Acción</th>
+                            <th> ID categorias</th> 
+                            <th>Nombre</th>  
+                        <tr>    
+                    </thead> 
+                    <tbody>   
+                        <?php 
+                        //include '../class/autoload.php';
+                        $lista_ctg = categorias::listar();
+                        foreach($lista_ctg as $listaCategorias){ ?>
+                        <tr>
+                            <td>
+                                <a class="botonActionTabla E" href="<?php echo $basepath."?edit&id=".$listaCategorias['id']; ?>">Editar</a>
+                                <a class="botonActionTabla" href="<?php echo $basepath."?rem&id=".$listaCategorias['id'];?>">Eliminar</a>
+                            </td>
+                            <td><?php echo $listaCategorias['id'] ?></td> 
+                            <td><?php echo $listaCategorias['nombre_categoria'] ?></td> 
+                        </tr>    
+                        <?php } ?> 
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3" class="tfoot">
+                                <input type="button" class="botonFoot" value="Agregar Categoría" onclick="document.location.href='<?php echo $basepath."?add" ?>'">
+                                <input type="button" class="botonFoot" value="Agregar Productos" onclick="document.location.href='./productos.php'">
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>      
+            </div>  
+        </center>
+       <br><br><br><br>
+       <a class="a" href="../index.php">HOME</a>
+  
  </body>  
 </html> 

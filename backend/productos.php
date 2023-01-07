@@ -51,7 +51,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'agregar'){/* Con el action so
 
 $lista_prod = productos::listar();
 $basepath = $_SERVER['SCRIPT_NAME']; //indica la url del script en el navegador
-include './lista_productos.php';
+include './views/lista_productos.html';
 
 
 ?>

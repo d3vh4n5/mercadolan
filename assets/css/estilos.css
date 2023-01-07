@@ -115,7 +115,14 @@ table,td,th,tr {
     text-align: center;
     padding: 20px;
 }
-
+.a{
+    text-decoration: none;
+    margin: 20px;
+    padding: 4px;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+}
 @keyframes pulso {
 	0%{
 		transform: scale(1.05);

@@ -5,8 +5,8 @@
 */
 
 body{
-    height: 100vh;
-    background: rgb(246, 250, 235);
+    height: 102vh;
+    background: #e7e7e7;
     color: #222222;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 20px;
@@ -49,17 +49,7 @@ header{
     box-shadow: 0px 0px 10px 3px rgb(132, 132, 252),
                 0px 0px 5px 1px rgb(132, 132, 252) inset;
 }
-.autor{
-    text-decoration: none;
-    font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace !important;
-    font-size: 15px;
-    padding: 5px 50px 9px 30px;
-    color: lightgreen;
-    display: flex;
-    position: absolute;
-    top: 25px;
-    left: 3%;
-}
+
 .imgProd{
     box-shadow: 0px 0px 1px 1px black;
     width:auto;
@@ -84,20 +74,27 @@ hr{
     margin-bottom: 30px;
 }
 
-/*== Este es el contenedor principal del cuerpo ==*/
+/*============ contenedor principal =============*/
 
 .contenedorPrincipal{
+    
+    position: relative;
+    bottom: -40px;
+    height: auto;
     display: grid;
+    height:100vh;
     place-items: center;
     margin-top: 200px;
-    width: 100%;
+    width: 100vw;
     padding: 2rem;
     overflow: scroll;
 }
 /*======= Tabla de tarjetas de productos =======*/
 
 .tablaProductos{
-    width: 60%;
+    width: 1200px;
+    min-width: 1200px;
+    max-width: 1200px;
 }
 
 /*================ Tarjetas ===================*/
@@ -105,25 +102,26 @@ hr{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 400px;
-    width: 300px;
+    height: 415px;
+    width: 260px;
     color: black;
     transition: 0.1s;
     border: 1px solid rgb(87, 86, 86);
     box-sizing: border-box;
     border-radius: 5px;
-    box-shadow: 0px 0px 20px 1px rgba(70, 69, 69, 0.349);
-    background: rgb(250, 253, 253);
+    box-shadow: 0px 1px 4px 1px rgba(70, 69, 69, 0.3);
+    background: rgb(253, 253, 253);
   
 }
 .tarjetaProducto:hover{
     cursor: pointer;
     transition: 0.2s;
-    transform: scale(1.05);
-    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.4);
+    transform: scale(1.02);
+    box-shadow: 0px 10px 15px 5px rgba(0, 0, 0, 0.4);
     background: rgb(250, 253, 253);
 }
 .nombre{
+    color: #3483fa;
     margin-top: 10px;
     margin-left: 4px;
     font-weight: 500;
@@ -137,6 +135,7 @@ hr{
     font-variant: small-caps;
 }
 .precio{
+    color: #00a650;
     margin-top: 10px;
     margin-left: 4px;
     font-weight: 700;
@@ -167,6 +166,8 @@ hr{
 /*================ Footer ===================*/
 
 footer{
+    height: 110px;
+    margin-top: 100px;
     border-top: 1px solid black;
     display: flex;
     justify-content: center;
@@ -178,8 +179,15 @@ footer{
 }
 
 .hansLogo{
-    margin-right: 20px;
+    margin: 5px 20px;
     width:50px;
     height: 50px;
     border-radius: 10px;
+}
+
+.autor{
+    text-decoration: none;
+    font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace !important;
+    font-size: 15px;
+    color: lightgreen;  
 }

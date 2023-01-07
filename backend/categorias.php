@@ -62,6 +62,6 @@ $categoria->guardar($arr_prepare=[htmlspecialchars($_POST["descripcion"])]); // 
      
 $lista_ctg = categorias::listar();
 $basepath = $_SERVER['SCRIPT_NAME']; //indica la url del script en el navegador
-include './lista_categorias.php';
+include './views/lista_categorias.html';
      
 ?>
