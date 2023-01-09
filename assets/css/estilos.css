@@ -9,50 +9,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 
 body{
     height: 100vh;
-    background: linear-gradient(rgb(13, 22, 22), darkslategray);
-    color: #FFFFFF;
+    background: #e7e7e7;
+    color: black;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     overflow: scroll;
 }
-.botonFoot{
-    text-decoration: none;
-    cursor: pointer;
-    color: lightskyblue;
-    margin: 1rem;
-    padding: 1rem;
-    border: 1px solid lightskyblue;
-    font-weight: 600;
-    transition: 0.5s;
-    border-radius: 10px;
-    background: rgba(0, 0, 0, 0.312);
-}
-.botonFoot:hover{
-	transform: scale(1.1);
-	box-shadow: 0px 0px 10px 20px rgba(47, 79, 79, 0.651);
-	transition: 0.2s;
-        color: white;
-        background: rgba(20, 200, 80, 0.55);
-        border: 1px solid white;
-}
-.botonActionTabla{
-    text-decoration: none;
-    color: orangered;
-    border: 1px solid orangered;
-    padding: 2px;
-    margin: 10px;
-}
-.botonActionTabla:hover{
-    background: black;
-    transform: scale(1.2);
-    box-shadow: 0px 0px 10px 2px white;
-}
-.E{
-    color: lightblue;
-    border: 1px solid lightblue;
-}
+/*================== Formularios ====================*/
 .contenedor{
 	padding: 4rem;
 	background-color: rgba(0, 0, 0, 0.712);
@@ -106,23 +71,92 @@ label,input,form,button {
 	animation: none;
 	transition: 0.2s;
 }
+/*================== Tablas ====================*/
 table,td,th,tr {
+    font-family: arial;
     padding: 4px;
     text-align: center;
-    border: 1px solid lightgreen;
+    border: 1px solid rgb(7, 24, 97, 0.3);
+    background: rgb(253,253,253);
+}
+.titulosTablas{
+    color: #FFFFFF;
+    background: #2f4ed6;
 }
 .tfoot{
     text-align: center;
     padding: 20px;
 }
-.a{
+/*================== Botones ====================*/
+.botonFoot{
+    text-decoration: none;
+    cursor: pointer;
+    color: #000;
+    margin: 1rem;
+    padding: 8px 30px;
+    border: 1px solid green;
+    font-weight: 900;
+    font-size: 14px;
+    transition: 0.2s;
+    border-radius: 6px;
+    background: linear-gradient(180deg,#94e733,#36d521 50%,#1ec725 51%,#008e3a);
+    font-family: playbold,Arial,sans-serif;
+    text-shadow: 1px 1px #9fe75c;
+}
+.botonFoot:hover{
+    transform: scale(1.03);
+    background: linear-gradient(180deg,#94e733,#94e733 50%,#1ec725 51%,#008e3a);
+    transition: 0.2s;
+    border: 1px solid #061a02;
+    box-shadow: 0px 0px 3px 3px rgb(159, 231, 92, 0.6);
+}
+.botonActionTabla{
+    border-radius: 4px;
+    font-weight: 700;
+    background: rgba(0, 0, 0, 0.712);
+    text-decoration: none;
+    color: orangered;
+    border: 1px solid orangered;
+    padding: 2px;
+    margin: 10px;
+}
+.botonActionTabla:hover{
+    background: black;
+    transition: 0.2s;
+    box-shadow: 0px 0px 10px 5px rgb(132, 132, 252);
+    color: rgb(132, 132, 252);
+    border: 1px solid rgb(132, 132, 252);
+    
+}
+
+.E{
+    background: rgba(0, 0, 0, 0.712);
+    color: #ffbd33;
+    border: 1px solid #ffbd33;
+}
+.btnHome{
+    height: 80px;
+    width: 80px;
+    display: grid;
+    place-items: center;
+    font-size: 40px;
+    background: #222222;
     text-decoration: none;
     margin: 20px;
     padding: 4px;
-    border: 1px solid white;
     border-radius: 5px;
     color: white;
+    animation: pulso 3s 1s ease-out infinite;
 }
+.btnHome:hover{
+    animation: none;
+    transform: scale(1.1);
+    box-shadow: 0px 0px 10px 5px rgb(132, 132, 252);
+    color: rgb(132, 132, 252);
+    border: 1px solid rgb(132, 132, 252);
+}
+
+
 @keyframes pulso {
 	0%{
 		transform: scale(1.05);
