@@ -30,8 +30,8 @@
                             ?>
                         <tr>
                             <td <?php if (($alter % 2) == 0 ){echo "style='background: #e7e7e7 !important;'"; } ?> >
-                                <a class="botonActionTabla E" href="<?php echo $basepath."?edit&id=".$listaCategorias['id']; ?>">Editar</a>
-                                <a class="botonActionTabla" href="<?php echo $basepath."?rem&id=".$listaCategorias['id'];?>">Eliminar</a>
+                                <a class="botonActionTabla E" href="<?php echo $basepath."?edit&id=".$listaCategorias['id']; ?>">✏</a>
+                                <a class="botonActionTabla" href="<?php echo $basepath."?rem&id=".$listaCategorias['id'];?>">❌</a>
                             </td>
                             <td <?php if (($alter % 2) == 0 ){echo "style='background: #e7e7e7 !important;'"; } ?>  ><?php echo $listaCategorias['id'] ?></td> 
                             <td <?php if (($alter % 2) == 0 ){echo "style='background: #e7e7e7 !important;'"; } ?>  ><?php echo $listaCategorias['nombre_categoria'] ?></td> 
