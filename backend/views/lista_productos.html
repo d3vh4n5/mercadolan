@@ -13,7 +13,7 @@
             <div> <h1>✅ Lista de productos &#9989</h1>
              <table >
                <thead> 
-                 <tr> 
+                 <tr class="trNoHover"> 
                     <th class="titulosTablas">Accion</th>
                     <th class="titulosTablas"> ID productos</th> 
                     <th class="titulosTablas">Nombre</th>   
@@ -28,25 +28,28 @@
                    <?php 
                    //include '../class/autoload.php';
                    $lista_prod = productos::listar();
-                   foreach($lista_prod as $listaProductos){ ?> 
+                   $alter = 0;
+                   foreach($lista_prod as $listaProductos){ 
+                       $alter = $alter + 1;
+                       ?> 
                    <tr> 
-                       <td>
+                       <td <?php if (($alter % 2) == 0 ){echo "style='background: #e7e7e7 !important;'"; } ?> >
                            <a class="botonActionTabla E" href="<?php echo $basepath."?edit&id=".$listaProductos['id']; ?>">Editar</a>
                            <a class="botonActionTabla" href="<?php echo $basepath."?rem&id=".$listaProductos['id'];?>">Eliminar</a>
                        </td>
-                       <td><?php echo $listaProductos['id'] ?></td> 
-                       <td><?php echo $listaProductos['nombre_producto'] ?></td> 
-                       <td style="max-width: 500px;"><?php echo $listaProductos['descripcion'] ?></td>
-                       <td><?php echo "$ ".$listaProductos['precio'] ?></td>
-                       <td><?php echo $listaProductos['id_categoria'] ?></td>
-                       <td><?php echo categorias::nombrecat($listaProductos['id_categoria']); ?></td>
-                       <td><?php echo $listaProductos['imagen'] ?></td>
+                       <td <?php if (($alter % 2) == 0 ){echo "style='background: #e7e7e7 !important;'"; } ?> ><?php echo $listaProductos['id'] ?></td> 
+                       <td <?php if (($alter % 2) == 0 ){echo "style='background: #e7e7e7 !important;'"; } ?> ><?php echo $listaProductos['nombre_producto'] ?></td> 
+                       <td style="max-width: 500px;<?php if (($alter % 2) == 0 ){echo 'background: #e7e7e7 !important;'; } ?>"><?php echo $listaProductos['descripcion'] ?></td>
+                       <td <?php if (($alter % 2) == 0 ){echo "style='background: #e7e7e7 !important;'"; } ?> ><?php echo "$ ".$listaProductos['precio'] ?></td>
+                       <td <?php if (($alter % 2) == 0 ){echo "style='background: #e7e7e7 !important;'"; } ?> ><?php echo $listaProductos['id_categoria'] ?></td>
+                       <td <?php if (($alter % 2) == 0 ){echo "style='background: #e7e7e7 !important;'"; } ?> ><?php echo categorias::nombrecat($listaProductos['id_categoria']); ?></td>
+                       <td <?php if (($alter % 2) == 0 ){echo "style='background: #e7e7e7 !important;'"; } ?> ><?php echo $listaProductos['imagen'] ?></td>
                    </tr>
                    <?php } ?> 
                </tbody>  
                <tfoot>
-                   <tr>
-                       <td colspan="8" style="text-align: center; padding: 20px;">
+                   <tr class="trNoHover">
+                       <td colspan="8" class="tfoot">
                            <input type="button" class="botonFoot" value="Agregar Producto" onclick="document.location.href='<?php echo $basepath."?add" ?>'">
                            <input type="button" class="botonFoot" value="Agregar Categorías" onclick="document.location.href='./categorias.php'">
                        </td>

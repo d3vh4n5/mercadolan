@@ -11,10 +11,10 @@
         <center>  
             <div> 
                 <h1>✅ Lista de categorías &#9989️</h1>
-                <p style="color: orangered;">⚠️ → Si la categoría está en uso no se podrá borrar ⚠ ⚠️</p>
+                <p class="warningMsj">⚠️ → Si la categoría está en uso no se podrá borrar ⚠ ⚠️</p>
                 <table>
                     <thead> 
-                        <tr>
+                        <tr class="trNoHover">
                             <th class="titulosTablas">Acción</th>
                             <th class="titulosTablas"> ID categorias</th> 
                             <th class="titulosTablas">Nombre</th>  
@@ -24,19 +24,22 @@
                         <?php 
                         //include '../class/autoload.php';
                         $lista_ctg = categorias::listar();
-                        foreach($lista_ctg as $listaCategorias){ ?>
+                        $alter = 0;
+                        foreach($lista_ctg as $listaCategorias){
+                            $alter = $alter + 1;
+                            ?>
                         <tr>
-                            <td>
+                            <td <?php if (($alter % 2) == 0 ){echo "style='background: #e7e7e7 !important;'"; } ?> >
                                 <a class="botonActionTabla E" href="<?php echo $basepath."?edit&id=".$listaCategorias['id']; ?>">Editar</a>
                                 <a class="botonActionTabla" href="<?php echo $basepath."?rem&id=".$listaCategorias['id'];?>">Eliminar</a>
                             </td>
-                            <td><?php echo $listaCategorias['id'] ?></td> 
-                            <td><?php echo $listaCategorias['nombre_categoria'] ?></td> 
+                            <td <?php if (($alter % 2) == 0 ){echo "style='background: #e7e7e7 !important;'"; } ?>  ><?php echo $listaCategorias['id'] ?></td> 
+                            <td <?php if (($alter % 2) == 0 ){echo "style='background: #e7e7e7 !important;'"; } ?>  ><?php echo $listaCategorias['nombre_categoria'] ?></td> 
                         </tr>    
                         <?php } ?> 
                     </tbody>
                     <tfoot>
-                        <tr>
+                        <tr class="trNoHover">
                             <td colspan="3" class="tfoot">
                                 <input type="button" class="botonFoot" value="Agregar Categoría" onclick="document.location.href='<?php echo $basepath."?add" ?>'">
                                 <input type="button" class="botonFoot" value="Agregar Productos" onclick="document.location.href='./productos.php'">
