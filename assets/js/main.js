@@ -4,7 +4,11 @@
  */
 
 
-
+$(document).ready(function(){
+    if ( document.location.pathname === "/MIPROYECTO/index.php"){
+	alert("Página en construcción \nNo se puede comprar de momento");
+    };
+});
 
 $("#btn_cancelar").click(function(){
 	alert("Se canceló el envio del formulario");
@@ -19,8 +23,3 @@ $(".tarjetaProducto").click(function(){
     alert("Página en construcción \nNo se puede comprar de momento");
 });
 
-$(document).ready(function(){
-    if ( document.location.pathname === "/MIPROYECTO/index.php"){
-	alert("Página en construcción \nNo se puede comprar de momento");
-    };
-});

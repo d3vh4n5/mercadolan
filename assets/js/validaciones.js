@@ -19,18 +19,13 @@
 //Código para el formulario de las categorías
 
 $("#form_categorias").submit(function(){
-    var id = $("#id").val();
     var categoria = $("#categoria").val();
-    
-    /*if ($.trim(id)===''){
-        alert('Agregar un ID / Basgall Juan');
-        return false;
-    }else*/ if ($.trim(categoria)===''){
+    if ($.trim(categoria)===''){
         alert('Espacio en blanco en el nombre de la categoria.. \n\n Elimínelo y coloque un nombre correcto por favor.');
         return false;
     }
     return true;
-});
+});W
 
 //Código para el formulario de productos
 
