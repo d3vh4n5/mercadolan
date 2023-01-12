@@ -30,7 +30,7 @@
                             ?>
                         <tr>
                             <td <?php if (($alter % 2) == 0 ){echo "style='background: #e7e7e7 !important;'"; } ?> >
-                                <a class="botonActionTabla E" href="<?php echo $basepath."?edit&id=".$listaCategorias['id']; ?>">✏</a>
+                                <a class="botonActionTabla E" href="<?php echo $basepath."?edit&id=".$listaCategorias['id']; ?>">&#9999️️</a><!-- &#9998️ &#9999️ Los emogis que no se ven como se espera, hay que inspeccionarlos, darle click derecho, buscar en google, te lleva a una lsita, pero si le das al boton copiar siguen sin andar, hay que SELECCIONARLOS con el mouse, y luego copiarlos y pegarlos // OJO!!, me di cuenta de que tienen como otro caracter invisible al lado, son 2, te das cuenta con las flechicas del teclado-->
                                 <a class="botonActionTabla" href="<?php echo $basepath."?rem&id=".$listaCategorias['id'];?>">❌</a>
                             </td>
                             <td <?php if (($alter % 2) == 0 ){echo "style='background: #e7e7e7 !important;'"; } ?>  ><?php echo $listaCategorias['id'] ?></td> 

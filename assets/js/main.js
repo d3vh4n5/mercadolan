@@ -12,11 +12,8 @@ $(document).ready(function(){
 
 $("#btn_cancelar").click(function(){
 	alert("Se canceló el envio del formulario");
-        document.location.href = './productos.php';
-});
-$("#btn_cancelar_cat").click(function(){
-	//alert("Se canceló el envio del formulario");
-        document.location.href = './categorias.php';
+        history.back();
+        //document.location.href = './productos.php';
 });
 
 $(".tarjetaProducto").click(function(){
