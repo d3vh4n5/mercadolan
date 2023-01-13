@@ -13,6 +13,27 @@
         
         
 <?php
+
+
+
+
+
+
+despues probamos con session
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 require '../class/PHPMailer-master/src/Exception.php';
 require '../class/PHPMailer-master/src/PHPMailer.php';
 require '../class/PHPMailer-master/src/SMTP.php';

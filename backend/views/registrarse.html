@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Mercado Lan</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <link  href="../assets/css/estiloslog.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        
+        
+        <div class="container">
+            
+            <div class="row justify-content-md-center">
+                <img src="../assets/img/Logo2.png" class="col-2">
+            </div>
+            <div class="row justify-content-md-center">
+                <div class="col-4">
+                    <form method="post" name="formLog">
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Nombre</label>
+                          <input type="text" name="nombre" class="form-control" id="exampleInputName" aria-describedby="emailHelp">
+                          <div id="emailHelp" class="form-text"></div>
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Apellido</label>
+                          <input type="text" name="apellido" class="form-control" id="exampleInputName" aria-describedby="emailHelp">
+                          <div id="emailHelp" class="form-text"></div>
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Fecha de nacimiento</label>
+                          <input type="date" name="fecha_nacimiento" class="form-control" id="exampleInputName" aria-describedby="emailHelp">
+                          <div id="emailHelp" class="form-text"></div>
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Dirección de Email</label>
+                          <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                          <div id="emailHelp" class="form-text">No compartiremos tu email con nadie más.</div>
+                        </div>
+                        
+                        <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                          <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+                          <div id="emailHelp" class="form-text">Requisitos de la contraseña</div>
+                        </div>
+                        <div class="mb-3 form-check">
+                          <input type="checkbox" name="captcha" class="form-check-input" id="exampleCheck1"
+                                 <?php if (isset($_POST['captcha'])){echo "checked";} ?>
+                                 >
+                          <label class="form-check-label" for="exampleCheck1">No soy un robot</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                          <input type="checkbox" name="captcha" class="form-check-input" id="exampleCheck1"
+                                 <?php if (isset($_POST['captcha'])){echo "checked";} ?>
+                                 >
+                          <label class="form-check-label" for="exampleCheck1">No soy un robot</label>
+                        </div>
+                        <button type="submit" name="cancelar" action="cancelar" class="btn btn-secondary">Cancelar</button>
+                        <button type="submit" name="enviar" action="registrarse" class="btn btn-primary">Registrarse</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    </body>
+</html>
