@@ -1,29 +1,70 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
+
 <html>
     <head>
         <title>Pruebas</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
-        <link rel="stylesheet" type="text/css" href="../../assets/css/estilos.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/estilos.css">
     </head>
     <body>
         
         
         
 <?php
-include './class/autoload.php';
+require '../class/PHPMailer-master/src/Exception.php';
+require '../class/PHPMailer-master/src/PHPMailer.php';
+require '../class/PHPMailer-master/src/SMTP.php';
 
-/* 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHP.php to edit this template
- */
+include '../class/autoload.php';
 
-echo "pruebas php, ahora agregando finalmente el git";
+
+
+
+//Import PHPMailer classes into the global namespace
+//These must be at the top of your script, not inside a function
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+
+//Create an instance; passing `true` enables exceptions
+$mail = new PHPMailer(true);
+
+try {
+    //Server settings
+    $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+    $mail->isSMTP();                                            //Send using SMTP
+    $mail->Host       = 'smtp.live.com';                     //Set the SMTP server to send through
+    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+    $mail->Username   = 'losangelestransporte@hotmail.com';                     //SMTP username
+    $mail->Password   = 'Transporte1874';                               //SMTP password
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+    $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
+    //Recipients
+    $mail->setFrom('losangelestransporte@hotmail.com', 'Mailer');
+    $mail->addAddress('juanangelbasgall@hotmail.com');     //Add a recipient
+
+ 
+    //Content
+    $mail->isHTML(true);                                  //Set email format to HTML
+    $mail->Subject = 'Mail de pruebas desde Mailer PHP';
+    $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+
+    $mail->send();
+    echo 'Message has been sent';
+} catch (Exception $e) {
+    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+}
+
+
+
+
+
+//
+//echo "pruebas php, ahora agregando finalmente el git";
 
 /*
 $datos = new base_datos("mysql", "miproyecto", "127.0.0.1", "root", "");
