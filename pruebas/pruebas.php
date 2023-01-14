@@ -19,18 +19,6 @@
 
 
 
-despues probamos con session
-
-
-
-
-
-
-
-
-
-
-
 
 
 /*
