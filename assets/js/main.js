@@ -6,7 +6,7 @@
 
 $(document).ready(function(){
     if ( document.location.pathname === "/MIPROYECTO/index.php"){
-	alert("Página en construcción \nNo se puede comprar de momento");
+	//alert("Página en construcción \nNo se puede comprar de momento");
     };
 });
 

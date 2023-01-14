@@ -25,19 +25,23 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     <form method="post" name="formLog">
                         <div class="mb-3">
                           <label for="exampleInputEmail1" class="form-label">Dirección de Email</label>
-                          <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                          <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" autofocus>
                           
                         </div>
                         <div class="mb-3">
                           <label for="exampleInputPassword1" class="form-label">Contraseña</label>
                           <input type="password" name="password" class="form-control" id="exampleInputPassword1">
-                          <a id="recuperarPass" class="RecuperarPass">Recuperar contraseña.</a>
-                        </div>
+                          <div id="links">
+                          <a id="recuperarPass" class="RecuperarPass">🔒 Recuperar contraseña</a>
+                          
+                          <a id="registrarse" class="Registrarse" href="http://localhost/MIPROYECTO/backend/registrarse.php">Registrarse 👤 </a>
+                          </div>
+                          </div>
                         <button type="submit" name="enviar" action="enviar" class="btn btn-primary">Entrar</button>
                     </form>
                 </div>
             </div>
-        </div>
+        </div
         
         
         
