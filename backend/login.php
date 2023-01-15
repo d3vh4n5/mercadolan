@@ -19,37 +19,13 @@ if (isset($_POST['enviar'])){
     foreach ($usuarios as $usuario){
         if ($usuario['email'] === $_POST['email']){
             if ($usuario['pass'] === $_POST['pass']){
-                
-                function probarSesion($sesion = null){
-                    if ($sesion ===null){
-                        $sesion = $_SESSION;
-                    }
-                    if(isset($sesion)){
-                        echo "session existe";
-                        echo "<pre>";
-                        print_r($sesion);
-                        echo "</pre>";
-                    }else{
-                        echo "parece que la sesion no existe";
-                        echo "<pre>";
-                        print_r($sesion);
-                        echo "</pre>";
-                    }
-                }
-               
                 session_start();
                 $_SESSION['session1']['nombre'] = $usuario['nombre'];
                 $_SESSION['session1']['email'] = $usuario['email'];
-                $_SESSION['session2']['nombre'] = 'prueba';
-                $_SESSION['session2']['email'] = 'prueba';
-                probarSesion();
-                $_SESSION = session_destroy();
-                probarSesion();
-                unset($_SESSION['sesion1']);
-                probarSesion();
-                unset($_SESSION);
-                probarSesion();
                 
+                header('location: ./productos.php');
+                
+                //unset($_SESSION);
             }else{
                 echo $mensajeError;
             die();

@@ -1,19 +1,4 @@
 
-<html>
-    <head>
-        <title>Categorias</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- 
-        <link rel="stylesheet" type="text/css" href="../../assets/css/estilos.css">
-        hago otro link igual, pero desde la perspectiva del controlador,
-            es decir, como si el controlador fuera el html midmo. Sino no me 
-            toma el css-->
-        <link rel="stylesheet" type="text/css" href="../assets/css/estilos.css">
-    </head>
-    <body>
-
-
 <?php
 
 

@@ -3,12 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp64/www/MIPROYECTO/pruebas/pruebas.php</file>
-            <file>file:/C:/wamp64/www/MIPROYECTO/class/usuarios.php</file>
-            <file>file:/C:/wamp64/www/MIPROYECTO/backend/productos.php</file>
-            <file>file:/C:/wamp64/www/MIPROYECTO/backend/registrarse.php</file>
-            <file>file:/C:/wamp64/www/MIPROYECTO/backend/views/registrarse.html</file>
-            <file>file:/C:/wamp64/www/MIPROYECTO/class/autoload.php</file>
+            <file>file:/C:/wamp64/www/MIPROYECTO/assets/js/main.js</file>
+            <file>file:/C:/wamp64/www/MIPROYECTO/index.php</file>
+            <file>file:/C:/wamp64/www/MIPROYECTO/backend/login.php</file>
         </group>
     </open-files>
 </project-private>
