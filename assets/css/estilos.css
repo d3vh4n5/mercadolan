@@ -6,7 +6,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     Created on : 24 nov 2022, 22:04:29
     Author     : Hans
 */
-/*
+
 body{
     height: 100vh;
     background: #e7e7e7;
@@ -18,17 +18,18 @@ body{
     overflow: scroll;
 }
 /*================= Heather =====================*/
-/*
+
 header{
     padding: 30px;
     display: flex;
-    justify-content: end;
+    flex-direction: row;
+    justify-content: space-between;
     position: absolute;
     top: 0;
     background-color: #222222;
     width: 100%;
     height: 80px;
-}*/
+}
 
 /*============= Pagina en construcción ================*/
 #pagina{

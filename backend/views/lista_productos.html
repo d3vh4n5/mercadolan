@@ -18,7 +18,10 @@ if (!isset($_SESSION['session1']['nombre'])){
     </head>
     <body>
         <header>
+            <img class="logo" sizes="" src="../assets/img/Logo.png" alt="" width="100px;">
+            <a class="btnHome" href="../index.php">🏠</a>
             <div class="contenedorLogo">
+                
                 <div class="btn-group">
                     <button class="btn btn-success btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     🧕   <?php echo $_SESSION['session1']['nombre'] ?>
@@ -29,6 +32,7 @@ if (!isset($_SESSION['session1']['nombre'])){
                   </div>
                   <div class="btn-group">
             </div>
+            <!--
             <nav class="navbar navbar-dark bg-dark">
                 <img class="logo" sizes="" src="../assets/img/Logo.png" alt="" width="100px;">
                 <a class="btnHome" href="../index.php">🏠</a>
@@ -41,7 +45,7 @@ if (!isset($_SESSION['session1']['nombre'])){
                     </ul>
                 </div>
                   <div class="btn-group">
-            </nav>
+            </nav>-->
         </header>
     
         <center>  
