@@ -1,4 +1,3 @@
-
 <?php
 
 /* 
@@ -27,7 +26,6 @@ class categorias {
                 $this->id = $resp[0]['id'];
                 $this->nombre_categoria = $resp[0]['nombre_categoria'];
                 $this->exist = true;
-                echo "<br>Carga correcta..<br>";
             } else {
                 echo "<br>Objeto inexistente en la base de datos..";
                 //throw new Exception ("Error al cargar");
@@ -89,7 +87,7 @@ class categorias {
     
     static function nombrecat($id_cat){
         $datos = new base_datos("mysql", "miproyecto", "127.0.0.1", "root", "");
-        $nombrecat =  $datos->select('Categorias', 'id='.$id_cat);
+        $nombrecat =  $datos->select('categorias', 'id='.$id_cat);
         $nombre = $nombrecat[0]['nombre_categoria'];
         return $nombre;
         

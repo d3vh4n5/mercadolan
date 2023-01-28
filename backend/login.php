@@ -1,5 +1,5 @@
 <?php
-
+ob_start();
 /* 
  * Haramos validaciones de parte del servidor
  */
@@ -19,6 +19,7 @@ if (isset($_POST['enviar'])){
     foreach ($usuarios as $usuario){
         if ($usuario['email'] === $_POST['email']){
             if ($usuario['pass'] === $_POST['pass']){
+                ob_end_clean();//ob_start() al principio del archivo para almacenar en búfer la salida y luego utilizar una función como ob_end_clean() antes de enviar los encabezados de redirección. En resumen, tu problema es que algo esta imprimiendo algo antes de ejecutar la redirección, debes asegurarte de que no hay ninguna salida antes de enviar los encabezados de redirección.
                 session_start();
                 $_SESSION['session1']['nombre'] = $usuario['nombre'];
                 $_SESSION['session1']['email'] = $usuario['email'];

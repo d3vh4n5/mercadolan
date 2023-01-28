@@ -46,8 +46,14 @@
                                          ?>
                                          " name="imagen producto" alt="">
 
-                                    <p class="cat"><?php echo categorias::nombrecat($lista_prod[$contador]['id_categoria']); ?>
+                                    <!--<p class="cat"><?php/* echo categorias::nombrecat($lista_prod[$contador]['id_categoria']); */?>
                                     </p>
+                                    Este me daba error en el host, por eso hago el de abajo:
+                                    -->
+                                    <p class="cat"><?php 
+                                    $idc = new categorias($lista_prod[$contador]['id_categoria']);
+                                    echo $idc->nombre_categoria;
+                                    ?>
                                     <p class="precio"><?php echo $lista_prod[$contador]['precio'] ?></p>
                                     <p class="descripcion"><?php echo $lista_prod[$contador]['descripcion'] ?> </p>
                                 </div>

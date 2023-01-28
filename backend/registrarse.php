@@ -64,7 +64,7 @@ if (isset($_POST['enviar'])){
             echo '<div class="alert alert-success" role="alert">
                     ¡Registro realizado con éxito!';
                     
-            echo '<button  onclick='.'"document.location.href='."'http://localhost/MIPROYECTO/index.php'".'"'."class='btn btn-success'>OK</button>";
+            echo '<button  onclick='.'"document.location.href='."'../index.php'".'"'."class='btn btn-success'>OK</button>";
             echo  "</div>";
         }
         

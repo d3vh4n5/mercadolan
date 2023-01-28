@@ -2,6 +2,7 @@
 session_start();
 if (!isset($_SESSION['session1']['nombre'])){
     header('location: login.php');
+    return;//Esto impide que se ejecute el resto de la página en caso de error con el header o el session
 }
 ?>
 
