@@ -17,7 +17,12 @@ if(isset($_POST['action']) && $_POST['action'] == 'agregar'){/* Con el action so
      */
     $nombre_archivo = md5($_FILES['imagen']['tmp_name'].date("Y-m-d H:i:s")).".".pathinfo($_FILES['imagen']['name'], PATHINFO_EXTENSION);
  
-    if(!move_uploaded_file($_FILES['imagen']['tmp_name'], $folder.$nombre_archivo)){
+   /* if(!move_uploaded_file($_FILES['imagen']['tmp_name'], $folder.$nombre_archivo)){
+        die("No se pudo mover el archivo a ".$folder.$nombre_archivo);
+    }
+    * Reemplazado por el de abajo en el host, porque sino no funcionaba (Me lo ponia en otra carpeta)
+    */
+    if(!move_uploaded_file($_FILES['imagen']['tmp_name'], '../assets/img/productos/'.$nombre_archivo)){
         die("No se pudo mover el archivo a ".$folder.$nombre_archivo);
     }
     //die();

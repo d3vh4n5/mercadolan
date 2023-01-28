@@ -10,6 +10,7 @@
  *
  * @author Hans
  */
+//include './autoload.php';
 class conexiones {
     public $id;
     public $ip;
@@ -78,9 +79,24 @@ class conexiones {
         date_default_timezone_set("America/Argentina/Buenos_Aires");
         $this->fecha = date("D d-M-Y  H:i:s");
     }
+    
+    public function guardar(){
+        $db = new base_datos("mysql", "miproyecto", "127.0.0.1", "root", "");
+        $resp = $db->insert("conexiones", "id, ip, agent, navegador, dispositivo, so, fecha", "?,?,?,?,?,?,?",
+                array($this->id, $this->ip, $this->agent, $this->navegador, $this->dispositivo, $this->so, $this->fecha));
+    
+        if($resp){
+            //echo "agregado correctamenta";
+        }else{
+            //echo "<br>Error en la respuesta de insertado la base de datos!!!<br>";
+            //return false;
+        }
+    }
 }
-
+/*
 $nuevaConexion = new conexiones();
 echo "<pre>";
 print_r($nuevaConexion);
 echo "</pre>";
+$nuevaConexion->guardar();
+ */

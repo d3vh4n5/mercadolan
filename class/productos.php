@@ -24,7 +24,6 @@ class productos {
                 $this->categoria = $resp[0]["id_categoria"];
                 $this->imagen = $resp[0]['imagen'];
                 $this->exist = true;
-                echo "<br>Carga correcta..<br>";
             }
         } else {
             #echo "<br> el ID es nulo<br>";

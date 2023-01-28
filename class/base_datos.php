@@ -11,19 +11,21 @@
  * @author Hans
  */
 
-
-try{
-    $db = new PDO("mysql:dbname=miproyecto;host=127.0.0.1","root","");
-    //echo "<br>La conexión con el servidor se realizó correctamente..<br>";
-    //echo "<pre>";
-    //    print_r($db);
-     //   echo "</pre>";
-}catch(PDOException $e){
-    echo '<br>'
-        . '<p style="color:red;">'
-        . 'Error de conexión con el servidor<br>'
-        .$e->getMessage()
-        ."</p>";
+function conect(){
+    try{
+        $db = new PDO("mysql:dbname=miproyecto;host=127.0.0.1","root","");
+        //echo "<br>La conexión con el servidor se realizó correctamente..<br>";
+        //echo "<pre>";
+        //print_r($db);
+        //echo "</pre>";
+        return $db;
+    }catch(PDOException $e){
+        echo '<br>'
+            . '<p style="color:red;">'
+            . 'Error de conexión con el servidor<br>'
+            .$e->getMessage()
+            ."</p>";
+    }
 }
 
 //echo '<span style="font-size: 20px; color: blue; font-style: italic">HOLA MUNDO!!!</span><br>';
@@ -98,9 +100,11 @@ class base_datos {
             echo "</pre>";
             throw new Exception("<br>No se pudo realizar la consulta de actualización");
         }
-    } 
+    }
     static function lastinsert(){
         return $gbd->lastInsertId();
 }
 
 }
+//conect();
+//print_r (conect());
