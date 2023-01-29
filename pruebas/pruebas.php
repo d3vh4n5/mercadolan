@@ -14,7 +14,18 @@
         
 <?php
 
+echo time();
 
+$timeIntento = time();
+if (time() < $timeIntento+60){
+    echo "<br>no puedes ingresar el pass ->".time();
+}else {
+    echo "<br>ya puedes ingresar el pass ->".time();
+}
+
+/*
+echo '<br>md5:'.md5('hola');
+echo '<br>sha1:'.sha1('hola');
 
 /*
 

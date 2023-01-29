@@ -1,13 +1,38 @@
+<?php
+session_start();
+if (!isset($_SESSION['session1']['nombre'])){
+    header('location: login.php');
+    return;//Esto impide que se ejecute el resto de la página en caso de error con el header o el session
+}
+?>
+
+
 <!DOCTYPE html>
 
 <html>
     <head>
-        <title>Lista de categorias</title>
+        <title style="font-family: monospace !important;">Lista de Productos</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../assets/css/normalyze.css">
         <link rel="stylesheet" type="text/css" href="../assets/css/estilos.css">
     </head>
     <body>
+        <header>
+            <img class="logo" sizes="" src="../assets/img/Logo.png" alt="" width="150px;">
+            <a class="btnHome" href="../index.php">🏠</a>
+            <div class="desplegableUsuario">
+                <a href="#">🧕 <?php echo $_SESSION['session1']['nombre'] ?></a>
+                <div class="menuUsuario">
+                    <ul>
+                        <li><a href="./logout.php">Desconectarse</a></li>
+                        <li><a href="#">Cambiar contraseña</a></li>
+                        <li><a href="#">Cambiar email</a></li>
+                        <li><a href="#">Opción</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
         <center>  
             <div> 
                 <h1>✅ Lista de categorías &#9989️</h1>
@@ -50,7 +75,6 @@
             </div>  
         </center>
        <br><br><br><br>
-       <a class="btnHome" href="../index.php">🏠</a>
   
  </body>  
 </html> 

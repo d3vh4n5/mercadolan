@@ -34,7 +34,7 @@ header{
 }
 .botonLog{
     text-decoration: none;
-    background: transparent;
+    background-color: #222222;
     padding: 5px 50px 9px 50px;
     color: rgb(132, 132, 252);
     border: 1px solid rgb(132, 132, 252);
@@ -178,7 +178,7 @@ footer{
     color: lightgray;
 }
 
-.hansLogo{
+.logosFoot{
     margin: 5px 20px;
     width:50px;
     height: 50px;

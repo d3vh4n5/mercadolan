@@ -47,6 +47,8 @@ if (isset($_POST['enviar'])){
         }
         if (trim($pass)===''|| strlen($pass)<8){
             array_push($errores, "La contraseña no puede estar vacía, ni tener menos de 8 caracteres.<br>");
+        }else{
+            $nuevoUsuario->pass = sha1($pass);
         }
         if (count($errores)>0){
             echo "<div class='alert alert-danger' role='alert'>
