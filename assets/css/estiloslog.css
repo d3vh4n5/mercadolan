@@ -13,15 +13,23 @@ body{
     display: grid;
     place-items: center;
 }
-.container{
+.container-fluid{
     position :relative;
     top: -15%;
 }
 img{
     width: 150px !important;
-    margin-bottom: 5%;
+    margin-bottom: 2%;
+    border: 3px solid rgba(39,41,43,0.3);
+    border-style: double;
+    border-radius: 20px;
+    padding: 10px 20px;
 }
-.col-4{
+h1{
+    text-align: center;
+    color: #0d6efd;
+}
+.col-10{
     padding-top: .75rem;
     padding-bottom: .75rem;
     background-color: rgba(39,41,43,0.03);

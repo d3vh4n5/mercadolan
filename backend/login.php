@@ -25,14 +25,13 @@ if (isset($_POST['enviar'])){
                 $_SESSION['session1']['email'] = $usuario['email'];
                 
                 header('location: ../index.php');
-                
-                //unset($_SESSION);
             }else{
                 echo $mensajeError;
-            die();
+                die();
             }
         }else{
             echo $mensajeError;
+            die();
         }
     }
    
