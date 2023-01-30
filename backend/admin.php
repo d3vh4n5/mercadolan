@@ -7,18 +7,33 @@ ob_start();
 require '../class/autoload.php';
 require './views/admin.html';
 
-
+function detector($var){
+    $var = filter_var($var, FILTER_SANITIZE_SPECIAL_CHARS);
+    if (strpos($var, "<")|| strpos($var, ">")|| strpos($var, "\\")|| strpos($var, "/")|| strpos($var, "(")|| strpos($var, ")")|| strpos($var, "'")|| strpos($var, '"')){
+        die("<div class='alert alert-danger' role='alert' style='position:absolute;
+            top:50%; left:50%; translate-y;transform: translate(-50%, -50%);
+            box-shadow: 0px 0px 10px 1200px rgba(0,0,0,0.3);'>
+                ⚠ Hemos detectado caracteres inválidos ⚠<br>
+                <br>Por favor, elimnínelos e intentelo nuevamente<br><br>
+                <button name='back' onclick='history.back()' action='back' class='btn btn-success'>OK</button>
+              </div>");
+    }
+}
 
 
 if (isset($_POST['enviar'])){
+    $nombre = filter_var($_POST['nombre'], FILTER_SANITIZE_SPECIAL_CHARS);
+    $pass = filter_var($_POST['pass'], FILTER_SANITIZE_SPECIAL_CHARS);
+    detector($nombre);
+    detector($pass);
     $mensajeError = "<div class='alert alert-danger' role='alert'>
                         <p style='font-size:30px;'>⚠️ </p>
                         → Usuario o contraseña incorrectos.
                         </div>";
     $usuarios = admin::listar();
     foreach ($usuarios as $usuario){
-        if ($usuario['nombre'] === $_POST['nombre']){
-            if ($usuario['pass'] === sha1($_POST['pass'])){
+        if ($usuario['nombre'] === $nombre){
+            if ($usuario['pass'] === sha1($pass)){
                 ob_end_clean();//ob_start() al principio del archivo para almacenar en búfer la salida y luego utilizar una función como ob_end_clean() antes de enviar los encabezados de redirección. En resumen, tu problema es que algo esta imprimiendo algo antes de ejecutar la redirección, debes asegurarte de que no hay ninguna salida antes de enviar los encabezados de redirección.
                 session_start();
                 $_SESSION['session1']['nombre'] = '♛ '.$usuario['nombre'];

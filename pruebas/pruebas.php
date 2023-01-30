@@ -14,7 +14,36 @@
         
 <?php
 
-echo time();
+
+
+/*
+$string = '<script>alert("Hackeado")</script>';
+
+function detector($var){
+    $var = filter_var($var, FILTER_SANITIZE_SPECIAL_CHARS);
+    if (strpos($var, "<")|| strpos($var, ">")|| strpos($var, "\\")|| strpos($var, "/")|| strpos($var, "(")|| strpos($var, ")")|| strpos($var, "'")|| strpos($var, '"')){
+        die("<div class='alert alert-danger' role='alert' style='position:absolute;
+            top:50%; left:50%; translate-y;transform: translate(-50%, -50%);
+            box-shadow: 0px 0px 10px 1200px rgba(0,0,0,0.3);'>
+                Hemos detectado caracteres especiales:<br><br>".$var."
+                <br><br>Por favor, elimnínelos e intentelo nuevamente<br><br>
+                <button name='back' onclick='history.back()' action='back' class='btn btn-success'>OK</button>
+              </div>");
+    }
+}
+
+detector($string);
+
+/*
+
+$var = '<script>alert("Hackeado")</script>';
+echo '<br>'.filter_var($var, FILTER_SANITIZE_STRING);
+echo '<br>'.filter_var($var, FILTER_SANITIZE_SPECIAL_CHARS);
+$mail = 'hola><><()"@"////(Mundo';
+echo '<br>'.filter_var($mail, FILTER_SANITIZE_EMAIL);
+
+/*
+echo '<br>'.time();
 
 $timeIntento = time();
 if (time() < $timeIntento+60){

@@ -10,26 +10,33 @@ require './views/registrarse.html';
 /*ideas para validar:
 
  * https://www.youtube.com/watch?v=gwqTpyZwEY0
- * terminar de ver bootstrap
- * overflow-y: scroll; (por lo de cuando imprime el mensaje no se ve el logo, no es necesarioigual)
   */
 
+function detector($var){
+    $var = filter_var($var, FILTER_SANITIZE_SPECIAL_CHARS);
+    if (strpos($var, "<")|| strpos($var, ">")|| strpos($var, "\\")|| strpos($var, "/")|| strpos($var, "(")|| strpos($var, ")")|| strpos($var, "'")|| strpos($var, '"')){
+        die("<div class='alert alert-danger' role='alert' style='position:absolute;
+            top:50%; left:50%; translate-y;transform: translate(-50%, -50%);
+            box-shadow: 0px 0px 10px 1200px rgba(0,0,0,0.3);'>
+                ⚠ Hemos detectado caracteres inválidos ⚠<br>
+                <br>Por favor, elimnínelos e intentelo nuevamente<br><br>
+                <button name='back' onclick='history.back()' action='back' class='btn btn-success'>OK</button>
+              </div>");
+    }
+}
+
 if (isset($_POST['enviar'])){
-    $nombre = $_POST['nombre'];
-    $email = $_POST['email'];
-    $pass = $_POST['pass'];
-    
+    $nombre = filter_var($_POST['nombre'], FILTER_SANITIZE_SPECIAL_CHARS);
+    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+    $pass = filter_var($_POST['pass'], FILTER_SANITIZE_SPECIAL_CHARS);
+    detector($nombre);
+    detector($email);
+    detector($pass);
     $nuevoUsuario = new usuarios();
-    $nuevoUsuario->nombre = $_POST['nombre'];
-    $nuevoUsuario->email = $_POST['email'];
-    $nuevoUsuario->pass = $_POST['pass'];
+    $nuevoUsuario->nombre = $nombre;
+    $nuevoUsuario->email = $email;
+    $nuevoUsuario->pass = $pass;
     
-    
-    /*
-    echo "<pre>";
-    print_r($_POST);
-    echo "</pre>";
-    echo "<br>Boton apretado";*/
     if (isset($_POST['captcha'])){
         $errores = array();
         if (trim($nombre) === ''){
