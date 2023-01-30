@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['session1']['nombre'])){
+if (!isset($_SESSION['session1']['nombre']) || $_SESSION['session1']['nombre'] != '♛ admin'){
     header('location: login.php');
     return;//Esto impide que se ejecute el resto de la página en caso de error con el header o el session
 }
@@ -22,13 +22,10 @@ if (!isset($_SESSION['session1']['nombre'])){
             <img class="logo" sizes="" src="../assets/img/Logo.png" alt="" width="150px;">
             <a class="btnHome" href="../index.php">🏠</a>
             <div class="desplegableUsuario">
-                <p class="admin">Admin</p>
-                <a href="#">🧕 <?php echo $_SESSION['session1']['nombre'] ?></a>
+                <a href="#"><?php echo $_SESSION['session1']['nombre'] ?></a>
                 <div class="menuUsuario">
                     <ul>
                         <li><a href="./logout.php">Desconectarse</a></li>
-                        <li><a href="#">Cambiar contraseña</a></li>
-                        <li><a href="#">Cambiar email</a></li>
                         <li><a href="#">Opción</a></li>
                     </ul>
                 </div>
@@ -36,7 +33,8 @@ if (!isset($_SESSION['session1']['nombre'])){
         </header>
     
         <center>  
-            <div> <h1>✅ Lista de productos &#9989</h1>
+            <div> <h1>Admin</h1>
+            <div> <h2>✅ Lista de productos &#9989</h1>
              <table >
                <thead> 
                  <tr class="trNoHover"> 

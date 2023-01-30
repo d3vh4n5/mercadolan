@@ -13,7 +13,7 @@
 
 try{
     $gbd = new PDO("mysql:dbname=miproyecto;host=127.0.0.1","root","");
-    //El IF BOT EXISTS puede no ir pero mejor que esté
+    //El IF NOT EXISTS puede no ir pero mejor que esté
     $resource = $gbd->prepare("CREATE TABLE IF NOT EXISTS `Usuarios` (
                      `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
                      `nombre` varchar(50) NOT NULL,

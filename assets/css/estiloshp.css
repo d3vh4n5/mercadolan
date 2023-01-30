@@ -19,18 +19,19 @@ body{
 /*================== Heather ====================*/
 
 header{
+    padding: 6px;
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     position: absolute;
     top: 0;
+    z-index: 3;
     background-color: #222222;
     width: 100%;
-    height: 80px;
 }
 .logo{
-    height: 140px;
-    border: 50px solid #222222;
-    border-radius: 30px;
+    width: 150px;
 }
 .botonLog{
     text-decoration: none;
@@ -56,7 +57,67 @@ header{
     height: 200px;
 }
 
+/*============ Botón desplegable de usuario ==============*/
+.desplegableUsuario{
+    border: 2px solid transparent;
+    width: fit-content;
+    position: relative;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 10px;
+}
+.admin{
+    color: #2f4ed6;
+    margin: 4px;
+}
+.desplegableUsuario > a{
+    height: fit-content;
+    padding: 2px 8px;
+    color: yellowgreen;
+    text-decoration: none;
+    box-sizing: border-box;
+    outline: 1px solid yellowgreen;
+    outline-style: double;
+    border-radius: 5px;
+}
+.desplegableUsuario > a:hover{
+    box-shadow: 0px 0px 3px 3px #94e733,
+                0px 0px 3px 1px #94e733 inset;
+    text-shadow: 0px 0px 2px #94e733;
+}
+.menuUsuario{
+    display: none;
+    border-radius: 3px;
+    overflow: hidden;
+    background: linear-gradient( to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3) );
+    z-index: 2;
+    backdrop-filter: blur(2rem);
+    box-shadow: 2px 2px 5px 2px rgba(0,0,0,0.2);
+    position: absolute;
+    margin-top: 1px;
+    right: 5px;
+    min-width: 160px;
 
+}
+.desplegableUsuario:hover .menuUsuario{
+    display: block;
+}
+.menuUsuario ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-align: left;
+}
+.desplegableUsuario .menuUsuario li a{
+    color: black;
+    display: block;
+    padding: 5px;
+    text-decoration: none;
+}
+.desplegableUsuario .menuUsuario li a:hover{
+    background-color: #2f4ed6;
+    color: aliceblue;
+}
 /*================== Títulos ====================*/
 
 h2{
@@ -69,22 +130,17 @@ h2{
 .tituloPrincipal{
     width: 60%;
 }
-hr{
-    color: red;
-    margin-bottom: 30px;
-}
+
 
 /*============ contenedor principal =============*/
 
 .contenedorPrincipal{
-    
     position: relative;
-    bottom: -40px;
     height: auto;
     display: grid;
     height:100vh;
     place-items: center;
-    margin-top: 200px;
+    margin-top: 20px;
     width: 100vw;
     padding: 2rem;
     overflow: scroll;
@@ -151,7 +207,6 @@ hr{
 .fila{
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid grey;
     padding-bottom: 10px;
     margin-bottom: 30px;
 
@@ -176,6 +231,7 @@ footer{
     width: 100%;
     background: rgba(0, 0, 0, 0.712);
     color: lightgray;
+    bottom: 0;
 }
 
 .logosFoot{

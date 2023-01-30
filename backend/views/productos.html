@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['session1']['nombre']) || $_SESSION['session1']['nombre'] != '♛ admin'){
+    header('location: login.php');
+    return;//Esto impide que se ejecute el resto de la página en caso de error con el header o el session
+}
+?>
 <!DOCTYPE html>
 <!--
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -8,10 +15,24 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <title>Productos</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+        <link rel="stylesheet" type="text/css" href="../assets/css/normalyze.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/estilos.css">
         <link rel="stylesheet" type="text/css" href="../../assets/css/estilos.css">
     </head>
     <body style="background: linear-gradient(rgb(13, 22, 22), darkslategray);">
+        <header>
+            <img class="logo" sizes="" src="../assets/img/Logo.png" alt="" width="150px;">
+            <a class="btnHome" href="../index.php">🏠</a>
+            <div class="desplegableUsuario">
+                <a href="#"><?php echo $_SESSION['session1']['nombre'] ?></a>
+                <div class="menuUsuario">
+                    <ul>
+                        <li><a href="./logout.php">Desconectarse</a></li>
+                        <li><a href="#">Opción</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
         <div class="contenedor">
             <form method="post" action="./productos.php" id="form_productos" enctype="multipart/form-data">
                 <!-- 
@@ -63,7 +84,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <button type="submit" name="action" value="agregar" class="btn_guardar">Guardar</button>
             </form>
         </div>
-        <a class="btnHome" href="../index.php">🏠</a>
         
         
         

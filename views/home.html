@@ -11,10 +11,25 @@
 </head>
 <body>
     <header>
-        <div class="contenedorLogo">
-            <img class="logo" sizes="" src="./assets/img/Logo.png" alt="">
+        <img class="logo" sizes="" src="./assets/img/Logo.png" alt="logo">
+        <?php
+        session_start();
+        if (isset($_SESSION['session1']['nombre'])){ ?>
+            <div class="desplegableUsuario">
+                <a href="#" class="btnUsusario"><?php echo $_SESSION['session1']['nombre'] ?></a>
+                <a href="#" class="carrito">🛒 3</a>
+                <div class="menuUsuario">
+                    <ul>
+                        <li><a href="./backend/logout.php">Desconectarse</a></li>
+                        <li><a href="#">Cambiar contraseña</a></li>
+                        <li><a href="#">Cambiar email</a></li>
+                        <li><a href="#">Opción</a></li>
+                    </ul>
+                </div>
+            </div> <?php
+        }else{ ?>
             <input type="button" class="botonLog" value="Loguearse y cargar productos" onclick="document.location.href='./backend/login.php'">
-        </div>
+        <?php } ?>
     </header>
     <section class="contenedorPrincipal">
         <div class="tituloPrincipal">
@@ -44,11 +59,6 @@
                                          }       
                                          ?>
                                          " name="imagen producto" alt="">
-
-                                    <!--<p class="cat"><?php/* echo categorias::nombrecat($lista_prod[$contador]['id_categoria']); */?>
-                                    </p>
-                                    Este me daba error en el host, por eso hago el de abajo:
-                                    -->
                                     <p class="cat"><?php 
                                     $idc = new categorias($lista_prod[$contador]['id_categoria']);
                                     echo $idc->nombre_categoria;
