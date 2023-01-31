@@ -14,6 +14,8 @@
         
 <?php
 
+echo '<br>sha1:'.sha1('asd1634asd');
+/*
 //Rama del pass equivocado
 $intentos = new intentos($usuario);
 $intentos->cantidad = $intentos->cantidad++;

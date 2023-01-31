@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -13,7 +15,6 @@
     <header>
         <img class="logo" sizes="" src="./assets/img/Logo.png" alt="logo">
         <?php
-        session_start();
         if (isset($_SESSION['session1']['nombre'])){ ?>
             <div class="desplegableUsuario">
                 <a href="#" class="btnUsusario"><?php echo $_SESSION['session1']['nombre'] ?></a>

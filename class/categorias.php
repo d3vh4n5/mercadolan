@@ -62,7 +62,6 @@ class categorias {
         $resp = $db->insert("categorias", "nombre_categoria", "?", array($this->nombre_categoria));
         
         if ($resp){
-            echo "<br>Categoría guardada con éxito..<br>";
             $this->id = $resp;
             $this->exist = true;
             return true;
@@ -74,7 +73,6 @@ class categorias {
     }
     
     public function actualizar(){
-        echo "<br>Actualizando...<br>";
         $db = new base_datos("mysql", "miproyecto", "127.0.0.1", "root", "");
         return $db->update("categorias", "nombre_categoria=?", "id=?",
                 array($this->nombre_categoria, $this->id));
