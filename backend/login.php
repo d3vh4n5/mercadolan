@@ -55,8 +55,6 @@ if (isset($_POST['enviar'])){
                 echo $mensajeError;
                 die();
             }
-        }else{
-            
         }
     }
     $nuevaConexion = new conexiones();

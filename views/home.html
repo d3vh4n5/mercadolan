@@ -49,7 +49,7 @@ session_start();
                         //count($lista_prod);
                         for ($i=1; $i<=4 && $contador<$lista_largo; $i++) { ?>
                             <td>
-                                <div class="tarjetaProducto">
+                                <div class="tarjetaProducto" onclick="document.location.href='<?php echo $basepath."?buy&id=".$lista_prod[$contador]['id']; ?>'" >
                                     <p class="nombre"><?php echo $lista_prod[$contador]['nombre_producto'] ?></p>
                                     <img class="imgProd" src="
                                          <?php

@@ -7,7 +7,7 @@
 $(document).ready(function(){
     if ( document.location.pathname === "/MIPROYECTO/index.php"){
 	//alert("Página en construcción \nNo se puede comprar de momento");
-    };
+    }
 });
 
 $("#btn_cancelar").click(function(){
@@ -15,8 +15,8 @@ $("#btn_cancelar").click(function(){
         history.back();
         //document.location.href = './productos.php';
 });
-
+/*
 $(".tarjetaProducto").click(function(){
     alert("Página en construcción \nNo se puede comprar de momento");
 });
-
+*/

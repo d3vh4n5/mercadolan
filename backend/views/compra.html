@@ -1,0 +1,51 @@
+<?php
+session_start();
+if (!isset($_SESSION['session1']['nombre'])){
+    header('location: ./backend/login.php');
+    return;
+}
+?>
+
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title style="font-family: monospace !important;">Lista de Productos</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../assets/css/normalyze.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/estilos.css">
+        <link rel="stylesheet" type="text/css" href="./assets/css/normalyze.css">
+        <link rel="stylesheet" type="text/css" href="./assets/css/estilos.css">
+    </head>
+    <body>
+        <header>
+            <img class="logo" sizes="" src="../assets/img/Logo.png" alt="" width="150px;">
+            <a class="btnHome" href="./index.php">🏠</a>
+            <div class="desplegableUsuario">
+                <a href="#" class="btnUsusario"><?php echo $_SESSION['session1']['nombre'] ?></a>
+                <a href="#" class="carrito">🛒 3</a>
+                <div class="menuUsuario">
+                    <ul>
+                        <li><a href="./backend/logout.php">Desconectarse</a></li>
+                        <li><a href="#">Cambiar contraseña</a></li>
+                        <li><a href="#">Cambiar email</a></li>
+                        <li><a href="#">Opción</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <section>
+            <!--<input type="button" class="botonFoot" value="Agregar Producto" onclick="document.location.href='<?php echo $basepath."?buy&id=".$listaProductos['id']; ?>'">
+            -->
+            
+            <?php 
+                echo "<pre>";
+                print_r($_GET);
+                echo "</pre>";
+                
+                echo "Quizas sea mejor no tener validación"
+                . " aca pero si cuando se haga click en el boton comprar?";
+            ?>
+        </section>
