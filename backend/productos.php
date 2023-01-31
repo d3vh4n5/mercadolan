@@ -22,6 +22,18 @@ if(isset($_POST['action']) && $_POST['action'] == 'agregar'){/* Con el action so
     }
     * Reemplazado por el de abajo en el host, porque sino no funcionaba (Me lo ponia en otra carpeta)
     */
+    if((pathinfo($_FILES['imagen']['name'], PATHINFO_EXTENSION)!='jpg')&&(pathinfo($_FILES['imagen']['name'], PATHINFO_EXTENSION))!= 'png'){
+        
+        echo"<div class='alert alert-danger' role='alert' style='position:absolute;
+            top:50%; left:50%; translate-y;transform: translate(-50%, -50%);
+            box-shadow: 0px 0px 10px 1200px rgba(0,0,0,0.3);'>
+                ⚠ ?¡Extención de archivo incorrecta! ⚠<br>
+                <br>Solo se puede subir archivos de extencion png y jpg<br>
+                Archivo subido: ".pathinfo($_FILES['imagen']['name'], PATHINFO_EXTENSION)."<br>
+                <button name='back' onclick='history.back()' action='back' class='btn btn-success'>OK</button>
+              </div>";
+        die();
+    }
     if(!move_uploaded_file($_FILES['imagen']['tmp_name'], '../assets/img/productos/'.$nombre_archivo)){
         die("No se pudo mover el archivo a ".$folder.$nombre_archivo);
     }
@@ -48,6 +60,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'agregar'){/* Con el action so
  }else if (isset($_GET['rem'])) {
     $nuevoProd = new productos($_GET['id']);
     if ($nuevoProd->eliminar()){
+        //Agregar aca para que borre la imagen
         header("location: ".$_SERVER['SCRIPT_NAME']);// esto direcciona la url al script actual quitando el GET
     } else{
         die("En estos momenos no podemos eliminar el producto");

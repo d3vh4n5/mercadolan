@@ -71,6 +71,9 @@ $("#form_productos").submit(function(){
     if ($.trim(precio)===''){
         errores.push("Agregar Precio del producto");
     };
+    if (precio <= 0){
+        errores.push("El precio no puede ser negativo ni ser nulo");
+    }
     if (errores.length > 0){
         errores.push("Por favor elimine los espacios en blanco y coloque la información correcta para continuar.");
         alert(errores.join("\n"));
