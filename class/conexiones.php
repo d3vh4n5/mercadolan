@@ -10,7 +10,7 @@
  *
  * @author Hans
  */
-include './autoload.php';
+//include './autoload.php';
 class conexiones {
     public $id;
     public $ip;

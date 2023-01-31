@@ -39,17 +39,33 @@ if (isset($_POST['enviar'])){
                 session_start();
                 $_SESSION['session1']['nombre'] = '🧕 '.$usuario['nombre'];
                 $_SESSION['session1']['email'] = $usuario['email'];
-                
+                $nuevaConexion = new conexiones();
+                $nuevaConexion->usuario = $usuario['email'];
+                $nuevaConexion->tiempo = time();
+                $nuevaConexion->tipo_intento = 'exitoso';
+                $nuevaConexion->guardar();
                 header('location: ../index.php');
+                return;
             }else{
+                $nuevaConexion = new conexiones();
+                $nuevaConexion->usuario = $usuario['email'];
+                $nuevaConexion->tiempo = time();
+                $nuevaConexion->tipo_intento = 'fallida-P';
+                $nuevaConexion->guardar();
                 echo $mensajeError;
                 die();
             }
         }else{
-            echo $mensajeError;
-            die();
+            
         }
     }
+    $nuevaConexion = new conexiones();
+    $nuevaConexion->usuario = $email;
+    $nuevaConexion->tiempo = time();
+    $nuevaConexion->tipo_intento = 'fallida-U';
+    $nuevaConexion->guardar();
+    echo $mensajeError;
+    die();
    
 }
 
