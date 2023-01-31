@@ -171,6 +171,10 @@ table,td,th,tr {
     border-radius: 6px;
     background: rgb(253,253,253);
 }
+td{
+    max-width: 500px;
+    overflow: hidden;
+}
 tr:hover{
     user-select: none;
     transition: 0.2s;

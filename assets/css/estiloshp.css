@@ -167,7 +167,7 @@ h2{
     border-radius: 5px;
     box-shadow: 0px 1px 4px 1px rgba(70, 69, 69, 0.3);
     background: rgb(253, 253, 253);
-  
+    overflow: hidden;
 }
 .tarjetaProducto:hover{
     cursor: pointer;
@@ -175,6 +175,10 @@ h2{
     transform: scale(1.02);
     box-shadow: 0px 10px 15px 5px rgba(0, 0, 0, 0.4);
     background: rgb(250, 253, 253);
+}
+.tarjetaProducto:hover .descripcion{
+    /*min-height: 110px;
+    overflow: hidden;*/
 }
 .nombre{
     color: #3483fa;
@@ -202,6 +206,9 @@ h2{
     font-size: 16px;
     font-weight: 400;
     color: #555454;
+    height: 50px;
+    margin: 0px;
+    overflow: hidden;
 }
 /*================ Filas tabla ===================*/
 .fila{

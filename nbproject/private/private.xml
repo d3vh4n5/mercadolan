@@ -3,13 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp64/www/MIPROYECTO/class/visitas.php</file>
+            <file>file:/C:/wamp64/www/MIPROYECTO/backend/admin.php</file>
             <file>file:/C:/wamp64/www/MIPROYECTO/index.php</file>
-            <file>file:/C:/wamp64/www/MIPROYECTO/pruebas/pruebas.php</file>
             <file>file:/C:/wamp64/www/MIPROYECTO/backend/login.php</file>
-            <file>file:/C:/wamp64/www/MIPROYECTO/class/usuarios.php</file>
-            <file>file:/C:/wamp64/www/MIPROYECTO/class/conexiones.php</file>
-            <file>file:/C:/wamp64/www/MIPROYECTO/class/autoload.php</file>
+            <file>file:/C:/wamp64/www/MIPROYECTO/views/home.html</file>
+            <file>file:/C:/wamp64/www/MIPROYECTO/backend/registrarse.php</file>
+            <file>file:/C:/wamp64/www/MIPROYECTO/backend/categorias.php</file>
+            <file>file:/C:/wamp64/www/MIPROYECTO/backend/views/lista_productos.html</file>
+            <file>file:/C:/wamp64/www/MIPROYECTO/backend/compra.php</file>
+            <file>file:/C:/wamp64/www/MIPROYECTO/backend/views/compra.html</file>
         </group>
     </open-files>
 </project-private>
