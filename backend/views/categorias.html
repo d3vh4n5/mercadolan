@@ -33,18 +33,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             </div>
         </header>
         <div class="contenedor">
-            <form method="post" action="./categorias.php" id="form_categorias">
+            <form method="post" action="./categorias.php" name="elformulario" id="form_categorias">
                 <!--<label>ID</label>
                 <br>
                 <input type="text" name="id" id="id">
                 <br>-->
                 <label>Nombre de la categoria</label>
                 <br>
-                <input type="text" name="categoria" value="<?php echo $cate->nombre_categoria; ?>" id="categoria" required>
+                <input pattern="[A-Za-z0-9]{2,}" type="text" name="categoria" value="<?php echo $cate->nombre_categoria; ?>" id="categoria" maxlength="20" required>
                 <br><br>
                 <input type="hidden" name="codigo_categoria" value="<?php echo $cate->get_codigo(); ?>">
                 <button type="button" id="btn_cancelar" class="btn_cancelar">Cancelar</button>
-                <button type="submit" name="action" value="guardar" class="btn_guardar">Guardar</button>
+                <button type="submit" name="action" id="enviar" value="guardar" class="btn_guardar">Guardar</button>
             </form>
         </div>
         

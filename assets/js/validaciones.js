@@ -9,6 +9,32 @@
  * un espacio en blanco y no te sale el aviso de "requerido",
  * pero con estas validaciones en JS evitamos ese problema. */
 
+
+function iniciar(){
+    document.elformulario.addEventListener("invalid", validacion, true);
+    document.getElementById('enviar').addEventListener('click', enviar, false);
+    document.elformulario.addEventListener('input', controlar,false);
+}
+function validacion(e) {
+    var elemento = e.target;
+    elemento.style.background='pink';
+}
+function controlar(e) {
+    var elemento = e.target;
+    if (elemento.validity.valid){
+        elemento.style.background='lightgreen';
+    }else{
+        elemento.style.background='pink';
+    }
+}
+function enviar(){
+    var valido = document.elformulario.checkValidity();
+    if (valido) {
+        document.elformulariosubmit();
+    }
+}
+window.addEventListener('load', iniciar, false);
+
 //Código para el formulario de las categorías
 
 $("#form_categorias").submit(function(){
