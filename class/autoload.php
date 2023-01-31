@@ -9,6 +9,7 @@ class autocarga {
         $arrayClases['categorias'] = $base.'categorias.php';
         $arrayClases['productos'] = $base.'productos.php';
         $arrayClases['usuarios'] = $base.'usuarios.php';
+        $arrayClases['visitas'] = $base.'visitas.php';
         $arrayClases['conexiones'] = $base.'conexiones.php';
         $arrayClases['admin'] = $base.'admin.php';
         

@@ -10,8 +10,8 @@
  *
  * @author Hans
  */
-include './autoload.php';
-class conexiones {
+//include './autoload.php';
+class visitas {
     public $id;
     public $ip;
     public $agent;
@@ -19,10 +19,6 @@ class conexiones {
     public $dispositivo;
     public $so;
     public $fecha;
-    public $tiempo;
-    public $tipo_intento;
-    public $usuario;
-    public $estado;
     
     public function __construct($id = null){
         $this->id = $id++;
@@ -86,8 +82,8 @@ class conexiones {
     
     public function guardar(){
         $db = new base_datos("mysql", "miproyecto", "127.0.0.1", "root", "");
-        $resp = $db->insert("conexiones", "id, ip, agent, navegador, dispositivo, so, fecha,tiempo, tipo_intento, usuario", "?,?,?,?,?,?,?,?,?,?",
-                array($this->id, $this->ip, $this->agent, $this->navegador, $this->dispositivo, $this->so, $this->fecha, $this->tiempo, $this->tipo_intento, $this->usuario));
+        $resp = $db->insert("visitas", "id, ip, agent, navegador, dispositivo, so, fecha", "?,?,?,?,?,?,?",
+                array($this->id, $this->ip, $this->agent, $this->navegador, $this->dispositivo, $this->so, $this->fecha));
     
         if($resp){
             //echo "agregado correctamenta";
@@ -96,60 +92,11 @@ class conexiones {
             //return false;
         }
     }
-    public function listar(){
-        //Listar las conexiones que comparten el usuario, son fallidas y tienen una
-         //       diferencia menor de 300 en el time
-        $filtros = 'usuario='."'".$this->usuario."'";
-        $db = new base_datos("mysql", "miproyecto", "127.0.0.1", "root", "");
-        return $db->select("conexiones", $filtros);
-    
-    }
 }
 /*
-$nuevaConexion = new conexiones();
-$nuevaConexion->usuario = 'juan';//En la practica sera $_POST['usuario']
-$coincidencias = $nuevaConexion->listar();
-$tiempo = time();
-foreach ($coincidencias as $c){
-    if ($c['tiempo']+300 < $tiempo){
-        
-        echo "Usuario bloqueado";
-    }else{
-        echo "puedes intentar";
-    }
-}
-$nuevaConexion->tiempo = time();
-$nuevaConexion->tipo_intento = 'fallido';
+$nuevaConexion = new conexiones(); ahora visitas porque fue renombrada
+echo "<pre>";
+print_r($nuevaConexion);
+echo "</pre>";
 $nuevaConexion->guardar();
-
-echo "<pre>";
-print_r($nuevaConexion);
-echo "</pre>";
-echo "<pre>";
-print_r($coincidencias);
-echo "</pre>";
-
-
-
-/*
-if ($nuevaConexion->tiempo < (time()+300)){
-    $nuevaConexion->tiempo = time();
-    $nuevaConexion->cantidad_actual = +1;
-    $nuevaConexion->cantidad_total = +1;
-    $nuevaConexion->tipo_intento = False;
-    $nuevaConexion->usuario = $usuario;//En la practica sera $_POST['usuario']
-    if ($nuevaConexion->cantidad_actual < 5){
-        $nuevaConexion->estado = 'activo';
-    }else{
-        $nuevaConexion->estado = blockeado;
-    }
-    
-}
-
-
-
-echo "<pre>";
-print_r($nuevaConexion);
-echo "</pre>";
-//$nuevaConexion->guardar();
  */

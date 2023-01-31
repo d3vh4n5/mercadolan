@@ -14,6 +14,13 @@
         
 <?php
 
+//Rama del pass equivocado
+$intentos = new intentos($usuario);
+$intentos->cantidad = $intentos->cantidad++;
+$intentos->time = time();
+$intentos->id_usuario = $usuario['id'];
+
+
 
 
 /*

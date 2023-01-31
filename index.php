@@ -1,8 +1,8 @@
 <?php
 include './class/autoload.php';
 
-$nuevaConexion = new conexiones();
-$nuevaConexion->guardar();
+$nuevaVisita = new visitas();
+$nuevaVisita->guardar();
 
 $lista_prod = productos::listar();
 $lista_largo = count($lista_prod);
