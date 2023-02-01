@@ -5,33 +5,61 @@
 */
 
 body{
-    height: 102vh;
+    height: 100vh;
     background: #e7e7e7;
     color: #222222;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
     overflow: hidden;
 }
 /*================== Heather ====================*/
 
 header{
-    padding: 6px;
+    background-color: #222222;
+    height: 100px;
+    padding: 10px 50px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    position: absolute;
-    top: 0;
     z-index: 3;
-    background-color: #222222;
-    width: 100%;
+    color: #fff;
 }
 .logo{
     width: 150px;
 }
+/*========================== NAV =========================*/
+nav{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.menu a{
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0 10px;
+    transition: 0.4s;
+}
+.mostrar-menu,
+.esconder-menu{
+    font-size: 30px;
+    cursor: pointer;
+    display: none;
+    transition: 0.4s;
+}
+.mostrar-menu{
+    order:1;
+}
+.menu a:hover,
+.mostrar-menu:hover,
+.esconder-menu:hover{
+    color: tomato;
+}
+#check{
+    display:none;
+}
+
 .botonLog{
     text-decoration: none;
     background-color: #222222;
@@ -39,7 +67,8 @@ header{
     color: rgb(132, 132, 252);
     border: 1px solid rgb(132, 132, 252);
     position: relative;
-    margin-right: 10px;
+    margin: 0 20px;
+    transition: 0.4s;
 }
 .botonLog:hover{
     cursor:pointer;
@@ -53,10 +82,7 @@ header{
 .desplegableUsuario{
     border: 2px solid transparent;
     width: fit-content;
-    position: relative;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 10px;
+    margin: 0 20px;
 }
 .admin{
     color: #2f4ed6;
@@ -110,39 +136,74 @@ header{
     background-color: #2f4ed6;
     color: aliceblue;
 }
+/*============ contenedor principal =============*/
+
+.contenedorPrincipal{
+    height:100vh;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    /*position: relative;
+    height: auto;
+    margin-top: 20px;
+    width: 100vw;*/
+}
+
+/*================== Carrusel ====================*/
+.carrusel{
+    padding: 130px 0;
+    margin: 0 auto;
+    display: flex;
+    background: lightgreen;
+    height: 340px;
+    max-width: 1600px;
+    width: 1600px;
+}
+.tCarrusel{
+    margin: 0 auto;
+}
+
 /*================== Títulos ====================*/
 
 h2{
     font-size: 40px;
     font-weight: 150;
     font-variant: small-caps;
-    width: 100%;
     margin-bottom: 0px; 
 }
 .tituloPrincipal{
-    width: 60%;
+    margin: 0 auto;
+    min-width: 1200px;
+    display: flex;
 }
 
 
-/*============ contenedor principal =============*/
-
-.contenedorPrincipal{
-    position: relative;
-    height: auto;
-    display: grid;
-    height:100vh;
-    place-items: center;
-    margin-top: 20px;
-    width: 100vw;
-    padding: 2rem;
-    overflow: scroll;
-}
 /*======= Tabla de tarjetas de productos =======*/
 
 .tablaProductos{
-    width: 1200px;
-    min-width: 1200px;
+    /*border: 3px solid red;*/
+}
+tbody{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
     max-width: 1200px;
+}
+/*================ Filas tabla ===================*/
+.fila{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 15px 0 60px 0;
+    gap: 20px;
+
+}
+/* estilo de prueba para la tabla del tutor*/
+.tablaMiguel{
+    padding: 4px;
+    text-align: center;
+    border: 1px solid red;
 }
 
 /*================ Tarjetas ===================*/
@@ -150,22 +211,21 @@ h2{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 415px;
-    width: 260px;
+    height: 350px;
+    width: 224px;
     color: black;
     transition: 0.1s;
-    border: 1px solid rgb(87, 86, 86);
     box-sizing: border-box;
     border-radius: 5px;
-    box-shadow: 0px 1px 4px 1px rgba(70, 69, 69, 0.3);
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 10%);
     background: rgb(253, 253, 253);
     overflow: hidden;
 }
 .tarjetaProducto:hover{
     cursor: pointer;
     transition: 0.2s;
-    transform: scale(1.02);
-    box-shadow: 0px 10px 15px 5px rgba(0, 0, 0, 0.4);
+    transform: scale(1.01);
+    box-shadow: 0px 3px 15px 1px rgba(0, 0, 0, 0.2);
     background: rgb(250, 253, 253);
 }
 .tarjetaProducto:hover .descripcion{
@@ -179,7 +239,7 @@ h2{
     font-weight: 500;
 }
 .imgProd{
-    box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 10%);
     width:auto;
     height: 200px;
 }
@@ -206,20 +266,6 @@ h2{
     height: 50px;
     margin: 0px;
     overflow: hidden;
-}
-/*================ Filas tabla ===================*/
-.fila{
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 10px;
-    margin-bottom: 30px;
-
-}
-/* estilo de prueba para la tabla del tutor*/
-.tablaMiguel{
-    padding: 4px;
-    text-align: center;
-    border: 1px solid red;
 }
 
 /*================ Footer ===================*/
@@ -250,4 +296,60 @@ footer{
     font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace !important;
     font-size: 15px;
     color: lightgreen;  
+}
+/*=============== RESPONSIVE ==================*/
+@media(max-width: 768px){
+    /* HEADER */
+    .botonLog{
+        text-decoration: none;
+        background-color: #222222;
+        padding: 5px 50px 9px 50px;
+        color: rgb(132, 132, 252);
+        border: 1px solid rgb(132, 132, 252);
+        position: relative;
+        transition: 0.4s;
+        min-width: 40%;
+        margin: 20px;
+    }
+    .desplegableUsuario{
+        border: 2px solid transparent;
+        min-width: 40%;
+        display: flex;
+        flex-direction: column;
+    }
+    .desplegableUsuario > a{
+        margin: 20px;
+    }
+    .mostrar-menu,
+    .esconder-menu{
+        display: block;
+    }
+    .menu{
+        position:fixed;
+        width: 100%;
+        height: 100vh;
+        background: linear-gradient(to bottom,rgb(34, 34, 34)5%, rgba(34, 34, 34, 0.95)50%,rgba(34, 34, 34, 0.6) 90%, transparent 100%);
+        right: -100%;
+        top: 0;
+        text-align: center;
+        padding: 100px 0px;
+        z-index: 100;
+        transition: 0.8s;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    .menu a{
+        display: block;
+        padding: 20px;
+    }
+    .esconder-menu{
+        position: absolute;
+        top: 40px;
+        right: 40px;
+    }
+    #check:checked ~ .menu{
+        right: 0;
+    }
 }

@@ -54,12 +54,6 @@ session_start();
         </nav>
     </header>
     <section class="contenedorPrincipal">
-        <div class="carrusel">
-            <div class="tCarrusel">
-                <h2 class="titulo">IMAGEN</h2>
-                <hr></hr>
-            </div>
-        </div>
         <div class="tituloPrincipal">
             <h2 class="titulo">Productos</h2>
             <hr></hr>
@@ -67,39 +61,65 @@ session_start();
         <table class="tablaProductos">
             
             <tbody>
-                
-                
-                <tr class="fila">  
-                    <?php 
-                    //count($lista_prod);
-                    foreach ($lista_prod as $lista_prod) { ?>
-                        <td>
-                            <div class="tarjetaProducto" onclick="document.location.href='<?php echo $basepath."?buy&id=".$lista_prod['id']; ?>'" >
-                                <p class="nombre"><?php echo $lista_prod['nombre_producto'] ?></p>
-                                <img class="imgProd" src="
-                                     <?php
-                                     if ($lista_prod['imagen']){
-                                        echo "./assets/img/productos/".$lista_prod['imagen'];
-                                     }else{
-                                        echo "./assets/img/imagen.png";
-                                     }       
-                                     ?>
-                                     " name="imagen producto" alt="">
-                                <p class="cat"><?php 
-                                $idc = new categorias($lista_prod['id_categoria']);
-                                echo $idc->nombre_categoria;
-                                ?>
-                                <p class="precio"><?php echo $lista_prod['precio'] ?></p>
-                                <p class="descripcion"><?php echo $lista_prod['descripcion'] ?> </p>
-                            </div>
-                        </td>
-                    <?php } ?> 
+                <?php
+                //include '../class/autoload.php';
+                while($contador<$lista_largo){ ?> 
+                    <tr class="fila">  
+                        <?php 
+                        //count($lista_prod);
+                        for ($i=1; $i<=4 && $contador<$lista_largo; $i++) { ?>
+                            <td>
+                                <div class="tarjetaProducto" onclick="document.location.href='<?php echo $basepath."?buy&id=".$lista_prod[$contador]['id']; ?>'" >
+                                    <p class="nombre"><?php echo $lista_prod[$contador]['nombre_producto'] ?></p>
+                                    <img class="imgProd" src="
+                                         <?php
+                                         if ($lista_prod[$contador]['imagen']){
+                                            echo "./assets/img/productos/".$lista_prod[$contador]['imagen'];
+                                         }else{
+                                            echo "./assets/img/imagen.png";
+                                         }       
+                                         ?>
+                                         " name="imagen producto" alt="">
+                                    <p class="cat"><?php 
+                                    $idc = new categorias($lista_prod[$contador]['id_categoria']);
+                                    echo $idc->nombre_categoria;
+                                    ?>
+                                    <p class="precio"><?php echo $lista_prod[$contador]['precio'] ?></p>
+                                    <p class="descripcion"><?php echo $lista_prod[$contador]['descripcion'] ?> </p>
+                                </div>
+                                <?php $contador++; ?>
+                            </td>
+                        <?php } ?> 
 
-                </tr>
-                
+                    </tr>
+                <?php } ?> 
             </tbody>
         </table>
         
+        <!--
+        <table class="tablaMiguel">
+            <thead>
+                <tr class="tablaMiguel">
+                    <th class="tablaMiguel">Productos</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <tr class="tablaMiguel">
+                    <?php
+                    foreach ($lp as $indice => $producto){ ?>
+                    <td class="tablaMiguel"><?php 
+                    echo $producto['nombre_producto'];
+                    echo $producto['id_categoria'];
+                    $cat = new categorias($producto['id_categoria']);
+                    echo $cat->nombre_categoria; ?></td>
+                    <?php if (($indice + 1) % 4 == 0){ ?>
+                </tr>
+                <tr class="tablaMiguel">
+                    <?php } } ?> <!-- uno es del foreach y el otro es del if -->
+               <!-- </tr>
+            </tbody>
+        </table>-->
         <footer>
             <img src="./assets/img/hansicon.png" class="logosFoot" />
             <a class="autor" href="https://www.linkedin.com/in/juanangelbasgall/">
