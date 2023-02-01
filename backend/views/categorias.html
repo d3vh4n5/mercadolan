@@ -41,7 +41,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <br>-->
                 <label>Nombre de la categoria</label>
                 <br>
-                <input pattern="[A-Za-z0-9]{2,}" type="text" name="categoria" value="<?php echo $cate->nombre_categoria; ?>" id="categoria" maxlength="20" required>
+                <input pattern="([A-z0-9À-ž\s]){2,}" type="text" name="categoria" value="<?php echo $cate->nombre_categoria; ?>" id="categoria" maxlength="30" required autofocus>
                 <br><br>
                 <input type="hidden" name="codigo_categoria" value="<?php echo $cate->get_codigo(); ?>">
                 <button type="button" id="btn_cancelar" class="btn_cancelar">Cancelar</button>

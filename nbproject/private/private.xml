@@ -4,14 +4,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/wamp64/www/MIPROYECTO/backend/admin.php</file>
-            <file>file:/C:/wamp64/www/MIPROYECTO/index.php</file>
-            <file>file:/C:/wamp64/www/MIPROYECTO/backend/login.php</file>
-            <file>file:/C:/wamp64/www/MIPROYECTO/views/home.html</file>
-            <file>file:/C:/wamp64/www/MIPROYECTO/backend/registrarse.php</file>
-            <file>file:/C:/wamp64/www/MIPROYECTO/backend/categorias.php</file>
-            <file>file:/C:/wamp64/www/MIPROYECTO/backend/views/lista_productos.html</file>
-            <file>file:/C:/wamp64/www/MIPROYECTO/backend/compra.php</file>
-            <file>file:/C:/wamp64/www/MIPROYECTO/backend/views/compra.html</file>
+            <file>file:/C:/wamp64/www/MIPROYECTO/pruebas/pruebas.php</file>
+            <file>file:/C:/wamp64/www/MIPROYECTO/backend/productos.php</file>
+            <file>file:/C:/wamp64/www/MIPROYECTO/assets/css/estiloslog.css</file>
         </group>
     </open-files>
 </project-private>
