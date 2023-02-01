@@ -13,6 +13,18 @@ body{
     display: grid;
     place-items: center;
 }
+.aAdmin{
+    display:flex;
+    position: absolute;
+    z-index:1;
+    left: -70px;
+    border-right: 60px solid lightblue;
+    border-radius: 10px;
+}
+.aAdmin:hover{
+    transform: translateX(70px);
+    transition: transform 1s;
+}
 .container-fluid{
     position :relative;
     top: -15%;

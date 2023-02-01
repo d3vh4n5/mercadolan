@@ -160,6 +160,15 @@ label,input,form,button {
 	transition: 0.2s;
 }
 /*================== Tablas ====================*/
+.hAdmin{
+    font-size: 30px;
+    font-family: sans-serif;
+    text-align: center;
+    color: #0d6efd;
+}
+h2{
+    font-family: monospace;
+}
 .warningMsj{
     font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace !important;
     font-weight: 600;
