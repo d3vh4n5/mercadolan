@@ -103,7 +103,11 @@ class base_datos {
     }
     static function lastinsert(){
         return $gbd->lastInsertId();
-}
+    }
+    static function conect(){//Creo esta función porque a la hora de hostear me facilita todo
+        $db = new base_datos("mysql", "miproyecto", "127.0.0.1", "root", "");
+        return $db;
+    }
 
 }
 //conect();

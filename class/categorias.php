@@ -14,7 +14,7 @@ class categorias {
     
     public function __construct($id = null) {
         if ($id != null){
-            $db = new base_datos("mysql", "miproyecto", "127.0.0.1", "root", "");
+            $db = base_datos::conect();
             $resp = $db->select("categorias", "id=?", array($id));
             
             if (isset($resp)){
@@ -54,11 +54,11 @@ class categorias {
     }
     
     public function eliminar(){
-        $db = new base_datos("mysql", "miproyecto", "127.0.0.1", "root", "");
+        $db = base_datos::conect();
         return $db->delete("categorias", "id=" . $this->id);
     }
     public function insertar(){
-        $db = new base_datos("mysql", "miproyecto", "127.0.0.1", "root", "");
+        $db = base_datos::conect();
         $resp = $db->insert("categorias", "nombre_categoria", "?", array($this->nombre_categoria));
         
         if ($resp){
@@ -73,19 +73,19 @@ class categorias {
     }
     
     public function actualizar(){
-        $db = new base_datos("mysql", "miproyecto", "127.0.0.1", "root", "");
+        $db = base_datos::conect();
         return $db->update("categorias", "nombre_categoria=?", "id=?",
                 array($this->nombre_categoria, $this->id));
     }
     
     static function listar($filtro = null){
-        $db = new base_datos("mysql", "miproyecto", "127.0.0.1", "root", "");
+        $db = base_datos::conect();
         return $db->select("categorias", $filtro);
     }
     
     static function nombrecat($id_cat){
-        $datos = new base_datos("mysql", "miproyecto", "127.0.0.1", "root", "");
-        $nombrecat =  $datos->select('categorias', 'id='.$id_cat);
+        $db = base_datos::conect();
+        $nombrecat =  $db->select('categorias', 'id='.$id_cat);
         $nombre = $nombrecat[0]['nombre_categoria'];
         return $nombre;
         

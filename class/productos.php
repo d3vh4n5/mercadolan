@@ -14,7 +14,7 @@ class productos {
     public function __construct($id = null) {
       
         if ($id != null){
-            $db = new base_datos("mysql", "miproyecto", "127.0.0.1", "root", "");
+            $db = base_datos::conect();
             $resp = $db->select("productos", "id=?", array($id));
             if(isset($resp[0]["id"])){
                 $this->id = $resp[0]["id"];
@@ -48,12 +48,12 @@ class productos {
     }
     
     public function eliminar(){
-        $db = new base_datos("mysql", "miproyecto", "127.0.0.1", "root", "");
+        $db = base_datos::conect();
         return $db->delete("productos", "id=" . $this->id);
     }
     
     public function insertar(){
-        $db = new base_datos("mysql", "miproyecto", "127.0.0.1", "root", "");
+        $db = base_datos::conect();
         $resp = $db->insert("productos", "id, nombre_producto, descripcion, precio, id_categoria, imagen", "?,?,?,?,?,?",
                 array($this->id, $this->nombre_producto, $this->descripcion, $this->precio, $this->id_categoria, $this->imagen));
         
@@ -68,13 +68,13 @@ class productos {
     }
     
     public function actualizar(){
-        $db = new base_datos("mysql", "miproyecto", "127.0.0.1", "root", "");
+        $db = base_datos::conect();
         return $db->update("productos", "id=?, nombre_producto=?, descripcion=?, precio=?, id_categoria=?, imagen=?", "id=?",
                 array($this->id, $this->nombre_producto, $this->descripcion, $this->precio, $this->id_categoria, $this->imagen, $this->id));
     } //en el array anterior creo que falta imagen y id
     
     static function listar(){
-        $db = new base_datos("mysql", "miproyecto", "127.0.0.1", "root", "");
+        $db = base_datos::conect();
         return $db->select("productos");
     }
     public function get_codigo(){
