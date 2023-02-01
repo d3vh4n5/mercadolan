@@ -22,14 +22,22 @@ session_start();
                 <div class="menuUsuario">
                     <ul>
                         <li><a href="./backend/logout.php">Desconectarse</a></li>
-                        <li><a href="#">Cambiar contraseña</a></li>
-                        <li><a href="#">Cambiar email</a></li>
-                        <li><a href="#">Opción</a></li>
+                        <?php 
+                            if ($_SESSION['session1']['nombre'] === '♛ admin'){
+                                echo "<li><a href='./backend/productos.php'>Agregar productos</a></li>";
+                                echo "<li><a href='./backend/categorias.php'>Agregar categorías</a></li>";
+                                echo "<li><a href='./backend/views/incompleto.html'>Ver estadísticas</a></li>";
+                            }else{
+                                echo "<li><a href='./backend/views/incompleto.html'>Cambiar contraseña</a></li>";
+                                echo "<li><a href='./backend/views/incompleto.html'>Cambiar email</a></li>";
+                                echo "<li><a href='./backend/views/incompleto.html'>Opción</a></li>";
+                            }
+                        ?>
                     </ul>
                 </div>
             </div> <?php
         }else{ ?>
-            <input type="button" class="botonLog" value="Loguearse y cargar productos" onclick="document.location.href='./backend/login.php'">
+            <input type="button" class="botonLog" value="Log in" onclick="document.location.href='./backend/login.php'">
         <?php } ?>
     </header>
     <section class="contenedorPrincipal">

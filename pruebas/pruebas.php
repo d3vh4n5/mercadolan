@@ -15,9 +15,17 @@
 <?php
 
 
-$file = 'pruebas.php';
+
+
+
+/*
+$file = '\assets\img\productos\325dbb7cb4cf546f6bb38a174b2134ca.png';
 echo "Vamos a borrar:".$file;
-unlink('../assets/img/productos/'.$file);
+if (unlink($file)){
+    echo "<br>Exito";
+}else{
+    echo "<br>No se puedo borrar";
+}
 
 echo '<br>sha1:'.sha1('asd1634asd');
 /*
