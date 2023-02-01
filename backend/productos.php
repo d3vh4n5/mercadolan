@@ -59,6 +59,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'agregar'){/* Con el action so
      die();
  }else if (isset($_GET['rem'])) {
     $nuevoProd = new productos($_GET['id']);
+    unlink('../assets/img/productos/'.$_GET['imagen']);
     if ($nuevoProd->eliminar()){
         //Agregar aca para que borre la imagen
         header("location: ".$_SERVER['SCRIPT_NAME']);// esto direcciona la url al script actual quitando el GET

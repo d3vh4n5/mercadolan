@@ -59,7 +59,7 @@ if (!isset($_SESSION['session1']['nombre']) || $_SESSION['session1']['nombre'] !
                    <tr> 
                        <td <?php if (($alter % 2) == 0 ){echo "style='background: #e7e7e7 !important;'"; } ?> >
                            <a class="botonActionTabla E" href="<?php echo $basepath."?edit&id=".$listaProductos['id']; ?>">✏️</a>
-                           <a class="botonActionTabla" href="<?php echo $basepath."?rem&id=".$listaProductos['id'];?>">❌</a>
+                           <a class="botonActionTabla" href="<?php echo $basepath."?rem&id=".$listaProductos['id']."&imagen=".$listaProductos['imagen'];?>">❌</a>
                        </td>
                        <td <?php if (($alter % 2) == 0 ){echo "style='background: #e7e7e7 !important;'"; } ?> ><?php echo $listaProductos['id'] ?></td> 
                        <td <?php if (($alter % 2) == 0 ){echo "style='background: #e7e7e7 !important;'"; } ?> ><?php echo $listaProductos['nombre_producto'] ?></td> 

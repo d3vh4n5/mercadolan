@@ -14,6 +14,11 @@
         
 <?php
 
+
+$file = 'pruebas.php';
+echo "Vamos a borrar:".$file;
+unlink('../assets/img/productos/'.$file);
+
 echo '<br>sha1:'.sha1('asd1634asd');
 /*
 //Rama del pass equivocado
