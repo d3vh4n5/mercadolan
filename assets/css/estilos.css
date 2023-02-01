@@ -106,7 +106,9 @@ header{
 .contenedor{
 	padding: 4rem;
 	background-color: rgba(0, 0, 0, 0.712);
-	border: 1px solid #ffbd33 ;
+        backdrop-filter: blur(3px);
+	border: 1px solid blue;
+        box-shadow: 0px 5px 15px 3px rgba(66, 105, 205, 0.9);
 	height: fit-content;
 	width: fit-content;
 	border-radius: 0 20px;
@@ -140,7 +142,7 @@ label,input,form,button {
 	animation: none;
 }
 .btn_cancelar{
-        background: transparent;
+        background-color: rgba(0, 0, 0, 0.512);
         cursor: pointer;
 	padding: 5px 15px;
 	color: #FFFFFF;
@@ -150,9 +152,10 @@ label,input,form,button {
         border: 1px solid red;
 }
 .btn_cancelar:hover{
+        background-color: rgba(250, 200, 200, 0.512);
 	transform: scale(1.1);
-	box-shadow: 0px 0px 5px 3px rgba(120, 120, 120, 0.651),
-                    0px 0px 5px 3px rgba(200, 120, 120, 0.651)inset;
+	box-shadow: 0px 0px 5px 3px rgba(200, 12, 12, 0.651),
+                    0px 0px 5px 3px rgba(200, 12, 12, 0.651)inset;
 	animation: none;
 	transition: 0.2s;
 }
