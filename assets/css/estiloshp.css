@@ -377,10 +377,13 @@ footer{
         top: 10px;
         right: 15px;
     }
+    .block-scroll{overflow:hidden;}
     #check:checked ~ .menu{
+        position:fixed;
         right: 0;
+        overflow: auto;
+        overscroll-behavior-y: contain;
     }
-    
     /*Body--------------------*/
     .carrusel{
         height: 60px;

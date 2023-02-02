@@ -20,3 +20,17 @@ $(".tarjetaProducto").click(function(){
     alert("Página en construcción \nNo se puede comprar de momento");
 });
 */
+/* Función para que no se scrolee el contenido del body cuando abro el menú hamburguesa*/
+$(document).ready(function(){
+    //var $popContainer = $('#check');
+    var $body = $('html,body');
+
+    $('#check').on('click', function() {
+        //$popContainer.fadeIn();
+        $body.addClass('block-scroll'); // clase de manejo
+    });
+    $('#check').on('click', function() {
+        //$popContainer.fadeOut();
+        $body.removeClass('block-scroll'); // clase de manejo
+    });
+});
