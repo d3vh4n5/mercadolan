@@ -26,6 +26,8 @@ header{
 }
 .logo{
     width: 150px;
+    height: 60px;
+    border-radius: 5px;
 }
 /*========================== NAV =========================*/
 nav{
@@ -143,8 +145,8 @@ nav{
     overflow: scroll;
     display: flex;
     flex-direction: column;
+    height: 90%;
     /*position: relative;
-    height: auto;
     margin-top: 20px;
     width: 100vw;*/
 }
@@ -300,6 +302,16 @@ footer{
 /*=============== RESPONSIVE ==================*/
 @media(max-width: 768px){
     /* HEADER */
+    header{
+        background-color: #222222;
+        height: 50px;
+        padding: 5px 15px;
+    }
+    .logo{
+        width: 90px;
+        height: 36px;
+        border-radius: 3px;
+    }
     .botonLog{
         text-decoration: none;
         background-color: #222222;
@@ -346,8 +358,8 @@ footer{
     }
     .esconder-menu{
         position: absolute;
-        top: 40px;
-        right: 40px;
+        top: 10px;
+        right: 15px;
     }
     #check:checked ~ .menu{
         right: 0;
@@ -355,21 +367,85 @@ footer{
     
     /*Body--------------------*/
     .carrusel{
-    padding: 70px 0;
+    padding: 20px 0;
     margin: 0 auto;
     display: flex;
     background: lightgreen;
-    height: 2000px;
-    width: 100%;
+    width: 90%;
+    border-radius: 2px;
     }
     .tCarrusel{
         margin: 0 auto;
+    }
+    tbody{
+        margin: 0 10px;
     }
 
     /*================== Títulos ====================*/
 
     .tituloPrincipal, h2{
         min-width: 150px;
+        width: 90%;
+        font-size: 20px;
+    }
+    /*================ Tarjetas ===================*/
+    .tarjetaProducto{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 200px;
         width: 150px;
+    }
+    .nombre{
+        color: #3483fa;
+        margin-top: 4px;
+        margin-left: 4px;
+        font-weight: 500;
+        font-size: 12px;
+    }
+    .imgProd{
+        box-shadow: 0 1px 1px 0 rgb(0 0 0 / 10%);
+        width:auto;
+        height: 100px;
+    }
+    .cat{
+        margin-top: 4px;
+        margin-left: 4px;
+        font-weight: 700;
+        margin-bottom: 0;
+        font-weight: 400;
+        font-variant: small-caps;
+        font-size: 12px;
+    }
+    .precio{
+        color: #00a650;
+        margin-top: 4px;
+        margin-left: 4px;
+        font-weight: 700;
+        margin-bottom: 0;
+        font-size: 13px;
+    }
+    .descripcion{
+        padding: 4px;
+        font-size: 11px;
+        font-weight: 400;
+        color: #555454;
+        height: 50px;
+        margin: 0px;
+        overflow: hidden;
+    }
+    footer{
+    height: 30px;
+    }
+
+    .logosFoot{
+        margin: 5px 20px;
+        width: 25px;
+        height: 25px;
+        border-radius: 3px;
+    }
+
+    .autor{
+        font-size: 10px;
     }
 }

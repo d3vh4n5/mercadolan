@@ -8,7 +8,7 @@ $lista_prod = productos::listar();
 $lista_largo = count($lista_prod);
 $contador = 0;
 
-$lp = productos::listar();
+//$lp = productos::listar();
 
 if (isset($_GET['buy'])) {
     //header('location: ./backend/compra.php');

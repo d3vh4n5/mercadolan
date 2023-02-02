@@ -60,3 +60,25 @@ a:hover{
 #registrarse{
     font-weight: bold;
 }
+@media(max-width: 768px){
+        .container-fluid{
+        position :relative;
+        top: -1%;
+    }
+    img{
+        width: 150px !important;
+        margin-bottom: 0;
+        border: 3px solid rgba(39,41,43,0.3);
+        border-style: double;
+        border-radius: 20px;
+        padding: 10px 20px;
+    }
+    .aAdmin{
+        display:flex;
+        position: absolute;
+        z-index:1;
+        left: -30px;
+        border-right: 60px solid lightblue;
+        border-radius: 10px;
+    }
+}
