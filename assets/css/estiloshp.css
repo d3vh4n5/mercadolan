@@ -9,7 +9,7 @@ body{
     background: #e7e7e7;
     color: #222222;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    overflow: hidden;
+    overflow-y: scroll;
 }
 /*================== Heather ====================*/
 
@@ -141,27 +141,29 @@ nav{
 /*============ contenedor principal =============*/
 
 .contenedorPrincipal{
+    display: flex;
+    flex-direction: column;
+    /*position: relative;
     height:100vh;
     overflow: scroll;
     display: flex;
     flex-direction: column;
     height: 90%;
-    /*position: relative;
+    position: relative;
     margin-top: 20px;
     width: 100vw;*/
 }
 
 /*================== Carrusel ====================*/
 .carrusel{
-    padding: 130px 0;
-    margin: 0 auto;
-    display: flex;
-    background: lightgreen;
-    height: 340px;
-    max-width: 1600px;
-    width: 1600px;
 }
 .tCarrusel{
+    text-align:center;
+    border: 1px solid transparent;
+    margin: 0;
+    background: lightgreen;
+    height: 540px;
+    max-width: 1600px;
     margin: 0 auto;
 }
 
@@ -174,16 +176,20 @@ h2{
     margin-bottom: 0px; 
 }
 .tituloPrincipal{
+}
+.tituloPrincipal h2{
+    text-align: left;
     margin: 0 auto;
-    min-width: 1200px;
-    display: flex;
+    max-width: 1200px;
+}
+.tituloPrincipal hr{
+    max-width: 1200px;
 }
 
 
 /*======= Tabla de tarjetas de productos =======*/
 
 .tablaProductos{
-    /*border: 3px solid red;*/
 }
 tbody{
     margin: 0 auto;
@@ -239,11 +245,15 @@ tbody{
     margin-top: 10px;
     margin-left: 4px;
     font-weight: 500;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .imgProd{
     box-shadow: 0 1px 1px 0 rgb(0 0 0 / 10%);
     width:auto;
     height: 200px;
+    object-fit: cover;
 }
 .cat{
     margin-top: 10px;
@@ -252,6 +262,9 @@ tbody{
     margin-bottom: 0;
     font-weight: 400;
     font-variant: small-caps;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .precio{
     color: #00a650;
@@ -265,24 +278,26 @@ tbody{
     font-size: 16px;
     font-weight: 400;
     color: #555454;
-    height: 50px;
+    height: 30px;
     margin: 0px;
     overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 /*================ Footer ===================*/
 
 footer{
-    height: 110px;
+    height: 310px;
     margin-top: 100px;
-    border-top: 1px solid black;
+    border-top: 1px solid (3,3,3,0.4);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
     width: 100%;
-    background: rgba(0, 0, 0, 0.712);
-    color: lightgray;
+    background: #fff;
+    /*background: rgba(0, 0, 0, 0.712);*/
     bottom: 0;
 }
 
@@ -291,13 +306,14 @@ footer{
     width:50px;
     height: 50px;
     border-radius: 10px;
+    border:1px solid rgba(0, 0, 0, 0.712);
 }
 
 .autor{
     text-decoration: none;
     font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace !important;
     font-size: 15px;
-    color: lightgreen;  
+    color: rgba(0, 0, 0, 0.712);  
 }
 /*=============== RESPONSIVE ==================*/
 @media(max-width: 768px){
@@ -367,6 +383,7 @@ footer{
     
     /*Body--------------------*/
     .carrusel{
+        height: 60px;
     padding: 20px 0;
     margin: 0 auto;
     display: flex;
@@ -376,6 +393,7 @@ footer{
     }
     .tCarrusel{
         margin: 0 auto;
+        background: transparent;
     }
     tbody{
         margin: 0 10px;
@@ -384,8 +402,8 @@ footer{
     /*================== Títulos ====================*/
 
     .tituloPrincipal, h2{
+        padding: 0 10px;
         min-width: 150px;
-        width: 90%;
         font-size: 20px;
     }
     /*================ Tarjetas ===================*/
@@ -435,7 +453,7 @@ footer{
         overflow: hidden;
     }
     footer{
-    height: 30px;
+    height: 150px;
     }
 
     .logosFoot{
