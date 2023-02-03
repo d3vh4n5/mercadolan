@@ -1,5 +1,5 @@
 
-let imagenes = $('.imagenes');
+let imagenes = $('.imagen');
 let puntos = $('.punto');
 let posicion = 1;
 
