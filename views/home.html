@@ -55,39 +55,96 @@ session_start();
     </header>
     <section class="contenedorPrincipal">
         <div class="carrusel">
-        <input type="button" value="<" class="atras">
-        <div class="cuerpoCarrusel">
-            <div class="imagenes">
-                <div class="imagen">
-                    <img src="./assets/img/D_NQ_718313-MLA53587679163_022023-OO.webp" alt="">
+            <input type="button" value="<" class="atras">
+            <div class="cuerpoCarrusel">
+                <div class="imagenes">
+                    <div class="imagen">
+                        <img src="./assets/img/D_NQ_718313-MLA53587679163_022023-OO.webp" alt="">
+                    </div>
+                    <div class="imagen">
+                        <img src="./assets/img/D_NQ_927039-MLA53514001723_012023-OO.webp" alt="">
+                    </div>
+                    <div class="imagen">
+                        <img src="./assets/img/D_NQ_938120-MLA53589620773_022023-OO.webp" alt="">
+                    </div>
                 </div>
-                <div class="imagen">
-                    <img src="./assets/img/D_NQ_927039-MLA53514001723_012023-OO.webp" alt="">
-                </div>
-                <div class="imagen">
-                    <img src="./assets/img/D_NQ_938120-MLA53589620773_022023-OO.webp" alt="">
+                <div class="puntos">
+                    <div class="punto uno"></div>
+                    <div class="punto dos"></div>
+                    <div class="punto tres"></div>
                 </div>
             </div>
-            <div class="puntos">
-                <div class="punto uno"></div>
-                <div class="punto dos"></div>
-                <div class="punto tres"></div>
-            </div>
+                <input type="button" value=">" class="adelante">
         </div>
-        <input type="button" value=">" class="adelante">
-    </div>
         <div class="tituloPrincipal">
-            <h2 class="titulo">Productos</h2>
+            <h2 class="titulo">Categoria</h2>
+            <hr></hr>
+        </div>
+        <div class="carruselTarjetas">
+            <input type="button" value="<" class="atrasFila">
+            <div class="cuerpoCarruselFila">
+                <div class="filaTarjetasCarrusel">
+                        <div class="contenedorTarjetasCarrusel">
+                            <?php 
+                            //count($lista_prod);
+                            foreach ($lista_prod as $lista_prod) { ?>
+                            <div class="contenedorTarjeta">
+                                <div class="tarjetaProducto tarjetaCarrusel" onclick="document.location.href='<?php echo $basepath."?buy&id=".$lista_prod['id']; ?>'" >
+                                    <p class="nombre"><?php echo $lista_prod['nombre_producto'] ?></p>
+                                    <img class="imgProd" src="
+                                         <?php
+                                         if ($lista_prod['imagen']){
+                                            echo "./assets/img/productos/".$lista_prod['imagen'];
+                                         }else{
+                                            echo "./assets/img/imagen.png";
+                                         }       
+                                         ?>
+                                         " name="imagen producto" alt="">
+                                    <p class="cat"><?php 
+                                    $idc = new categorias($lista_prod['id_categoria']);
+                                    echo $idc->nombre_categoria;
+                                    ?>
+                                    <p class="precio"><?php echo $lista_prod['precio'] ?></p>
+                                    <p class="descripcion"><?php echo $lista_prod['descripcion'] ?> </p>
+                                </div>
+                            </div>
+                            <?php } ?> 
+                        </div>
+                </div>
+            </div>
+            <input type="button" value=">" class="adelanteFila">
+        </div>
+        
+        
+        <section class="seccionTarjetasGrandes">
+            <div class="contenedorTarjetasGrandes">
+                <div class="tarjetaGrande">
+                    <h4 class="nombre">Título</h4>
+                    <img class="imgProdTG" src="./assets/img/imagen.png" alt="alt"/>
+                    <p class="cat">Subtítulo</p>
+                    <p class="precio">Precio si hay</p>
+                    <p class="descripcion">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,/p>
+                </div>
+                <div class="tarjetaGrande">
+                    <h4 class="nombre">Título</h4>
+                    <img class="imgProdTG" src="./assets/img/imagen.png" alt="alt"/>
+                    <p class="cat">Subtítulo</p>
+                    <p class="precio">Precio si hay</p>
+                    <p class="descripcion">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,/p>
+                </div>
+            </div>
+        </section>
+        
+        <div class="tituloPrincipal">
+            <h2 class="titulo">Productos </h2>
             <hr></hr>
         </div>
         <table class="tablaProductos">
-            
             <tbody>
-                
-                
                 <tr class="fila">  
                     <?php 
                     //count($lista_prod);
+                    $lista_prod=productos::listar();
                     foreach ($lista_prod as $lista_prod) { ?>
                         <td>
                             <div class="tarjetaProducto" onclick="document.location.href='<?php echo $basepath."?buy&id=".$lista_prod['id']; ?>'" >

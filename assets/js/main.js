@@ -80,7 +80,6 @@ function moverCarrusel(boton){
     }
 }
 
-
 $('.atras').click(function(){
     moverCarrusel('atras');
     clearInterval(refrescarCarrusel);
@@ -98,3 +97,46 @@ $('.adelante').click(function(){
     },4000)
 })
 refrescarCarrusel = setInterval(()=>{moverCarrusel('adelante')},6000)
+
+
+/*==== carrusel tarjetas =====*/
+
+let movimientos = 1;
+let carrusel = $('.contenedorTarjetasCarrusel');
+let distancia = 0;
+function moverCarruselTarjetas(boton){
+    //let tarjetas = $('.tarjetaProducto').length/2;/*Divido por 2 porque puse tambien la lsita de tarjetas*/
+    //Termine seleccionando con JS vanila porque el jQuery no me seleccionaba la
+    //subclase tarjetaCarrusel
+    let tarjetas = document.getElementsByClassName("tarjetaCarrusel");
+    tarjetas = tarjetas.length;
+    console.log(tarjetas);
+    
+    console.log('Movimientos: '+ movimientos);
+    
+    if (movimientos === (tarjetas-4) && boton === 'adelante'){
+        console.log('apago boton adelante');
+        $('.adelanteFila').css({"display": "none"});
+        $('.atrasFila').css({"display": "block"});
+    }else if(movimientos ===1 && boton === 'atras'){
+        console.log('apago boton atras')
+        $('.atrasFila').css({"display": "none"});
+        $('.aelanteFila').css({"display": "block"});
+    }else if (boton === "adelante" && movimientos !== (tarjetas-4)){
+        distancia = distancia + 240;
+        console.log('distancia: '+distancia)
+        movimientos++;
+        $('.atrasFila').css({"display": "block"});
+        carrusel.css({"left": "-"+distancia+"px"});
+    }else if (boton === "atras" && movimientos !== 1){
+        distancia = distancia - 240;
+        console.log('distancia: '+distancia)
+        movimientos--;
+        $('.adelanteFila').css({"display": "block"});
+        carrusel.css({"left": "-"+distancia+"px"});
+    }
+    
+}
+
+$('.atrasFila').click(function(){moverCarruselTarjetas('atras');});
+$('.adelanteFila').click(function(){moverCarruselTarjetas('adelante');});

@@ -154,7 +154,7 @@ nav{
     width: 100vw;*/
 }
 
-/*================== Carrusel ====================*/
+/*================== Carruseles ====================*/
 :root{
     --hue: 164;
     --colorPrimario: hsl(var(--hue),100%,50%);
@@ -249,6 +249,50 @@ nav{
     transform: scale(1.1);
 }
 
+/*======= Carrusel Tarjetas ========*/
+.carruselTarjetas{
+    margin: 30px 0 80px;
+    border: 3px solid green;
+    display: flex;
+    justify-content: center;
+}
+.filaTarjetasCarrusel{
+    border: 3px solid red;
+    position: relative;
+    margin: 0 auto;
+    max-width: 1200px;
+    transition: 1s;
+    overflow: hidden;
+}
+.contenedorTarjetasCarrusel{
+    border: 3px solid blue;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    transition: 1s;
+}
+.contenedorTarjeta{
+    width: 240px;
+}
+.contenedorTarjeta .tarjetaProducto{
+    margin: 0 8px;
+}
+.carruselTarjetas input{
+    font-family: arial;
+    background: white;
+    border: 1px solid gray;
+    color: #2f4ed6;
+    padding: 0.6% 0.2%;
+    font-size: 3rem;
+    opacity: 20%;
+}
+.carruselTarjetas input:hover{
+    cursor: pointer;
+    opacity: 90%;
+    box-shadow: 0 0 25px 1px rgba(0, 0, 0, 0.5);
+    transition: 0.4s;
+}
+
 /*================== Títulos ====================*/
 
 h2{
@@ -302,7 +346,8 @@ tbody{
     flex-direction: column;
     justify-content: center;
     height: 350px;
-    width: 224px;
+    min-width: 224px;
+    max-width: 224px;
     color: black;
     transition: 0.1s;
     box-sizing: border-box;
@@ -365,6 +410,35 @@ tbody{
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+}
+
+/*============ Tarjetas grandes ==============*/
+
+.seccionTarjetasGreandes{
+    
+}
+.contenedorTarjetasGrandes{
+    margin: 0 auto;
+    border: 1px solid blue;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+}
+.tarjetaGrande{
+    background: white;
+    height: 350px;
+    margin: 0 10px 100px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 10%);
+    background: rgb(253, 253, 253);
+    width: 600px;
+    overflow: hidden;
+}
+.imgProdTG{
+    height: 200px;
+    width: 100%;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 10%);
 }
 
 /*================ Footer ===================*/
@@ -506,6 +580,26 @@ footer{
     tbody{
         margin: 0 10px;
     }
+    
+    /*carrusel tarjetas*/
+    .carruselTarjetas{
+        margin: 0 10px;
+    }
+    .filaTarjetasCarrusel{
+        margin: 0 10px;
+    }
+    .contenedorTarjetasCarrusel{
+        width: 8000px;
+    }
+    .contenedorTarjeta{
+        width: 150px;
+    }
+    .contenedorTarjeta .tarjetaProducto{
+        margin: 0 8px;
+    }
+    .carruselTarjetas input{
+        display: none;
+    }
 
     /*================== Títulos ====================*/
 
@@ -520,7 +614,8 @@ footer{
         flex-direction: column;
         justify-content: center;
         height: 200px;
-        width: 130px;
+        max-width: 130px;
+        min-width: 130px;
     }
     .nombre{
         color: #3483fa;
