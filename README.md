@@ -1,10 +1,11 @@
 # MercadoLan
-<em>Este es un proyecto a modo TP que pertenece a mi carrera en Teclab.</em>
 
 ![name: PHP](https://img.shields.io/badge/-PHP-blue?style=flat-square&logo=PHP&logoColor=white)
 ![name: JS](https://img.shields.io/badge/-JavaScript-yellow?style=flat-square&logo=JavaScript&logoColor=black)
 ![name: HTML](https://img.shields.io/badge/-HTML-orange?style=flat-square&logo=HTML&logoColor=black)
 ![name: CSS](https://img.shields.io/badge/-CSS-blue?style=flat-square&logo=CSS&logoColor=white)
+
+<em>Este es un proyecto a modo TP que pertenece a mi carrera en Teclab.</em>
 
 ## Detalles
 
