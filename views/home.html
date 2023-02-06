@@ -77,13 +77,14 @@ session_start();
                 <input type="button" value=">" class="adelante">
         </div>
         <div class="tituloPrincipal">
-            <h2 class="titulo">Categoria</h2>
+            <h2 class="titulo">Productos</h2>
             <hr></hr>
         </div>
+        
         <div class="carruselTarjetas">
-            <input type="button" value="<" class="atrasFila">
             <div class="cuerpoCarruselFila">
-                <div class="filaTarjetasCarrusel">
+                <input type="button" value="<" class="atrasFila">
+                    <div class="filaTarjetasCarrusel">
                         <div class="contenedorTarjetasCarrusel">
                             <?php 
                             //count($lista_prod);
@@ -110,23 +111,21 @@ session_start();
                             </div>
                             <?php } ?> 
                         </div>
-                </div>
+                    </div>
+                <input type="button" value=">" class="adelanteFila">
             </div>
-            <input type="button" value=">" class="adelanteFila">
         </div>
         
         
         <section class="seccionTarjetasGrandes">
             <div class="contenedorTarjetasGrandes">
                 <div class="tarjetaGrande">
-                    <h4 class="nombre">Título</h4>
                     <img class="imgProdTG" src="./assets/img/imagen.png" alt="alt"/>
                     <p class="cat">Subtítulo</p>
                     <p class="precio">Precio si hay</p>
                     <p class="descripcion">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,/p>
                 </div>
                 <div class="tarjetaGrande">
-                    <h4 class="nombre">Título</h4>
                     <img class="imgProdTG" src="./assets/img/imagen.png" alt="alt"/>
                     <p class="cat">Subtítulo</p>
                     <p class="precio">Precio si hay</p>

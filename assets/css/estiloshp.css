@@ -252,20 +252,24 @@ nav{
 /*======= Carrusel Tarjetas ========*/
 .carruselTarjetas{
     margin: 30px 0 80px;
-    border: 3px solid green;
     display: flex;
     justify-content: center;
 }
+.cuerpoCarruselFila{
+    width: 100%;
+    max-width: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
 .filaTarjetasCarrusel{
-    border: 3px solid red;
-    position: relative;
-    margin: 0 auto;
+    margin: 0 10px 0 0;
+    width: 100%;
     max-width: 1200px;
     transition: 1s;
     overflow: hidden;
 }
 .contenedorTarjetasCarrusel{
-    border: 3px solid blue;
     position: relative;
     display: flex;
     flex-direction: row;
@@ -419,7 +423,6 @@ tbody{
 }
 .contenedorTarjetasGrandes{
     margin: 0 auto;
-    border: 1px solid blue;
     display: flex;
     align-items:center;
     justify-content: center;
@@ -586,10 +589,11 @@ footer{
         margin: 0 10px;
     }
     .filaTarjetasCarrusel{
+        overflow-x: scroll;
         margin: 0 10px;
     }
     .contenedorTarjetasCarrusel{
-        width: 8000px;
+        width: fit-content;
     }
     .contenedorTarjeta{
         width: 150px;
@@ -656,6 +660,19 @@ footer{
         margin: 0px;
         overflow: hidden;
     }
+    
+    /*=== Tarjetas grandes =====*/
+    
+    .tarjetaGrande{
+        height: 200px;
+        margin: 20px 10px 10px;
+    }
+    .imgProdTG{
+        height: 130px;
+        width: 100%;
+        box-shadow: 0 1px 1px 0 rgb(0 0 0 / 10%);
+    }
+    /*=== Footer =====*/
     footer{
     height: 150px;
     }
@@ -669,5 +686,12 @@ footer{
 
     .autor{
         font-size: 10px;
+    }
+}
+@media (max-width: 450px){
+    .contenedorTarjetasGrandes{
+        align-items: center;
+        flex-wrap: wrap;
+        margin: 30px 10px;
     }
 }
