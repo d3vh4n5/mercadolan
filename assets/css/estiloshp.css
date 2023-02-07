@@ -264,6 +264,7 @@ nav{
 }
 .filaTarjetasCarrusel{
     margin: 0 10px 0 0;
+    padding: 10px 0;
     width: 100%;
     max-width: 1200px;
     transition: 1s;
@@ -441,6 +442,7 @@ tbody{
 .imgProdTG{
     height: 200px;
     width: 100%;
+    object-fit: cover;
     box-shadow: 0 1px 1px 0 rgb(0 0 0 / 10%);
 }
 
