@@ -11,7 +11,7 @@
 
 <p>Mercado Lan es un proyecto con nombre de fantasía, creado para cumplir con las actividades prácticas referentes
 a la materia "programación web" de mi tecnicatura superior en programación de <a href="https://www.teclab.edu.ar/">Teclab</a>.
-<br><
+<br>
 El proyecto de momento esta hosteado, y se puede ver a continuación: <a href="https://mercadolan.000webhostapp.com/">"Mercado Lan".</a></p>
 <br>
 
