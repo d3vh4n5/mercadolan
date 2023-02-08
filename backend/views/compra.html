@@ -1,9 +1,9 @@
 <?php
 session_start();
-if (!isset($_SESSION['session1']['nombre'])){
+/*if (!isset($_SESSION['session1']['nombre'])){
     header('location: ./backend/login.php');
     return;
-}
+}*/
 ?>
 
 
@@ -15,37 +15,104 @@ if (!isset($_SESSION['session1']['nombre'])){
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="../assets/css/normalyze.css">
-        <link rel="stylesheet" type="text/css" href="../assets/css/estilos.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/estiloshp.css">
         <link rel="stylesheet" type="text/css" href="./assets/css/normalyze.css">
-        <link rel="stylesheet" type="text/css" href="./assets/css/estilos.css">
+        <link rel="stylesheet" type="text/css" href="./assets/css/estiloshp.css">
     </head>
     <body>
         <header>
-            <img class="logo" sizes="" src="../assets/img/Logo.png" alt="" width="150px;">
-            <a class="btnHome" href="./index.php">🏠</a>
-            <div class="desplegableUsuario">
-                <a href="#" class="btnUsusario"><?php echo $_SESSION['session1']['nombre'] ?></a>
-                <a href="#" class="carrito">🛒 3</a>
-                <div class="menuUsuario">
-                    <ul>
-                        <li><a href="./backend/logout.php">Desconectarse</a></li>
-                        <li><a href="#">Cambiar contraseña</a></li>
-                        <li><a href="#">Cambiar email</a></li>
-                        <li><a href="#">Opción</a></li>
-                    </ul>
-                </div>
-            </div>
+            <img class="logo" sizes="" src="./assets/img/Logo.png" alt="logo">
+
+            <input type="checkbox" id="check">
+            <label for="check"  class="mostrar-menu">
+                &#8801
+            </label>
+            <nav class="menu">
+                <a href="./index.php">Inicio</a>
+                <a href="">Sobre Nosotros</a>
+                <a href="">Blog</a>
+                <?php
+                if (isset($_SESSION['session1']['nombre'])){ ?>
+                    <div class="desplegableUsuario">
+                        <a href="#" class="btnUsusario"><?php echo $_SESSION['session1']['nombre'] ?></a>
+                        <a href="#" class="carrito">🛒 3</a>
+                        <div class="menuUsuario">
+                            <ul>
+                                <li><a href="./backend/logout.php">Desconectarse</a></li>
+                                <?php 
+                                    if ($_SESSION['session1']['nombre'] === '♛ admin'){
+                                        echo "<li><a href='./backend/productos.php'>Agregar productos</a></li>";
+                                        echo "<li><a href='./backend/categorias.php'>Agregar categorías</a></li>";
+                                        echo "<li><a href='./backend/views/incompleto.html'>Ver estadísticas</a></li>";
+                                    }else{
+                                        echo "<li><a href='./backend/views/incompleto.html'>Cambiar contraseña</a></li>";
+                                        echo "<li><a href='./backend/views/incompleto.html'>Cambiar email</a></li>";
+                                        echo "<li><a href='./backend/views/incompleto.html'>Opción</a></li>";
+                                    }
+                                ?>
+                            </ul>
+                        </div>
+                    </div> <?php
+                }else{ ?>
+                    <input type="button" class="botonLog" value="Log in" onclick="document.location.href='./backend/login.php'">
+                <?php } ?>
+                <label for="check"  class="esconder-menu">
+                    &#215
+                </label>
+            </nav>
         </header>
-        <section>
+        <section class="sectionCompra">
             <!--<input type="button" class="botonFoot" value="Agregar Producto" onclick="document.location.href='<?php echo $basepath."?buy&id=".$listaProductos['id']; ?>'">
             -->
             
-            <?php 
+            <?php /*
                 echo "<pre>";
                 print_r($_GET);
                 echo "</pre>";
                 
                 echo "Quizas sea mejor no tener validación"
                 . " aca pero si cuando se haga click en el boton comprar?";
+                */
+                $lista_prod = productos::listar();
+                
+                foreach ($lista_prod as $compra){
+                    if ($compra['id'] === $_GET['id']){
+               
+            ?>
+            <div class="contenedorCompra">
+                <div class="contenedorProductoCompra">
+
+                    
+                    <img class="imgProd" src="
+                         <?php
+                         if ($compra['imagen']){
+                            echo "./assets/img/productos/".$compra['imagen'];
+                         }else{
+                            echo "./assets/img/imagen.png";
+                         }       
+                         ?>
+                         " name="imagen producto" alt="">
+                    
+            
+                </div>
+                <div class="contenedorDatosCompra">
+                    <p class="nombre"><?php echo $compra['nombre_producto'] ?></p>
+                    <p class="cat"><?php 
+                    $idc = new categorias($compra['id_categoria']);
+                    echo $idc->nombre_categoria;
+                    ?>
+                        
+                    <p class="precio"><?php echo $compra['precio'] ?></p>
+                    <p class="descripcion"><?php echo $compra['descripcion'] ?> </p>
+                    <input type="button" value="Comprar">
+                    <input type="button" value="Agregar al carrito">
+                </div>
+            </div>
+            
+            
+            <?php 
+                        die();
+                    }
+                }
             ?>
         </section>
