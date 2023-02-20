@@ -25,20 +25,25 @@ if(isset($_POST['action']) && $_POST['action'] == 'agregar'){/* Con el action so
     $extencion = strtolower(pathinfo($_FILES['imagen']['name'], PATHINFO_EXTENSION));
     if(($extencion!='jpg')&&($extencion!= 'jpeg')&&($extencion!= 'png')&&($extencion!= 'webp')){
         
-        echo"<div class='alert alert-danger' role='alert' style='position:absolute;
+        /*echo"<div class='alert alert-danger' role='alert' style='position:absolute;
             top:50%; left:50%; translate-y;transform: translate(-50%, -50%);
             box-shadow: 0px 0px 10px 1200px rgba(0,0,0,0.3);'>
                 ⚠ ?¡Extención de archivo incorrecta! ⚠<br>
                 <br>Archivos permitidos: png, jpg, jpeg, webp<br>
                 Archivo subido: ".pathinfo($_FILES['imagen']['name'], PATHINFO_EXTENSION)."<br>
                 <button name='back' onclick='history.back()' action='back' class='btn btn-success'>OK</button>
-              </div>";
+              </div>";*/
+        echo "<script> 
+                alert(`⚠ ¡Extención de archivo incorrecta! ⚠ \n\n".
+                        "Archivos permitidos: png, jpg, jpeg, webp \n".
+                        "Extención del archivo subido: ".pathinfo($_FILES['imagen']['name'], PATHINFO_EXTENSION)."`);
+                history.back();
+             </script>";
         die();
     }
     if(!move_uploaded_file($_FILES['imagen']['tmp_name'], '../assets/img/productos/'.$nombre_archivo)){
         die("No se pudo mover el archivo a ".$folder.$nombre_archivo);
     }
-    //die();
     $nuevoProducto = new productos($_POST['codigo_producto']);
     $nuevoProducto->nombre_producto = $_POST['producto'];
     $nuevoProducto->descripcion = $_POST['descripcion'];
