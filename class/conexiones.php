@@ -85,7 +85,7 @@ class conexiones {
     }
     
     public function guardar(){
-        $db = new base_datos("mysql", "miproyecto", "127.0.0.1", "root", "");
+        $db = base_datos::conect();
         $resp = $db->insert("conexiones", "id, ip, agent, navegador, dispositivo, so, fecha,tiempo, tipo_intento, usuario", "?,?,?,?,?,?,?,?,?,?",
                 array($this->id, $this->ip, $this->agent, $this->navegador, $this->dispositivo, $this->so, $this->fecha, $this->tiempo, $this->tipo_intento, $this->usuario));
     
@@ -100,7 +100,7 @@ class conexiones {
         //Listar las conexiones que comparten el usuario, son fallidas y tienen una
          //       diferencia menor de 300 en el time
         $filtros = 'usuario='."'".$this->usuario."'";
-        $db = new base_datos("mysql", "miproyecto", "127.0.0.1", "root", "");
+        $db = base_datos::conect();
         return $db->select("conexiones", $filtros);
     
     }

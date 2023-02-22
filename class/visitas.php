@@ -12,13 +12,14 @@
  */
 //include './autoload.php';
 class visitas {
-    public $id;
+    protected $id;
     public $ip;
     public $agent;
     public $navegador;
     public $dispositivo;
     public $so;
     public $fecha;
+    public $origen;
     
     public function __construct($id = null){
         $this->id = $id++;
@@ -81,9 +82,9 @@ class visitas {
     }
     
     public function guardar(){
-        $db = new base_datos("mysql", "miproyecto", "127.0.0.1", "root", "");
-        $resp = $db->insert("visitas", "id, ip, agent, navegador, dispositivo, so, fecha", "?,?,?,?,?,?,?",
-                array($this->id, $this->ip, $this->agent, $this->navegador, $this->dispositivo, $this->so, $this->fecha));
+        $db = base_datos::conect();
+        $resp = $db->insert("visitas", "id, ip, agent, navegador, dispositivo, so, fecha, origen", "?,?,?,?,?,?,?,?",
+                array($this->id, $this->ip, $this->agent, $this->navegador, $this->dispositivo, $this->so, $this->fecha, $this->origen));
     
         if($resp){
             //echo "agregado correctamenta";

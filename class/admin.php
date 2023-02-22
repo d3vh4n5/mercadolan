@@ -18,7 +18,7 @@ class admin {
     private $exist;
     
     public function __construct($id = null) {
-        $db = new base_datos("mysql", "miproyecto", "127.0.0.1", "root", "");
+        $db = base_datos::conect();
         $resp = $db->select("admin", "id=?", array($id));
         if(isset($resp[0]["id"])){
             $this->id = $resp[0]["id"];
@@ -36,12 +36,12 @@ class admin {
         }
     }
     public function eliminar(){
-        $db = new base_datos("mysql", "miproyecto", "127.0.0.1", "root", "");
+        $db = base_datos::conect();
         return $db->delete("admin", "id=" . $this->id);
     }
     
     public function insertar(){
-        $db = new base_datos("mysql", "miproyecto", "127.0.0.1", "root", "");
+        $db = base_datos::conect();
         $resp = $db->insert("admin", "id, nombre, email, pass", "?,?,?,?",
                 array($this->id, $this->nombre, $this->email, $this->pass));
         
@@ -56,13 +56,13 @@ class admin {
     }
     
     public function actualizar(){
-        $db = new base_datos("mysql", "miproyecto", "127.0.0.1", "root", "");
+        $db = base_datos::conect();
         return $db->update("admin", "id=?, nombre=?, email=?, pass=?", "id=?",
                 array($this->id, $this->nombre, $this->email, $this->pass, $this->id));
     } //en el array anterior creo que falta imagen y id
     
     static function listar(){
-        $db = new base_datos("mysql", "miproyecto", "127.0.0.1", "root", "");
+        $db = base_datos::conect();
         return $db->select("admin");
     }
 }

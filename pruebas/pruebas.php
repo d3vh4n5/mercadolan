@@ -7,6 +7,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <link rel="stylesheet" type="text/css" href="../assets/css/estilos.css">
+        <style>
+            body{
+                background: #000;
+                color: green;
+                overflow-y: scroll;
+            }
+        </style>
     </head>
     <body>
         
@@ -14,9 +21,28 @@
         
 <?php
 
+include '../class/autoload.php';
 
 
+function listar(){
+    $db = base_datos::conect();
+    return $db->select("visitas", "origen<>?", array('Home'));
+}
 
+$lista = listar();
+
+echo "Coincidencias: ".count($lista);
+
+foreach ($lista as $visita){
+    if ($visita['ip']!='152.168.243.71'){
+        echo "<br>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
+        echo "<br>ip: ".$visita['ip'];
+        echo "<br>dispositivo: ".$visita['dispositivo'];
+        echo "<br>origen: ".$visita['origen'];
+        echo "<br>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
+    }
+    
+}
 
 /*
 $file = '\assets\img\productos\325dbb7cb4cf546f6bb38a174b2134ca.png';

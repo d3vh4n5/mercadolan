@@ -2,6 +2,7 @@
 include './class/autoload.php';
 
 $nuevaVisita = new visitas();
+$nuevaVisita->origen = 'Home';
 $nuevaVisita->guardar();
 
 $lista_prod = productos::listar();
