@@ -37,6 +37,8 @@ class visitas {
           $this->navegador = "Opera";
         } else if (preg_match('/Safari[\/\s](\d+\.\d+)/', $this->agent) ) {
           $this->navegador = "Safari";
+        } else if (preg_match('/SamsungBrowser[\/\s](\d+\.\d+)/', $this->agent) ) {
+          echo "<br>Navegador: SamsungBrowser";
         }
         
         $iphone = is_numeric(strpos(strtolower($_SERVER['HTTP_USER_AGENT']), 'iphone'));
@@ -45,6 +47,7 @@ class visitas {
         $blackberry = is_numeric(strpos(strtolower($_SERVER['HTTP_USER_AGENT']), 'blackberry'));
         $ipod = is_numeric(strpos(strtolower($_SERVER['HTTP_USER_AGENT']), 'ipod'));
         $ipad = is_numeric(strpos(strtolower($_SERVER['HTTP_USER_AGENT']), 'ipad'));
+        $samsung = is_numeric(strpos(strtolower($_SERVER['HTTP_USER_AGENT']), 'SamsungBrowser'));
 
         if ($iphone){
             $this->dispositivo = "iPhone";
@@ -64,6 +67,9 @@ class visitas {
         }else if ($ipad){
             $this->dispositivo = "iPad";
             $this->so = "iPad OS";
+        }else if ($samsung){
+            $this->dispositivo = "Samsung";
+            $this->so =  "Android";
         }else{
             $this->dispositivo = "Computer";
             $win = is_numeric(strpos(strtolower($_SERVER['HTTP_USER_AGENT']), 'win'));
