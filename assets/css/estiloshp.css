@@ -3,7 +3,9 @@
     Created on : 24 nov 2022, 22:04:29
     Author     : Hans
 */
-
+html{
+    scroll-behavior: smooth;
+}
 body{
     height: 100vh;
     background: #e7e7e7;
@@ -743,6 +745,13 @@ footer{
         box-shadow: 0 1px 1px 0 rgb(0 0 0 / 10%);
     }
     /*=== Footer =====*/
+    .volverInicio{
+        /* se agregó el estilo a la etiqueta html con el smooth scroll*/
+        all: unset;
+        cursor: pointer;
+        padding: 5px 15px;
+        border: 1px solid gray;
+    }
     footer{
     height: 150px;
     }

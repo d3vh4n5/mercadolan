@@ -40,7 +40,20 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 </div>
             </div>
         </header>
-        <div class="contenedor">
+        <fieldset class="contenedor">
+            <legend
+                style="
+                    padding: 4px 15px;
+                    border-top: 1px solid blue;
+                    border-left: 1px solid blue;
+                    border-right: 1px solid blue;
+                    border-radius: 0 10px 0 10px;
+                    background: linear-gradient(rgba(0, 0, 0, 0.712), rgba(66, 105, 205, 0.3));
+                    backdrop-filter: blur(20px);
+
+                    box-shadow: 0px -5px 15px 3px rgba(66, 105, 205, 0.6);
+                "
+                >Ingreso de productos</legend>
             <form method="post" name="elformulario" action="./productos.php" id="form_productos" enctype="multipart/form-data">
                 <!-- 
                 <label>ID</label>
@@ -91,7 +104,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <button type="button" id="btn_cancelar" class="btn_cancelar">Cancelar</button>
                 <button type="submit" name="action" id="enviar" value="agregar" class="btn_guardar">Guardar</button>
             </form>
-        </div>
+        </fieldset>
         
         
         
