@@ -9,7 +9,7 @@ require './views/login.html';
 
 function detector($var){
     $var = filter_var($var, FILTER_SANITIZE_SPECIAL_CHARS);
-    if (strpos($var, "<")|| strpos($var, ">")|| strpos($var, "\\")|| strpos($var, "/")|| strpos($var, "(")|| strpos($var, ")")|| strpos($var, "'")|| strpos($var, '"')){
+    if (strpos($var, "<")|| strpos($var, ">")|| strpos($var, "\\")|| strpos($var, "/")|| strpos($var, "(")|| strpos($var, ")")|| strpos($var, "'")|| strpos($var, '"') || strpos($var, ';')){
         die("<div class='alert alert-danger' role='alert' style='position:absolute;
             top:50%; left:50%; translate-y;transform: translate(-50%, -50%);
             box-shadow: 0px 0px 10px 1200px rgba(0,0,0,0.3);'>
