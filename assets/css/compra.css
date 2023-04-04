@@ -1,0 +1,126 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 3 abr 2023, 23:46:24
+    Author     : Hans
+*/
+
+/*=============== Compras ==================*/
+.sectionCompra{
+    height: 89vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contenedorCompra{
+    box-shadow: 0px 2px 5px 1px rgba(0,0,0,0.2);
+    height: 80%;
+    width: 60%;
+    min-width: fit-content;
+    border-radius: 10px;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+}
+.contenedorProductoCompra{
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    
+}
+.contenedorProductoCompra img{
+    height: 35em;
+    min-width: 35em;
+}
+.contenedorDatosCompra{
+    width: 30%;
+    padding: 55px;
+    border-left: 1px solid lightgrey;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    font-size: 30px;
+}
+.btn{
+    text-decoration: none;
+    width: 300px;
+    cursor: pointer;
+    color: #000;
+    margin: 1rem;
+    padding: 8px 30px;
+    border: 1px solid green;
+    font-weight: 900;
+    font-size: 14px;
+    transition: 0.2s;
+    border-radius: 6px;
+    background: linear-gradient(180deg,#94e733,#36d521 50%,#1ec725 51%,#008e3a);
+    font-family: playbold,Arial,sans-serif;
+    text-shadow: 1px 1px #9fe75c;
+}
+.btn:hover{
+    transform: scale(1.03);
+    background: linear-gradient(180deg,#94e733,#94e733 50%,#1ec725 51%,#008e3a);
+    transition: 0.2s;
+    border: 1px solid #061a02;
+    box-shadow: 0px 0px 3px 3px rgba(159, 231, 92, 0.6);
+}
+.stockCompra{
+}
+
+@media (max-width: 1200px){
+    body{
+        background: transparent;
+    }
+    .contenedorCompra{
+        box-shadow: none;
+        height: 100%;
+        width: 100%;
+        flex-direction: column;
+    }
+    .contenedorProductoCompra{
+        width: auto;
+    }
+    .contenedorDatosCompra{
+        width: auto;
+        justify-content: center;
+        align-items: center;
+    }
+}
+@media (max-width: 768px){
+    /*xxxxxxxxxxx Compra xxxxxxxxxxxxx*/
+    .sectionCompra{
+        padding: 0 10px;
+    }
+    .contenedorCompra{
+        flex-direction: column;
+        width: 100%;
+    }
+    .contenedorProductoCompra{
+        padding: 0;
+        width: auto;
+        font-size: 10px;
+    }
+    .contenedorProductoCompra img{
+        margin: 0 auto;
+        width: 70%;
+    }
+    .contenedorDatosCompra{
+        border-top: 1px solid lightgrey;
+        border-left: 0;
+        padding: 30px;
+        width: auto;
+        display: flex;
+        justify-content: space-around;
+        font-size: 25px;
+    }
+    .contenedorDatosCompra input{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0;
+    }
+}

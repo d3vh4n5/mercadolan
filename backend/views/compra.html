@@ -14,10 +14,9 @@ session_start();
         <title style="font-family: monospace !important;">Lista de Productos</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="../assets/css/normalyze.css">
-        <link rel="stylesheet" type="text/css" href="../assets/css/estiloshp.css">
         <link rel="stylesheet" type="text/css" href="./assets/css/normalyze.css">
         <link rel="stylesheet" type="text/css" href="./assets/css/estiloshp.css">
+        <link rel="stylesheet" type="text/css" href="./assets/css/compra.css">
     </head>
     <body>
         <header>
@@ -104,8 +103,15 @@ session_start();
                         
                     <p class="precio"><?php echo $compra['precio'] ?></p>
                     <p class="descripcion"><?php echo $compra['descripcion'] ?> </p>
-                    <input type="button" value="Comprar">
-                    <input type="button" value="Agregar al carrito">
+                    <form method="POST">
+                        <label>Cantidad:</label>
+                        <!-- Creo la variable $stock para reemplazar temporalmente a $compra['stock']  -->
+                        <?php $stock = 22; ?>
+                        <input type="number" class="stockCompra" value='1' max="<?php echo $stock; ?>">  
+                        <p class="descripcion"><?php echo $stock.' disponibles' ?> </p>
+                        <input type="button" class="btn compra" value="Comprar">
+                        <input type="button" class="btn agregar" value="Agregar al carrito">
+                    </form>
                 </div>
             </div>
             
