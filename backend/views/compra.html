@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 /*if (!isset($_SESSION['session1']['nombre'])){
     header('location: ./backend/login.php');
     return;
@@ -101,7 +101,7 @@ session_start();
                     echo $idc->nombre_categoria;
                     ?>
                         
-                    <p class="precio"><?php echo $compra['precio'] ?></p>
+                    <p class="precio"><?php echo '$'.$compra['precio'] ?></p>
                     <p class="descripcion"><?php echo $compra['descripcion'] ?> </p>
                     <form method="POST">
                         <label>Cantidad:</label>
@@ -109,8 +109,8 @@ session_start();
                         <?php $stock = 22; ?>
                         <input type="number" class="stockCompra" value='1' max="<?php echo $stock; ?>">  
                         <p class="descripcion"><?php echo $stock.' disponibles' ?> </p>
-                        <input type="button" class="btn compra" value="Comprar">
-                        <input type="button" class="btn agregar" value="Agregar al carrito">
+                        <button class="btn compra" name="action" value="comprar">Comprar</button>
+                        <button class="btn agregar" name="action" value="agregarAlCarrito">Agregar al carrito</button>
                     </form>
                 </div>
             </div>

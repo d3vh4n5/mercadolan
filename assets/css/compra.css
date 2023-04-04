@@ -70,7 +70,27 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 }
 .stockCompra{
 }
-
+.alertaLog{
+    background: white;
+    position:absolute;
+    top:50%; left:50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 10px 15px 5px rgba(0,0,0,0.3),
+        0px 0px 10px 1200px rgba(0,0,0,0.3);
+    border: 1px solid orange;
+    border-radius: 10px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.alertaLog button{
+    padding: 5px;
+    width: 200px;
+    border: 1px solid orangered;
+    background: lightblue;
+    color: black;
+}
 @media (max-width: 1200px){
     body{
         background: transparent;
