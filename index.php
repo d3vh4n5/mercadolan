@@ -17,9 +17,14 @@ if (isset($_GET['buy'])) {
     die();
 }
 if (isset ($_POST['action'])){
+    if ($_POST['valorBusqueda'] !== ''){
     include './backend/busqueda.php';
     die();
     //header('location: ./backend/busqueda.php?valorBusqueda='.$_POST['valorBusqueda']);
+    }else {
+        
+    }
+    
 }
 
 $basepath = $_SERVER['SCRIPT_NAME'];

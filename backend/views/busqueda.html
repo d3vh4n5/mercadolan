@@ -72,7 +72,7 @@ session_start();
                         foreach ($lista_prod as $lista_prod) {
                             $idc = new categorias($lista_prod['id_categoria']);
                             $valorBusqueda = strtolower($_POST['valorBusqueda']);
-                            if (strtolower($lista_prod['nombre_producto']) == $valorBusqueda || strtolower($idc->nombre_categoria)  == $valorBusqueda || strpos(strtolower($lista_prod['descripcion']),$valorBusqueda) ){
+                            if (strpos(strtolower($lista_prod['nombre_producto']), $valorBusqueda) !==false || strpos (strtolower($idc->nombre_categoria), $valorBusqueda) !==false || strpos( strtolower($lista_prod['descripcion']), $valorBusqueda) ){
                                 ?>
                                 <td>
                                     <div class="tarjetaProducto" onclick="document.location.href='<?php echo $basepath."?buy&id=".$lista_prod['id']; ?>'" >
