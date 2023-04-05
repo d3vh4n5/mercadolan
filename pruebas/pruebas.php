@@ -23,7 +23,14 @@
 
 include '../class/autoload.php';
 
+$valorBusqueda= 'her';
 
+echo 'hoola';
+echo strpos(strtolower('Herramientas'), $valorBusqueda) !== false;
+
+
+
+/*
 function listar(){
     $db = base_datos::conect();
     return $db->select("visitas", "origen<>?", array('Home'));
