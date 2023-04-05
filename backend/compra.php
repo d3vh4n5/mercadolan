@@ -18,7 +18,8 @@ if (isset($_POST['action'])){
               </div>";
         echo $mensaje;
     } else {
-        echo "<p style='background: orange; '>Flow en construcción</p>";
+        header('location: ./backend/carrito.php');
+        //echo "<p style='background: orange; '>Flow en construcción</p>";
     }
     
 }

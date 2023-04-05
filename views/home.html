@@ -14,12 +14,16 @@ session_start();
 <body>
     <header id="inicio">
         <img class="logo" sizes="" src="./assets/img/Logo.png" alt="logo">
-        
+
         <input type="checkbox" id="check">
         <label for="check"  class="mostrar-menu">
             &#8801
         </label>
         <nav class="menu">
+        <form class="buscador" role="search" method="POST">
+            <input class="inputBuscador" name="valorBusqueda" type="text" placeholder="🔍">
+            <button class="btnBuscador" type="submit" name="action" value="busqueda">Buscar</button>
+        </form>
             <a href="">Inicio</a>
             <a href="">Sobre Nosotros</a>
             <a href="">Blog</a>
@@ -27,7 +31,7 @@ session_start();
             if (isset($_SESSION['session1']['nombre'])){ ?>
                 <div class="desplegableUsuario">
                     <a href="#" class="btnUsusario"><?php echo $_SESSION['session1']['nombre'] ?></a>
-                    <a href="#" class="carrito">🛒 3</a>
+                    <a href="./backend/carrito.php" class="carrito">🛒 3</a>
                     <div class="menuUsuario">
                         <ul>
                             <li><a href="./backend/logout.php">Desconectarse</a></li>

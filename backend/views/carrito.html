@@ -1,0 +1,48 @@
+<?php
+session_start();
+if (!isset($_SESSION['session1']['nombre'])){
+    header('location: login.php');
+    return;//Esto impide que se ejecute el resto de la página en caso de error con el header o el session
+}
+?>
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Carrito</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../assets/css/normalyze.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/estilos.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/carrito.css">
+    </head>
+    <body>
+        <header>
+            <img class="logo" sizes="" src="../assets/img/Logo.png" alt="" width="150px;">
+            <a class="btnHome" href="../index.php">🏠</a>
+            <div class="desplegableUsuario">
+                <a href="#"><?php echo $_SESSION['session1']['nombre'] ?></a>
+                <div class="menuUsuario">
+                    <ul>
+                        <li><a href="./logout.php">Desconectarse</a></li>
+                        <?php 
+                            if ($_SESSION['session1']['nombre'] === '♛ admin'){
+                                echo "<li><a href='./productos.php'>Agregar productos</a></li>";
+                                echo "<li><a href='./categorias.php'>Agregar categorías</a></li>";
+                                echo "<li><a href='./views/incompleto.html'>Ver estadísticas</a></li>";
+                            }
+                        ?>
+                    </ul>
+                </div>
+            </div>
+        </header>
+    </body>
+    
+    <h1>⚠️</h1>
+    
+    🛠️⚙️     Pagina en construcción     🧰🪚
+    
+</html>
