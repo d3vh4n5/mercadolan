@@ -9,6 +9,7 @@
     margin: 50px auto;
     padding: 30px;
     background: whitesmoke;
+    opacity: .9;
 }
 hr{
     width: 100%;
@@ -23,4 +24,13 @@ a{
     right: 10%;
     bottom: -30%;
     opacity: .2;
+}
+@media (max-width: 1500px){
+    .contenedorPrincipal{
+        opacity: .75;
+    }
+    .pcFondo{
+        position: fixed;
+        right: -20%;
+    }
 }
