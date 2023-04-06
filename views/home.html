@@ -25,8 +25,8 @@ session_start();
             <button class="btnBuscador" type="submit" name="action" value="busqueda">Buscar</button>
         </form>
             <a href="">Inicio</a>
-            <a href="">Sobre Nosotros</a>
-            <a href="">Blog</a>
+            <a href="#ofertas">Ofertas</a>
+            <a href="./backend/acerca_de.php">Acerca de</a>
             <?php
             if (isset($_SESSION['session1']['nombre'])){ ?>
                 <div class="desplegableUsuario">
@@ -121,7 +121,7 @@ session_start();
         </div>
         
         
-        <section class="seccionTarjetasGrandes">
+        <section id="ofertas" class="seccionTarjetasGrandes">
             <div class="contenedorTarjetasGrandes">
                 <div class="tarjetaGrande">
                     <img class="imgProdTG" src="./assets/img/Banner" alt="alt"/>

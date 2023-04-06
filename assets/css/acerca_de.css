@@ -1,0 +1,26 @@
+
+/* 
+    Created on : 5 abr 2023, 22:53:18
+    Author     : Hans
+*/
+
+.contenedorPrincipal{
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 30px;
+    background: whitesmoke;
+}
+hr{
+    width: 100%;
+}
+a{
+    font-weight: 600;
+    color: #2f4ed6;
+}
+.pcFondo{
+    position: absolute;
+    z-index: -2;
+    right: 10%;
+    bottom: -30%;
+    opacity: .2;
+}
