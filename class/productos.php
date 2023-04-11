@@ -9,6 +9,7 @@ class productos {
     public $precio;
     public $id_categoria;
     public $imagen;
+    public $stock;
     private $exist;
    
     public function __construct($id = null) {
@@ -23,6 +24,7 @@ class productos {
                 $this->precio = $resp[0]["precio"];
                 $this->categoria = $resp[0]["id_categoria"];
                 $this->imagen = $resp[0]['imagen'];
+                $this->stock = $resp[0]['stock'];
                 $this->exist = true;
             }
         } else {
@@ -54,8 +56,8 @@ class productos {
     
     public function insertar(){
         $db = base_datos::conect();
-        $resp = $db->insert("productos", "id, nombre_producto, descripcion, precio, id_categoria, imagen", "?,?,?,?,?,?",
-                array($this->id, $this->nombre_producto, $this->descripcion, $this->precio, $this->id_categoria, $this->imagen));
+        $resp = $db->insert("productos", "id, nombre_producto, descripcion, precio, id_categoria, imagen, stock", "?,?,?,?,?,?,?",
+                array($this->id, $this->nombre_producto, $this->descripcion, $this->precio, $this->id_categoria, $this->imagen, $this->stock));
         
         if($resp){
             $this->id = $resp;
@@ -69,8 +71,8 @@ class productos {
     
     public function actualizar(){
         $db = base_datos::conect();
-        return $db->update("productos", "id=?, nombre_producto=?, descripcion=?, precio=?, id_categoria=?, imagen=?", "id=?",
-                array($this->id, $this->nombre_producto, $this->descripcion, $this->precio, $this->id_categoria, $this->imagen, $this->id));
+        return $db->update("productos", "id=?, nombre_producto=?, descripcion=?, precio=?, id_categoria=?, imagen=?, stock=?", "id=?",
+                array($this->id, $this->nombre_producto, $this->descripcion, $this->precio, $this->id_categoria, $this->imagen,$this->stock, $this->id));
     } //en el array anterior creo que falta imagen y id
     
     static function listar(){

@@ -49,6 +49,7 @@ if (!isset($_SESSION['session1']['nombre']) || $_SESSION['session1']['nombre'] !
                     <th class="titulosTablas">Nombre</th>   
                     <th class="titulosTablas">Descripcion</th>  
                     <th class="titulosTablas">Precio</th>  
+                    <th class="titulosTablas">Stock</th>  
                     <th class="titulosTablas">Categoria ID</th>
                     <th class="titulosTablas">Categoría</th>
                     <th class="titulosTablas">Imagen</th>
@@ -71,6 +72,7 @@ if (!isset($_SESSION['session1']['nombre']) || $_SESSION['session1']['nombre'] !
                        <td <?php if (($alter % 2) == 0 ){echo "style='background: #e7e7e7 !important;'"; } ?> ><?php echo $listaProductos['nombre_producto'] ?></td> 
                        <td style="max-width: 500px;<?php if (($alter % 2) == 0 ){echo 'background: #e7e7e7 !important;'; } ?>"><?php echo $listaProductos['descripcion'] ?></td>
                        <td <?php if (($alter % 2) == 0 ){echo "style='background: #e7e7e7 !important;'"; } ?> ><?php echo "$ ".$listaProductos['precio'] ?></td>
+                       <td <?php if (($alter % 2) == 0 ){echo "style='background: #e7e7e7 !important;'"; } ?> ><?php echo $listaProductos['stock'] ?></td>
                        <td <?php if (($alter % 2) == 0 ){echo "style='background: #e7e7e7 !important;'"; } ?> ><?php echo $listaProductos['id_categoria'] ?></td>
                        <td <?php if (($alter % 2) == 0 ){echo "style='background: #e7e7e7 !important;'"; } ?> ><?php echo categorias::nombrecat($listaProductos['id_categoria']); ?></td>
                        <td <?php if (($alter % 2) == 0 ){echo "style='background: #e7e7e7 !important;'"; } ?> ><?php echo $listaProductos['imagen'] ?></td>
@@ -79,7 +81,7 @@ if (!isset($_SESSION['session1']['nombre']) || $_SESSION['session1']['nombre'] !
                </tbody>  
                <tfoot>
                    <tr class="trNoHover">
-                       <td colspan="8" class="tfoot">
+                       <td colspan="9" class="tfoot">
                            <input type="button" class="botonFoot" value="Agregar Producto" onclick="document.location.href='<?php echo $basepath."?add" ?>'">
                            <input type="button" class="botonFoot" value="Agregar Categorías" onclick="document.location.href='./categorias.php'">
                        </td>

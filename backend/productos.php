@@ -50,6 +50,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'agregar'){/* Con el action so
     $nuevoProducto->precio = $_POST['precio'];
     $nuevoProducto->id_categoria = $_POST['categoria'];
     $nuevoProducto->imagen = $nombre_archivo;
+    $nuevoProducto->stock = $_POST['stock'];
     $nuevoProducto->guardar();
     if (!$nuevoProducto->guardar()){
         die("En estos momentos, no podemos realizar la operación solicitada");
