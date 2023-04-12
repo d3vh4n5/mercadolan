@@ -62,7 +62,7 @@ $("#form_productos").submit(function(){
     if ($.trim(nombreProducto)===''){
         errores.push("Espacio en blanco en: Nombre del producto");
     };
-    if ($.trim(imagenProducto)===''){
+    if ($.trim(imagenProducto)==='' && $.trim(imagenProducto.val())===''){
         errores.push("Agregar Imagen del producto");
     };
     if ($.trim(descripcion)===''){
