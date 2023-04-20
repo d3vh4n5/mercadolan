@@ -25,6 +25,13 @@ a{
     bottom: -30%;
     opacity: .2;
 }
+blockquote{
+    border: 1px solid orange;
+    padding: 10px;
+}
+section img{
+    width: 100%;
+}
 @media (max-width: 1500px){
     .contenedorPrincipal{
         opacity: .75;

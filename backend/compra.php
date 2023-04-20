@@ -18,8 +18,25 @@ if (isset($_POST['action'])){
               </div>";
         echo $mensaje;
     } else {
-        header('location: ./backend/carrito.php');
-        //echo "<p style='background: orange; '>Flow en construcción</p>";
+        if ($_POST['action'] == 'comprar'){
+            echo '<script>alert("Se compró algo '.$_GET['id'].'")</script>';
+            include './backend/views/confirmacion_compra.html';
+            /* Luego de ver la dificultad para manipular la cantidad al confirmar la compra
+             * llegué a la conclución de que hay que crear un nuevo objeto
+             * y guardarle en la base de datos con el nombre de "compra instantanea" 
+                o algo así, ya que de todos modos esta compra de 1 solo objeto hay que 
+             * registrarlo en la DB. Y junto con este objeto que se guarde
+             * la cantidad.             */
+            die();
+        } else {
+            /*Aqui en lugar de redirigir tiene que guardar el objeto en carritos
+en la base de datos y mostrar un cartel de que se agrego correctamente.
+             * 
+             * soolo el carrito del desplegable de usuario redirigirá a la página
+             *  de carrito             */
+            header('location: ./backend/carrito.php');
+            echo "<p style='background: orange; '>Flow en construcción</p>";
+        }
     }
     
 }
@@ -28,5 +45,5 @@ if (isset($_POST['action'])){
 
 
 
-require './backend/views/compra.html';
 $basepath = $_SERVER['SCRIPT_NAME'];
+require './backend/views/compra.html';

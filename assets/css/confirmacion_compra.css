@@ -3,10 +3,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to c
 Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
 */
 /* 
-    Created on : 5 abr 2023, 10:29:21
+    Created on : 18 abr 2023, 12:05:57
     Author     : Hans
 */
 
+.contenedorCompra{
+    background: pink;
+    display: flex;
+    flex-direction: row;
+    border: 3px solid orange;
+}
 .imgConstruccion{
     max-width: 100%;
 }
