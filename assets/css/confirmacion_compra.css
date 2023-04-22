@@ -7,12 +7,85 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     Author     : Hans
 */
 
-.contenedorCompra{
-    background: pink;
+.contenedorCompra, .envios, .formaPago{
+    background: white;
+    padding: 10px;
+    margin: 50px auto;
     display: flex;
     flex-direction: row;
-    border: 3px solid orange;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid lightgray;
+    max-width: 1200px; 
+}
+.precio{
+    margin: 0 !important;
+}
+.imgPago, .imgEnvios{
+    width: 100px;
 }
 .imgConstruccion{
     max-width: 100%;
+}
+.legales{
+    max-width: 400px;
+    text-align: center;
+}
+.btn{
+    text-decoration: none;
+    width: 300px;
+    cursor: pointer;
+    color: #000;
+    margin: 1rem;
+    padding: 8px 30px;
+    border: 1px solid green;
+    font-weight: 900;
+    font-size: 14px;
+    transition: 0.2s;
+    border-radius: 6px;
+    background: linear-gradient(180deg,#94e733,#36d521 50%,#1ec725 51%,#008e3a);
+    font-family: playbold,Arial,sans-serif;
+    text-shadow: 1px 1px #9fe75c;
+}
+.btn:hover{
+    transform: scale(1.03);
+    background: linear-gradient(180deg,#94e733,#94e733 50%,#1ec725 51%,#008e3a);
+    transition: 0.2s;
+    border: 1px solid #061a02;
+    box-shadow: 0px 0px 3px 3px rgba(159, 231, 92, 0.6);
+}
+.alertaLog{
+    background: white;
+    position:absolute;
+    top:50%; left:50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 10px 15px 5px rgba(0,0,0,0.3),
+        0px 0px 10px 1200px rgba(0,0,0,0.7);
+    border: 1px solid orange;
+    border-radius: 10px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.alertaLog button{
+    padding: 5px;
+    width: 200px;
+    border: 1px solid orangered;
+    background: lightblue;
+    color: black;
+}
+@media (max-width: 800px){
+    .legales{
+        font-size: 10px;
+    }
+    .-uno{
+        display: none;
+    }
+    .descripcion{
+        height: 30px;
+    }
+    .imgPago, .imgEnvios{
+        width: 60px;
+    }
 }

@@ -1,9 +1,9 @@
 <?php
-//session_start();
-/*if (!isset($_SESSION['session1']['nombre'])){
+session_start();
+if (!isset($_SESSION['session1']['nombre'])){
     header('location: ./backend/login.php');
     return;
-}*/
+}
 ?>
 
 
@@ -14,22 +14,22 @@
         <title style="font-family: monospace !important;">Producto</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="./assets/css/normalyze.css">
-        <link rel="stylesheet" type="text/css" href="./assets/css/estiloshp.css">
-        <link rel="stylesheet" type="text/css" href="./assets/css/confirmacion_compra.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/normalyze.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/estiloshp.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/confirmacion_compra.css">
     </head>
     <body>
         <header>
-            <img class="logo" sizes="" src="./assets/img/Logo.png" alt="logo">
+            <img class="logo" sizes="" src="../assets/img/Logo.png" alt="logo">
 
             <input type="checkbox" id="check">
             <label for="check"  class="mostrar-menu">
                 &#8801
             </label>
             <nav class="menu">
-                <a href="./index.php">Inicio</a>
-                <a href="./index.php#ofertas">Ofertas</a>
-                <a href="./backend/acerca_de.php">Acerca de</a>
+                <a href="../index.php">Inicio</a>
+                <a href="../index.php#ofertas">Ofertas</a>
+                <a href="./acerca_de.php">Acerca de</a>
                 <?php
                 if (isset($_SESSION['session1']['nombre'])){ ?>
                     <div class="desplegableUsuario">
@@ -37,16 +37,16 @@
                         <a href="#" class="carrito">🛒 3</a>
                         <div class="menuUsuario">
                             <ul>
-                                <li><a href="./backend/logout.php">Desconectarse</a></li>
+                                <li><a href="./logout.php">Desconectarse</a></li>
                                 <?php 
                                     if ($_SESSION['session1']['nombre'] === '♛ admin'){
-                                        echo "<li><a href='./backend/productos.php'>Agregar productos</a></li>";
-                                        echo "<li><a href='./backend/categorias.php'>Agregar categorías</a></li>";
-                                        echo "<li><a href='./backend/views/incompleto.html'>Ver estadísticas</a></li>";
+                                        echo "<li><a href='./productos.php'>Agregar productos</a></li>";
+                                        echo "<li><a href='./categorias.php'>Agregar categorías</a></li>";
+                                        echo "<li><a href='./views/incompleto.html'>Ver estadísticas</a></li>";
                                     }else{
-                                        echo "<li><a href='./backend/views/incompleto.html'>Cambiar contraseña</a></li>";
-                                        echo "<li><a href='./backend/views/incompleto.html'>Cambiar email</a></li>";
-                                        echo "<li><a href='./backend/views/incompleto.html'>Opción</a></li>";
+                                        echo "<li><a href='./views/incompleto.html'>Cambiar contraseña</a></li>";
+                                        echo "<li><a href='./views/incompleto.html'>Cambiar email</a></li>";
+                                        echo "<li><a href='./views/incompleto.html'>Opción</a></li>";
                                     }
                                 ?>
                             </ul>
@@ -92,40 +92,60 @@
                     <img class="imgProd" src="
                          <?php
                          if ($compra['imagen']){
-                            echo "./assets/img/productos/".$compra['imagen'];
+                            echo "../assets/img/productos/".$compra['imagen'];
                          }else{
-                            echo "./assets/img/imagen.png";
+                            echo "../assets/img/imagen.png";
                          }       
                          ?>
                          " name="imagen producto" alt="">
                     
             
                 </div>
+                
+                <div>
+                    <p class="legales -uno">
+                        Al confirmar aceptás los términos generales de la web y las condiciones particulares de este producto.
+                        
+                    </p>
+                </div>
+                
                 <div class="contenedorDatosCompra">
                     <p class="nombre"><?php echo $compra['nombre_producto'] ?></p>
                     <p class="cat"><?php 
                     $idc = new categorias($compra['id_categoria']);
                     echo $idc->nombre_categoria;
-                    ?>
-                        
-                    <p class="precio"><?php echo '$'.$compra['precio'] ?> x cantidad</p>
+                    ?> 
+                    <p class="cat">Cantidad: <?php echo $_GET['c']; ?></p>
                     <p class="descripcion"><?php echo $compra['descripcion'] ?> </p>
-                     <label>Cantidad: (Será un numero recuperado edla base de datos)</label>
-    
                 </div>
+                    <p class="precio"><?php echo '$'.$compra['precio']*$_GET['c'] ?></p>
+            </div>
+            <div class="envios">
+                <img class="imgEnvios" src="../assets/img/envio.avif">
+                <p class="legales">Lorem ipsum dolor sit amet, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                <p class="precio">1250.30</p>
+            </div>
+            <div class="formaPago">
+                <img class="imgPago" src="../assets/img/mercado_pago.webp">
+                <p class="legales">Lorem ipsum dolor sit amet, quis nostrulaboris nisi ut aliquip ex ea commodo consequat. </p>
+                <p class="precio">120.30</p>
+            </div>
+            <div class="formaPago">
+                <p class="cat">Total</p>
+                <p class="precio"><?php echo '$'.($compra['precio']*$_GET['c']+(120.3+1250.3)) ?></p>
             </div>
             
-            
     <center>
+        <form method="post">
+            
         <button class="btn confirmar" name="action" value="confirmar" >Pagar y Confirmar</button>
+        </form>
         <br>
-        <img class="imgConstruccion" src="./assets/img/home-slider.gif">
+        <!-- <img class="imgConstruccion" src="../assets/img/home-slider.gif"> 
         <h1>⚠️</h1>
         🛠️⚙️     Pagina en construcción     🧰🪚
         <br>
-        <?php 
-            echo 'Vas a comprar el producto: '.$_GET['id'];
-        ?>
+        -->
     </center>
             <?php 
                         die();

@@ -107,7 +107,7 @@
                         <label>Cantidad:</label>
                         <!-- Creo la variable $stock para reemplazar temporalmente a $compra['stock']  -->
                         <?php $compra['stock']; ?>
-                        <input type="number" class="stockCompra" value='1' max="<?php echo $compra['stock'] ?>">  
+                        <input type="number" class="stockCompra" name="cantidad" value='1' max="<?php echo $compra['stock'] ?>">  
                         <p class="descripcion"><?php echo $compra['stock'].' disponibles' ?> </p>
                         <button class="btn compra" name="action" value="comprar">Comprar</button>
                         <button class="btn agregar" name="action" value="agregarAlCarrito">Agregar al carrito</button>
