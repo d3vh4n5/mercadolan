@@ -1,5 +1,6 @@
 <?php
-
+session_start();
+ob_start();
 include '../class/autoload.php';
 
 
@@ -16,6 +17,7 @@ if (isset($_POST['action'])){
             <br>
             <button name='back' onclick='document.location.href=".'"'.'../index.php'.'"'."' action='back'>OK</button>
           </div>";
+    ob_end_clean();
     echo $mensaje;
 }
 
