@@ -11,7 +11,7 @@
 
 <html>
     <head>
-        <title style="font-family: monospace !important;">Producto</title>
+        <title style="font-family: monospace !important;">Compra</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="./assets/css/normalyze.css">
@@ -31,10 +31,18 @@
                 <a href="./index.php#ofertas">Ofertas</a>
                 <a href="./backend/acerca_de.php">Acerca de</a>
                 <?php
-                if (isset($_SESSION['session1']['nombre'])){ ?>
+                if (isset($_SESSION['session1']['nombre'])){ 
+                    $carritos = carritos::listar();
+                $cantidadItems = 0;
+                foreach ($carritos as $carrito){
+                    if ($carrito['id_usuario'] === $_SESSION['session1']['id']){
+                        $cantidadItems += 1;
+                    }
+                }
+                    ?>
                     <div class="desplegableUsuario">
                         <a href="#" class="btnUsusario"><?php echo $_SESSION['session1']['nombre'] ?></a>
-                        <a href="#" class="carrito">🛒 3</a>
+                        <a href="./backend/carrito.php" class="carrito">🛒 <?php echo $cantidadItems; ?></a>
                         <div class="menuUsuario">
                             <ul>
                                 <li><a href="./backend/logout.php">Desconectarse</a></li>

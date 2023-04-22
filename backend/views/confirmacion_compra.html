@@ -1,8 +1,16 @@
 <?php
-session_start();
+//session_start();
 if (!isset($_SESSION['session1']['nombre'])){
     header('location: ./backend/login.php');
     return;
+}
+
+$carritos = carritos::listar();
+$cantidadItems = 0;
+foreach ($carritos as $carrito){
+    if ($carrito['id_usuario'] === $_SESSION['session1']['id']){
+        $cantidadItems += 1;
+    }
 }
 ?>
 
@@ -11,7 +19,7 @@ if (!isset($_SESSION['session1']['nombre'])){
 
 <html>
     <head>
-        <title style="font-family: monospace !important;">Producto</title>
+        <title style="font-family: monospace !important;">Confirmación</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="../assets/css/normalyze.css">
@@ -34,7 +42,7 @@ if (!isset($_SESSION['session1']['nombre'])){
                 if (isset($_SESSION['session1']['nombre'])){ ?>
                     <div class="desplegableUsuario">
                         <a href="#" class="btnUsusario"><?php echo $_SESSION['session1']['nombre'] ?></a>
-                        <a href="#" class="carrito">🛒 3</a>
+                        <a href="./carrito.php" class="carrito">🛒 <?php echo $cantidadItems; ?></a>
                         <div class="menuUsuario">
                             <ul>
                                 <li><a href="./logout.php">Desconectarse</a></li>
@@ -60,30 +68,13 @@ if (!isset($_SESSION['session1']['nombre'])){
                 </label>
             </nav>
         </header>
+        
         <section class="sectionCompra">
-            <!--<input type="button" class="botonFoot" value="Agregar Producto" onclick="document.location.href='<?php echo $basepath."?buy&id=".$listaProductos['id']; ?>'">
-            -->
-            
-            <?php /*
-                echo "<pre>";
-                print_r($_GET);
-                echo "</pre>";
-                
-                echo "Quizas sea mejor no tener validación"
-                . " aca pero si cuando se haga click en el boton comprar?";
-                */
+            <?php
                 $lista_prod = productos::listar();
                 
                 foreach ($lista_prod as $compra){
-                    if ($compra['id'] === $_GET['id']){/*
-                        $focusCompra = new productos($_GET['id']);
-                        $focusCompra->nombre_producto = $compra['nombre_producto'];
-                        $focusCompra->descripcion = $compra['nombre:producto'];
-                        $focusCompra->precio = $compra['nombre:producto'];
-                        $focusCompra->id_categoria = $compra['nombre:producto'];
-                        $focusCompra->imagen = $compra['nombre:producto'];
-                        $focusCompra->stock = $compra['nombre:producto'];*/
-               
+                    if ($compra['id'] === $_GET['id']){
             ?>
             <div class="contenedorCompra">
                 <div class="contenedorProductoCompra">
@@ -135,18 +126,18 @@ if (!isset($_SESSION['session1']['nombre'])){
                 <p class="precio"><?php echo '$'.($compra['precio']*$_GET['c']+(120.3+1250.3)) ?></p>
             </div>
             
-    <center>
-        <form method="post">
-            
-        <button class="btn confirmar" name="action" value="confirmar" >Pagar y Confirmar</button>
-        </form>
-        <br>
-        <!-- <img class="imgConstruccion" src="../assets/img/home-slider.gif"> 
-        <h1>⚠️</h1>
-        🛠️⚙️     Pagina en construcción     🧰🪚
-        <br>
-        -->
-    </center>
+            <center>
+                <form method="post">
+
+                <button class="btn confirmar" name="action" value="confirmar" >Pagar y Confirmar</button>
+                </form>
+                <br>
+                <!-- <img class="imgConstruccion" src="../assets/img/home-slider.gif"> 
+                <h1>⚠️</h1>
+                🛠️⚙️     Pagina en construcción     🧰🪚
+                <br>
+                -->
+            </center>
             <?php 
                         die();
                     }

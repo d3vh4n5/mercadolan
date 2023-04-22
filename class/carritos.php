@@ -17,7 +17,7 @@ class carritos {
     public $cantidad;
     private $exist;
     
-    public function __construct() {
+    public function __construct($id = null) {
         if ($id != null){
             $db = base_datos::conect();
             $resp = $db->select("carritos", "id=?", array($id));
@@ -77,6 +77,6 @@ class carritos {
     
     static function listar(){
         $db = base_datos::conect();
-        return $db->select("carrios");
+        return $db->select("carritos");
     }
 }

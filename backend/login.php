@@ -39,6 +39,7 @@ if (isset($_POST['enviar'])){
                 session_start();
                 $_SESSION['session1']['nombre'] = '🧕 '.$usuario['nombre'];
                 $_SESSION['session1']['email'] = $usuario['email'];
+                $_SESSION['session1']['id'] = $usuario['id'];
                 $nuevaConexion = new conexiones();
                 $nuevaConexion->usuario = $usuario['email'];
                 $nuevaConexion->tiempo = time();

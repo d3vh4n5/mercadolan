@@ -31,22 +31,30 @@ session_start();
             <a href="../index.php#ofertas">Ofertas</a>
             <a href="#">Acerca de</a>
             <?php
-            if (isset($_SESSION['session1']['nombre'])){ ?>
+            if (isset($_SESSION['session1']['nombre'])){ 
+                $carritos = carritos::listar();
+                $cantidadItems = 0;
+                foreach ($carritos as $carrito){
+                    if ($carrito['id_usuario'] === $_SESSION['session1']['id']){
+                        $cantidadItems += 1;
+                    }
+                }
+                ?>
                 <div class="desplegableUsuario">
                     <a href="#" class="btnUsusario"><?php echo $_SESSION['session1']['nombre'] ?></a>
-                    <a href="./carrito.php" class="carrito">🛒 3</a>
+                    <a href="./carrito.php" class="carrito">🛒 <?php echo $cantidadItems; ?></a>
                     <div class="menuUsuario">
                         <ul>
-                            <li><a href="./backend/logout.php">Desconectarse</a></li>
+                            <li><a href="./logout.php">Desconectarse</a></li>
                             <?php 
                                 if ($_SESSION['session1']['nombre'] === '♛ admin'){
-                                    echo "<li><a href='./backend/productos.php'>Agregar productos</a></li>";
-                                    echo "<li><a href='./backend/categorias.php'>Agregar categorías</a></li>";
-                                    echo "<li><a href='./backend/views/incompleto.html'>Ver estadísticas</a></li>";
+                                    echo "<li><a href='./productos.php'>Agregar productos</a></li>";
+                                    echo "<li><a href='./categorias.php'>Agregar categorías</a></li>";
+                                    echo "<li><a href='./views/incompleto.html'>Ver estadísticas</a></li>";
                                 }else{
-                                    echo "<li><a href='./backend/views/incompleto.html'>Cambiar contraseña</a></li>";
-                                    echo "<li><a href='./backend/views/incompleto.html'>Cambiar email</a></li>";
-                                    echo "<li><a href='./backend/views/incompleto.html'>Opción</a></li>";
+                                    echo "<li><a href='./views/incompleto.html'>Cambiar contraseña</a></li>";
+                                    echo "<li><a href='./views/incompleto.html'>Cambiar email</a></li>";
+                                    echo "<li><a href='./views/incompleto.html'>Opción</a></li>";
                                 }
                             ?>
                         </ul>
@@ -66,7 +74,7 @@ session_start();
             <h1>Bienvenidos a "Mercado Lan"</h1>
             <img class="logo" sizes="" src="../assets/img/Logo.png" alt="logo">
             <h5><i>e-commerce de prueba (no es real). Desarrollado por 
-                    <a href="https://github.com/d3vh4n5">
+                    <a href="https://d3vh4n5.github.io/pages/">
                         <b>d3vh4n5</b>
                     </a>
                 </i></h5>

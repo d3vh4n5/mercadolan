@@ -12,6 +12,7 @@ class autocarga {
         $arrayClases['visitas'] = $base.'visitas.php';
         $arrayClases['conexiones'] = $base.'conexiones.php';
         $arrayClases['admin'] = $base.'admin.php';
+        $arrayClases['carritos'] = $base.'carritos.php';
         
         if (isset($arrayClases[$clase])){
             if (file_exists($arrayClases[$clase])){

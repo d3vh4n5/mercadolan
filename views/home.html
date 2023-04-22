@@ -28,10 +28,19 @@ session_start();
             <a href="#ofertas">Ofertas</a>
             <a href="./backend/acerca_de.php">Acerca de</a>
             <?php
-            if (isset($_SESSION['session1']['nombre'])){ ?>
+            if (isset($_SESSION['session1']['nombre'])){ 
+                $carritos = carritos::listar();
+                $cantidadItems = 0;
+                foreach ($carritos as $carrito){
+                    if ($carrito['id_usuario'] === $_SESSION['session1']['id']){
+                        $cantidadItems += 1;
+                    }
+                }
+                ?>
+            
                 <div class="desplegableUsuario">
                     <a href="#" class="btnUsusario"><?php echo $_SESSION['session1']['nombre'] ?></a>
-                    <a href="./backend/carrito.php" class="carrito">🛒 3</a>
+                    <a href="./backend/carrito.php" class="carrito">🛒 <?php echo $cantidadItems; ?></a>
                     <div class="menuUsuario">
                         <ul>
                             <li><a href="./backend/logout.php">Desconectarse</a></li>
@@ -183,7 +192,7 @@ session_start();
             <a href="#inicio" class="volverInicio">Volver al inicio Λ</a>
             <img src="./assets/img/hansicon.png" class="logosFoot" />
             <a class="autor" href="https://d3vh4n5.github.io/pages/">
-                "Mercado Lan" -> Por @Juan Angel Basgall &#128640 Copyright © 12-2022 MercadoLan λ
+                "Mercado Lan" desarollado por @Juan Angel Basgall &#128640 Copyright © 12-2022 MercadoLan λ
             </a>
             <img class="logosFoot" sizes="" src="./assets/img/Teclablogo.png" alt="">
         </footer>

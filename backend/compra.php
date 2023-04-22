@@ -5,12 +5,7 @@ ob_start();
 //require '../class/autoload.php';
 
 
-if (isset($_POST['action'])){
-    
-    //print_r($_SESSION);
-    //die();
-    if (!isset($_SESSION['session1']['nombre'])){
-        $mensaje = "<div class='alertaLog'>
+$mensaje = "<div class='alertaLog'>
                 <h1>⚠️</h1>
                 <h3>No estás logeado<br></h3>
                 <br>
@@ -18,6 +13,17 @@ if (isset($_POST['action'])){
                 <br>
                 <button name='back' onclick='history.back()' action='back'>OK</button>
               </div>";
+$mensajeCarrito = "<div class='alertaLog'>
+            <h1>🎊</h1>
+            <h3>Producto agregado con éxito<br></h3>
+            <br>
+            <p>Tu producto se agregó correctamente al carrito, podés acceder al mismo desde la pestaña de usuario.</p>
+            <br>
+            <button name='back' onclick='document.location.href=".'"'.'./index.php'.'"'."' action='back'>OK</button>
+          </div>";
+
+if (isset($_POST['action'])){
+    if (!isset($_SESSION['session1']['nombre'])){
         echo $mensaje;
     } else {
         if ($_POST['action'] == 'comprar'){
@@ -25,13 +31,16 @@ if (isset($_POST['action'])){
             header('location: ./backend/confirmacion_compra.php?id='.$_GET['id'].'&c='.$_POST['cantidad']);
             die();
         } else {
-            /*Aqui en lugar de redirigir tiene que guardar el objeto en carritos
-en la base de datos y mostrar un cartel de que se agrego correctamente.
-             * 
-             * soolo el carrito del desplegable de usuario redirigirá a la página
-             *  de carrito             */
-            header('location: ./backend/carrito.php');
-            echo "<p style='background: orange; '>Flow en construcción</p>";
+            $carrito = new carritos();
+            $carrito->id_usuario = $_SESSION['session1']['id'];
+            $carrito->id_producto = $_GET['id'];
+            $carrito->cantidad = $_POST['cantidad'];
+            if($carrito->guardar()){
+                /*Restar en el stok del producto*/
+                echo $mensajeCarrito;
+            } else {
+                echo "<br> Hubo un error al guardar el item en el carrito";
+            }
         }
     }
     
