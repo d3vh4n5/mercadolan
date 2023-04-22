@@ -563,6 +563,10 @@ footer{
         height: 36px;
         border-radius: 3px;
     }
+    .buscador{
+        display: flex;
+        flex-direction: column;
+    }
     .botonLog{
         text-decoration: none;
         background-color: #222222;
