@@ -56,15 +56,14 @@ if (!isset($_SESSION['session1']['nombre']) || $_SESSION['session1']['nombre'] !
                         $lista_ctg = categorias::listar();
                         $alter = 0;
                         foreach($lista_ctg as $listaCategorias){
-                            $alter = $alter + 1;
                             ?>
                         <tr>
-                            <td <?php if (($alter % 2) == 0 ){echo "style='background: #e7e7e7 !important;'"; } ?> >
+                            <td>
                                 <a class="botonActionTabla E" href="<?php echo $basepath."?edit&id=".$listaCategorias['id']; ?>">&#9999️️</a><!-- &#9998️ &#9999️ Los emogis que no se ven como se espera, hay que inspeccionarlos, darle click derecho, buscar en google, te lleva a una lsita, pero si le das al boton copiar siguen sin andar, hay que SELECCIONARLOS con el mouse, y luego copiarlos y pegarlos // OJO!!, me di cuenta de que tienen como otro caracter invisible al lado, son 2, te das cuenta con las flechicas del teclado-->
                                 <a class="botonActionTabla" href="<?php echo $basepath."?rem&id=".$listaCategorias['id'];?>">❌</a>
                             </td>
-                            <td <?php if (($alter % 2) == 0 ){echo "style='background: #e7e7e7 !important;'"; } ?>  ><?php echo $listaCategorias['id'] ?></td> 
-                            <td <?php if (($alter % 2) == 0 ){echo "style='background: #e7e7e7 !important;'"; } ?>  ><?php echo $listaCategorias['nombre_categoria'] ?></td> 
+                            <td><?php echo $listaCategorias['id'] ?></td> 
+                            <td><?php echo $listaCategorias['nombre_categoria'] ?></td> 
                         </tr>    
                         <?php } ?> 
                     </tbody>
@@ -80,6 +79,6 @@ if (!isset($_SESSION['session1']['nombre']) || $_SESSION['session1']['nombre'] !
             </div>  
         </center>
        <br><br><br><br>
-  
+       <script src="../assets/js/tablaproductos.js"></script>
  </body>  
 </html> 

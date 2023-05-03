@@ -16,6 +16,7 @@ if (!isset($_SESSION['session1']['nombre']) || $_SESSION['session1']['nombre'] !
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="../assets/css/normalyze.css">
         <link rel="stylesheet" type="text/css" href="../assets/css/estilos.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/tabla_productos_responsive.css">
     </head>
     <body>
         <header>
@@ -61,21 +62,20 @@ if (!isset($_SESSION['session1']['nombre']) || $_SESSION['session1']['nombre'] !
                    $lista_prod = productos::listar();
                    $alter = 0;
                    foreach($lista_prod as $listaProductos){ 
-                       $alter = $alter + 1;
                        ?> 
                    <tr> 
-                       <td <?php if (($alter % 2) == 0 ){echo "style='background: #e7e7e7 !important;'"; } ?> >
+                       <td class="actionBtns">
                            <a class="botonActionTabla E" href="<?php echo $basepath."?edit&id=".$listaProductos['id']."&imagen=".$listaProductos['imagen']; ?>">✏️</a>
                            <a class="botonActionTabla" href="<?php echo $basepath."?rem&id=".$listaProductos['id']."&imagen=".$listaProductos['imagen'];?>">❌</a>
                        </td>
-                       <td <?php if (($alter % 2) == 0 ){echo "style='background: #e7e7e7 !important;'"; } ?> ><?php echo $listaProductos['id'] ?></td> 
-                       <td <?php if (($alter % 2) == 0 ){echo "style='background: #e7e7e7 !important;'"; } ?> ><?php echo $listaProductos['nombre_producto'] ?></td> 
-                       <td style="max-width: 500px;<?php if (($alter % 2) == 0 ){echo 'background: #e7e7e7 !important;'; } ?>"><?php echo $listaProductos['descripcion'] ?></td>
-                       <td <?php if (($alter % 2) == 0 ){echo "style='background: #e7e7e7 !important;'"; } ?> ><?php echo "$ ".$listaProductos['precio'] ?></td>
-                       <td <?php if (($alter % 2) == 0 ){echo "style='background: #e7e7e7 !important;'"; } ?> ><?php echo $listaProductos['stock'] ?></td>
-                       <td <?php if (($alter % 2) == 0 ){echo "style='background: #e7e7e7 !important;'"; } ?> ><?php echo $listaProductos['id_categoria'] ?></td>
-                       <td <?php if (($alter % 2) == 0 ){echo "style='background: #e7e7e7 !important;'"; } ?> ><?php echo categorias::nombrecat($listaProductos['id_categoria']); ?></td>
-                       <td <?php if (($alter % 2) == 0 ){echo "style='background: #e7e7e7 !important;'"; } ?> ><?php echo $listaProductos['imagen'] ?></td>
+                       <td data-titulo="ID: " ><?php echo $listaProductos['id'] ?></td> 
+                       <td data-titulo="Nombre: " ><?php echo $listaProductos['nombre_producto'] ?></td> 
+                       <td data-titulo="Descripción: " style="max-width: 500px;"><?php echo $listaProductos['descripcion'] ?></td>
+                       <td data-titulo="Precio:" ><?php echo "$ ".$listaProductos['precio'] ?></td>
+                       <td data-titulo="Stock:" ><?php echo $listaProductos['stock'] ?></td>
+                       <td data-titulo="Categoría: " ><?php echo $listaProductos['id_categoria'] ?></td>
+                       <td data-titulo="ID Cat: " ><?php echo categorias::nombrecat($listaProductos['id_categoria']); ?></td>
+                       <td data-titulo="Img: " ><?php echo $listaProductos['imagen'] ?></td>
                    </tr>
                    <?php } ?> 
                </tbody>  
@@ -91,12 +91,7 @@ if (!isset($_SESSION['session1']['nombre']) || $_SESSION['session1']['nombre'] !
           </div>  
         </center>
     <!--
-       <br><br><br><br>
-       <a class="a" href="./views/productos.html">Agregar más productos</a>
-       <a class="a" href="./views/categorias.html">Agregar Categorías</a>
-       <br>
-       <br>
-    -->
     <script src="../assets/js/tablaproductos.js"></script>
+    -->
 </body>  
 </html> 
