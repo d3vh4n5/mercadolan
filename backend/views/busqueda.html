@@ -7,69 +7,18 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/normalyze.css">
-    <link rel="stylesheet" href="./assets/css/estiloshp.css">
-    <link rel="stylesheet" href="./assets/css/bosqueda.css">
+    <link rel="stylesheet" href="../assets/css/normalyze.css">
+    <link rel="stylesheet" href="../assets/css/estiloshp.css">
+    <link rel="stylesheet" href="../assets/css/bosqueda.css">
     <title>Busqueda</title>
 </head>
     <body>
-        <header id="inicio">
-            <img class="logo" sizes="" src="./assets/img/Logo.png" alt="logo">
-
-            <input type="checkbox" id="check">
-            <label for="check"  class="mostrar-menu">
-                &#8801
-            </label>
-            <nav class="menu">
-            <form class="buscador" role="search" method="POST">
-                <input class="inputBuscador" name="valorBusqueda" type="text" placeholder="🔍">
-                <button class="btnBuscador" type="submit" name="action" value="busqueda">Buscar</button>
-            </form>
-                <a href="./index.php">Inicio</a>
-                <a href="./index.php#ofertas">Ofertas</a>
-                <a href="./backend/acerca_de.php">Acerca de</a>
-                <?php
-                if (isset($_SESSION['session1']['nombre'])){ 
-                    $carritos = carritos::listar();
-                    $cantidadItems = 0;
-                    foreach ($carritos as $carrito){
-                        if ($carrito['id_usuario'] === $_SESSION['session1']['id']){
-                            $cantidadItems += 1;
-                        }
-                    }
-                                        ?>
-                    <div class="desplegableUsuario">
-                        <a href="#" class="btnUsusario"><?php echo $_SESSION['session1']['nombre'] ?></a>
-                        <a href="./backend/carrito.php" class="carrito">🛒 <?php echo $cantidadItems; ?></a>
-                        <div class="menuUsuario">
-                            <ul>
-                                <li><a href="./backend/logout.php">Desconectarse</a></li>
-                                <?php 
-                                    if ($_SESSION['session1']['nombre'] === '♛ admin'){
-                                        echo "<li><a href='./backend/productos.php'>Agregar productos</a></li>";
-                                        echo "<li><a href='./backend/categorias.php'>Agregar categorías</a></li>";
-                                        echo "<li><a href='./backend/views/incompleto.html'>Ver estadísticas</a></li>";
-                                    }else{
-                                        echo "<li><a href='./backend/carrito.php'>Ir al carrito</a></li>";
-                                        echo "<li><a href='./backend/views/incompleto.html'>Cambiar contraseña</a></li>";
-                                        echo "<li><a href='./backend/views/incompleto.html'>Cambiar email</a></li>";
-                                        echo "<li><a href='./backend/views/incompleto.html'>Opción</a></li>";
-                                    }
-                                ?>
-                            </ul>
-                        </div>
-                    </div> <?php
-                }else{ ?>
-                    <input type="button" class="botonLog" value="Log in" onclick="document.location.href='./backend/login.php'">
-                <?php } ?>
-                <label for="check"  class="esconder-menu">
-                    &#215
-                </label>
-            </nav>
-        </header>
+        <?php
+            include 'views/partials/header.php';
+        ?>
         <section class="contenedorPrincipal">
              <div class="tituloPrincipal">
-                <h2 class="titulo">Resultados para: "<?php echo $_POST['valorBusqueda']; ?>"</h2>
+                <h2 class="titulo">Resultados para: "<?php echo $_GET['valorBusqueda']; ?>"</h2>
                 <hr></hr>
             </div>
             <table class="tablaProductos">
@@ -80,18 +29,18 @@ session_start();
                         $lista_prod=productos::listar();
                         foreach ($lista_prod as $lista_prod) {
                             $idc = new categorias($lista_prod['id_categoria']);
-                            $valorBusqueda = strtolower($_POST['valorBusqueda']);
+                            $valorBusqueda = strtolower($_GET['valorBusqueda']);
                             if (strpos(strtolower($lista_prod['nombre_producto']), $valorBusqueda) !==false || strpos (strtolower($idc->nombre_categoria), $valorBusqueda) !==false || strpos( strtolower($lista_prod['descripcion']), $valorBusqueda) ){
                                 ?>
                                 <td>
-                                    <div class="tarjetaProducto" onclick="document.location.href='<?php echo $basepath."?buy&id=".$lista_prod['id']; ?>'" >
+                                    <div class="tarjetaProducto" onclick="document.location.href='<?php echo "/index.php?buy&id=".$lista_prod['id']; ?>'" >
                                         <p class="nombre"><?php echo $lista_prod['nombre_producto'] ?></p>
                                         <img class="imgProd" src="
                                              <?php
                                              if ($lista_prod['imagen']){
-                                                echo "./assets/img/productos/".$lista_prod['imagen'];
+                                                echo "../assets/img/productos/".$lista_prod['imagen'];
                                              }else{
-                                                echo "./assets/img/imagen.png";
+                                                echo "../assets/img/imagen.png";
                                              }       
                                              ?>
                                              " name="imagen producto" alt="">

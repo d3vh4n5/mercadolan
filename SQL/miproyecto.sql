@@ -40,25 +40,6 @@ CREATE TABLE `accesos` (
 -- Volcado de datos para la tabla `accesos`
 --
 
-INSERT INTO `accesos` (`id`, `ip`, `agent`, `fecha`, `origen`) VALUES
-(1, '190.220.17.178', 'Mozilla/5.0 (Linux; Android 11; SM-A305G) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Mobile Safari/537.36', 'Fri 31-Mar-2023  15:29:22', 'CV-Arbeit -> grl'),
-(2, '190.220.17.178', 'Mozilla/5.0 (Linux; Android 11; SM-A305G) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Mobile Safari/537.36', 'Fri 31-Mar-2023  15:30:37', 'CV-mlan -> grl'),
-(3, '190.220.17.178', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36 Edg/111.0.1661.54', 'Fri 31-Mar-2023  15:31:07', 'CV-mlan -> grl'),
-(4, '190.220.17.178', 'Mozilla/5.0 (Linux; Android 11; SM-A305G) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Mobile Safari/537.36', 'Fri 31-Mar-2023  15:31:39', 'CV-Code-CRUD-CaC -> grl'),
-(36, '190.193.147.229', 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.3 Mobile/15E148 Safari/604.1', 'Sun 23-Apr-2023  20:23:53', 'index de SmartCV'),
-(49, '152.168.239.7', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36', 'Fri 05-May-2023  01:23:59', 'index de SmartCV'),
-(50, '152.168.239.7', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36', 'Fri 05-May-2023  01:24:03', 'index de SmartCV'),
-(51, '152.168.239.7', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36', 'Fri 05-May-2023  01:24:03', 'CV-Code-mlan -> index !'),
-(52, '34.86.177.154', 'bitlybot/3.0 (+http://bit.ly/)', 'Sun 07-May-2023  18:31:10', 'index de SmartCV'),
-(53, '34.86.177.154', 'Go-http-client/1.1', 'Sun 07-May-2023  18:31:11', 'index de SmartCV'),
-(54, '152.168.239.7', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36 Edg/112.0.1722.68', 'Sun 07-May-2023  18:31:11', 'index de SmartCV'),
-(55, '23.228.131.198', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'Sun 07-May-2023  18:31:13', 'index de SmartCV'),
-(56, '172.58.85.29', 'Mozilla/5.0 (Linux; Android 13; SM-G781U) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Mobile Safari/537.36', 'Sun 07-May-2023  18:31:32', 'index de SmartCV'),
-(57, '216.218.72.132', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36', 'Sun 07-May-2023  19:26:20', 'index de SmartCV'),
-(58, '64.203.194.197', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36', 'Sun 07-May-2023  20:21:19', 'index de SmartCV'),
-(59, '152.168.239.7', 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/110.0', 'Mon 08-May-2023  15:51:28', 'index de SmartCV'),
-(60, '152.168.239.7', 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0', 'Mon 08-May-2023  23:07:58', 'index de SmartCV');
-
 -- --------------------------------------------------------
 
 --
@@ -142,25 +123,6 @@ CREATE TABLE `conexiones` (
 --
 -- Volcado de datos para la tabla `conexiones`
 --
-
-INSERT INTO `conexiones` (`id`, `ip`, `agent`, `navegador`, `dispositivo`, `so`, `fecha`, `tiempo`, `tipo_intento`, `usuario`, `estado`) VALUES
-(1, '152.168.239.7', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'Chrome', 'Computer', 'Windows', 'Tue 04-Apr-2023  13:23:53', '1680625433', 'exitoso', 'juanangelbasgall@gmail.com', NULL),
-(2, '152.168.239.7', 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.1 Mobile/15E148 Safari/604.1', 'Safari', 'iPhone', 'iOS', 'Tue 04-Apr-2023  15:24:16', '1680632656', 'exitoso', 'juanangelbasgall@gmail.com', NULL),
-(3, '152.168.239.7', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'Chrome', 'Computer', 'Windows', 'Wed 05-Apr-2023  11:39:50', '1680705590', 'exitoso', 'juanangelbasgall@gmail.com', NULL),
-(4, '152.168.239.7', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'Chrome', 'Computer', 'Windows', 'Thu 06-Apr-2023  14:08:03', '1680800883', 'exitoso', 'juanangelbasgall@gmail.com', NULL),
-(5, '152.168.239.7', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'Chrome', 'Computer', 'Windows', 'Tue 11-Apr-2023  14:10:33', '1681233033', 'exitoso', 'admin', NULL),
-(6, '152.168.239.7', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'Chrome', 'Computer', 'Windows', 'Sat 15-Apr-2023  15:16:02', '1681582562', 'exitoso', 'admin', NULL),
-(7, '152.168.239.7', 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.1 Mobile/15E148 Safari/604.1', 'Safari', 'iPhone', 'iOS', 'Sat 15-Apr-2023  15:17:33', '1681582653', 'exitoso', 'admin', NULL),
-(8, '152.168.239.7', 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.1 Mobile/15E148 Safari/604.1', 'Safari', 'iPhone', 'iOS', 'Sat 15-Apr-2023  15:23:41', '1681583021', 'exitoso', 'admin', NULL),
-(9, '152.168.239.7', 'Mozilla/5.0 (Linux; Android 11; Mi A3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Mobile Safari/537.36', 'Chrome', 'Android', 'Android', 'Sat 15-Apr-2023  15:25:47', '1681583147', 'exitoso', 'admin', NULL),
-(10, '152.168.239.7', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'Chrome', 'Computer', 'Windows', 'Sun 16-Apr-2023  11:53:25', '1681656805', 'exitoso', 'admin', NULL),
-(11, '152.168.239.7', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36', 'Chrome', 'Computer', 'Windows', 'Thu 20-Apr-2023  14:32:17', '1682011937', 'exitoso', 'juanangelbasgall@gmail.com', NULL),
-(12, '152.168.239.7', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36', 'Chrome', 'Computer', 'Windows', 'Sat 22-Apr-2023  00:43:20', '1682135000', 'exitoso', 'juanangelbasgall@gmail.com', NULL),
-(13, '152.168.239.7', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36', 'Chrome', 'Computer', 'Windows', 'Sat 22-Apr-2023  11:27:21', '1682173641', 'exitoso', 'juanangelbasgall@gmail.com', NULL),
-(14, '152.168.239.7', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36', 'Chrome', 'Computer', 'Windows', 'Sat 22-Apr-2023  14:57:42', '1682186262', 'exitoso', 'juanangelbasgall@gmail.com', NULL),
-(15, '152.168.239.7', 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/112.0.5615.70 Mobile/15E148 Safari/604.1', 'Safari', 'iPhone', 'iOS', 'Sat 22-Apr-2023  15:12:53', '1682187173', 'exitoso', 'juanangelbasgall@gmail.com', NULL),
-(16, '152.168.239.7', 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/112.0.5615.70 Mobile/15E148 Safari/604.1', 'Safari', 'iPhone', 'iOS', 'Sat 22-Apr-2023  15:52:05', '1682189525', 'exitoso', 'juanangelbasgall@gmail.com', NULL),
-(17, '152.168.239.7', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36', 'Chrome', 'Computer', 'Windows', 'Wed 03-May-2023  11:15:56', '1683123356', 'exitoso', 'admin', NULL);
 
 -- --------------------------------------------------------
 
@@ -251,14 +213,6 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `nombre`, `email`, `pass`) VALUES
-(4, 'Juan', 'juanangelbasgall@gmail.com', '00ea1da4192a2030f9ae023de3b3143ed647bbab'),
-(5, 'asd', 'asd@asd', '00ea1da4192a2030f9ae023de3b3143ed647bbab'),
-(6, 'Hans', 'hansito@hotmail.com', '00ea1da4192a2030f9ae023de3b3143ed647bbab'),
-(7, 'asasda', 'a@a.com', 'c129b324aee662b04eccf68babba85851346dff9'),
-(8, 'admin', 'admin@admin.com', 'dd94709528bb1c83d08f3088d4043f4742891f4f'),
-(9, 'Damian ', 'dami.colella@outlook.com', 'c93b9b47980fc6d61aa662be35897c5cc4d83baa'),
-(10, 'arrolladodepollo@tangarosa.com', 'arrolladodepollo@tangarosa.com', '7d719d0cfff8c1181117dddeb1ef8d9218143f8e');
 
 -- --------------------------------------------------------
 
@@ -280,15 +234,6 @@ CREATE TABLE `visitas` (
 --
 -- Volcado de datos para la tabla `visitas`
 --
-
-INSERT INTO `visitas` (`id`, `ip`, `agent`, `navegador`, `dispositivo`, `so`, `fecha`, `origen`) VALUES
-(1, '152.168.239.7', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36', 'Chrome', 'Computer', 'Windows', 'Fri 05-May-2023  17:25:24', 'Home'),
-(2, '181.174.135.6', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'Chrome', 'Computer', 'Windows', 'Fri 05-May-2023  17:25:26', 'Home'),
-(3, '172.58.85.167', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Mobile Safari/537.36', 'Chrome', 'Android', 'Android', 'Fri 05-May-2023  17:27:16', 'Home'),
-(4, '152.168.239.7', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36', 'Chrome', 'Computer', 'Windows', 'Sat 13-May-2023  00:35:30', 'Home'),
-(5, '152.168.239.7', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36', 'Chrome', 'Computer', 'Windows', 'Sat 13-May-2023  00:35:33', 'Home'),
-(6, '152.168.239.7', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36', 'Chrome', 'Computer', 'Windows', 'Sat 13-May-2023  00:35:36', 'Home'),
-(7, '152.168.239.7', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36', 'Chrome', 'Computer', 'Windows', 'Sat 13-May-2023  00:35:37', 'Home');
 
 --
 -- Índices para tablas volcadas

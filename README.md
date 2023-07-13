@@ -30,7 +30,16 @@ Para esto, decidí también hacer todo lo mas "vanila" posible, usando solo boot
 que quedó porque lo usamos durante el transcurso de la cursada. Esto a modo de aprender lo mejor posible las bases del funcionamiento de
 todo.</p>
 
+##Reproducción
 
+Para reproducir el proyecto, deben tener instalados XAMPP o Wamp, y PHP 8.2+
+
+Si tienen experiencia con PHP, sabrán que hay que clonar el proyecto, y meterlo en
+la carpeta "htdocs" en XAMPP, o en la carpeta "www" en Wamp.
+
+Luego, deberan iniciar la base de datos y el servidor. Para clonar la base de datos
+necesaria para el proyecto, deberán copiar y pegar el código SQL presente en la
+carpeta del proyecto con el mismo nombre.
 
 ---
 <em><b>!Gracias por visitar mi proyecto!¡Epero que te haya gustado!</b></em>

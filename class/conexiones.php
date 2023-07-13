@@ -26,8 +26,8 @@ class conexiones {
     
     public function __construct($id = null){
         $this->id = $id++;
-        $this->ip = getenv("REMOTE_ADDR");
-        $this->agent = getenv("HTTP_USER_AGENT");
+        $this->ip = $_SERVER['REMOTE_ADDR'];
+        $this->agent = $_SERVER['HTTP_USER_AGENT'];
         if( preg_match('/MSIE (\d+\.\d+);/', $this->agent) ) {
           $this->navegador = "Internet Explorer";
         } else if (preg_match('/Chrome[\/\s](\d+\.\d+)/', $this->agent) ) {
