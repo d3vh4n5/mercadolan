@@ -1,33 +1,84 @@
-<!DOCTYPE html>
-
-<html>
-    <head>
-        <title>Pruebas</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <link rel="stylesheet" type="text/css" href="../assets/css/estilos.css">
-        <style>
-            body{
-                background: #000;
-                color: green;
-                overflow-y: scroll;
-            }
-        </style>
-    </head>
-    <body>
-        
-        
-        
 <?php
 
+/*
+
+echo "Hola mundo"; 
+
+$a = 5;
+
+$b = 3;
+
+echo "<br> La suma de las variables es:".$a+$b;
+
+
+if (isset($_POST['submit'])){
+    echo "<br>Formulario enviado <br>";
+    echo "<br>Nombre: ".$_POST['nombre'].'<br>';
+    echo "<pre>";
+    print_r($_POST);
+    echo "</pre>";
+}
+
+
+try{
+    $db = new PDO("mysql:dbname=pruebas;host=127.0.0.1","root","");
+    echo "<br>La conexión con el servidor se realizó correctamente..<br>";
+    echo "<pre>";
+    print_r($db);
+    echo "</pre>";
+    //return $db;
+}catch(PDOException $e){
+    echo '<br>'
+        . '<p style="color:red;">'
+        . 'Error de conexión con el servidor<br>'
+        .$e->getMessage()
+        ."</p>";
+}
+ Hay algún detalle acá que no funciona pero buee...
+$resource = $db->prepare("SELECT * FROM tablauno");
+$resource->execute();
+$datos = $resource->fetchAll(PDO::FETCH_ASSOC);
+echo "<pre>";
+print_r($datos);
+echo "</pre>";
+if ($resource){
+    echo"<br>todo bien";
+} else {
+    echo "<br>todo mal";
+}
+*/
 include '../class/autoload.php';
+$db = base_datos::conect();
+$objeto = $db->select("productos");
 
-$valorBusqueda= 'her';
 
-echo 'hoola';
-echo strpos(strtolower('Herramientas'), $valorBusqueda) !== false;
 
+
+if (isset($_GET)){
+    $opcion = $_GET['opcion'];
+    if ($opcion == 1){
+        header('Content-type: application/json');
+        echo json_encode($objeto);
+    }else if ($opcion == 2){
+        header('Content-type: image/png');
+        readfile('../assets/img/dino.gif');
+    }else if ($opcion == 3){
+        header('Content-type: text/plain');
+        echo "Este es un ejemplko de devolucionde un texto plano";
+    }else if ($opcion == 4){
+        header('Content-type: application/zip');
+        /*
+            El content disposition: attachment inidica que el archivo debe descargarse en lugar
+            de mostrarse por el navegador, ademas tambien le damos un nombre al archivo para cuando 
+            se descargue. El content disposition no solo sirve para archvos descargables, sino que 
+            tiene varias opciones.
+        */
+        header('Content-Disposition: attachment; filename="ejemplo.zip"');
+        readfile('ruta/a/mi/archivo.zip');
+    } else {
+        echo "error";
+    }
+}
 
 
 /*
