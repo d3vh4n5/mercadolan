@@ -32,7 +32,7 @@ todo.</p>
 
 ## Reproducción
 
-Para reproducir el proyecto, deben tener instalados XAMPP o Wamp, y PHP 8.2+
+Para reproducir el proyecto, deben tener instalados XAMPP o Wamp, y PHP 8.2+.
 
 Si tienen experiencia con PHP, sabrán que hay que clonar el proyecto, y meterlo en
 la carpeta "htdocs" en XAMPP, o en la carpeta "www" en Wamp.
