@@ -30,7 +30,7 @@ Para esto, decidí también hacer todo lo mas "vanila" posible, usando solo boot
 que quedó porque lo usamos durante el transcurso de la cursada. Esto a modo de aprender lo mejor posible las bases del funcionamiento de
 todo.</p>
 
-##Reproducción
+## Reproducción
 
 Para reproducir el proyecto, deben tener instalados XAMPP o Wamp, y PHP 8.2+
 
