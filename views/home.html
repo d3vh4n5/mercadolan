@@ -1,5 +1,6 @@
 <?php
 session_start();
+ob_start();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -77,8 +78,6 @@ session_start();
                 <input type="button" value=">" class="adelanteFila">
             </div>
         </div>
-        
-        
         <section id="ofertas" class="seccionTarjetasGrandes">
             <div class="contenedorTarjetasGrandes">
                 <div class="tarjetaGrande">
@@ -98,7 +97,6 @@ session_start();
                 </div>
             </div>
         </section>
-        
         <div class="tituloPrincipal">
             <h2 class="titulo">Productos </h2>
             <hr></hr>
@@ -131,9 +129,7 @@ session_start();
                             </div>
                         </td>
                     <?php } ?> 
-
                 </tr>
-                
             </tbody>
         </table>
         
@@ -143,6 +139,5 @@ session_start();
     </section>
 <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
 <script src="./assets/js/main.js"></script>
-    
 </body>
 </html>
