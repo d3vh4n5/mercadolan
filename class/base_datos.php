@@ -66,7 +66,21 @@ class base_datos {
     function delete($tabla, $filtros = null, $arr_prepare = null){
         $sql = "DELETE FROM " .$tabla . " WHERE " . $filtros;
         $resource = $this->gbd->prepare($sql);
-        $resource->execute($arr_prepare);
+        try {
+            $resource->execute($arr_prepare);
+        } catch( Exception $e){
+            echo "<br> 
+                    <h1 style='width: fit-content;
+                                margin: 0 auto;
+                                color: red;
+                                font-family: monospace;
+                            '>
+                        Hubo un error al realizar la operación en la base de datos
+                    </h1> 
+                <br>";
+            // echo $e;
+            die();
+        }
         if ($resource){
             return true;
         } else {
@@ -74,7 +88,7 @@ class base_datos {
         }
     }
     
-    function insert($tabla,$campos,$valores, $arr_prepare = null){
+    function insert($tabla, $campos, $valores, $arr_prepare = null){
         $sql = "INSERT INTO " . $tabla . " (" . $campos . ") VALUES ($valores)";
         $resource = $this->gbd->prepare($sql);
         $resource->execute($arr_prepare);
