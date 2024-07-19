@@ -50,26 +50,22 @@ ob_start();
                     <div class="filaTarjetasCarrusel">
                         <div class="contenedorTarjetasCarrusel">
                             <?php 
-                            //count($lista_prod);
                             foreach ($lista_prod as $lista_prod) { ?>
                             <div class="contenedorTarjeta">
                                 <div class="tarjetaProducto tarjetaCarrusel" onclick="document.location.href='<?php echo $basepath."?buy&id=".$lista_prod['id']; ?>'" >
-                                    <p class="nombre"><?php echo $lista_prod['nombre_producto'] ?></p>
+                                    <p class="nombre"><?= $lista_prod['nombre_producto'] ?></p>
                                     <img class="imgProd" src="
                                          <?php
-                                         if ($lista_prod['imagen']){
-                                            echo "./assets/img/productos/".$lista_prod['imagen'];
-                                         }else{
-                                            echo "./assets/img/imagen.png";
-                                         }       
+                                            if ($lista_prod['imagen']){
+                                                echo "./assets/img/productos/".$lista_prod['imagen'];
+                                            }else{
+                                                echo "./assets/img/imagen.png";
+                                            }       
                                          ?>
                                          " name="imagen producto" alt="">
-                                    <p class="cat"><?php 
-                                    $idc = new categorias($lista_prod['id_categoria']);
-                                    echo $idc->nombre_categoria;
-                                    ?>
-                                    <p class="precio"><?php echo $lista_prod['precio'] ?></p>
-                                    <p class="descripcion"><?php echo $lista_prod['descripcion'] ?> </p>
+                                    <p class="cat"><?= $lista_prod['categoria'] ?>
+                                    <p class="precio"><?= $lista_prod['precio'] ?></p>
+                                    <p class="descripcion"><?= $lista_prod['descripcion'] ?> </p>
                                 </div>
                             </div>
                             <?php } ?> 
@@ -105,12 +101,11 @@ ob_start();
             <tbody>
                 <tr class="fila">  
                     <?php 
-                    //count($lista_prod);
                     $lista_prod=productos::listar();
                     foreach ($lista_prod as $lista_prod) { ?>
                         <td>
                             <div class="tarjetaProducto" onclick="document.location.href='<?php echo $basepath."?buy&id=".$lista_prod['id']; ?>'" >
-                                <p class="nombre"><?php echo $lista_prod['nombre_producto'] ?></p>
+                                <p class="nombre"><?= $lista_prod['nombre_producto'] ?></p>
                                 <img class="imgProd" src="
                                      <?php
                                      if ($lista_prod['imagen']){
@@ -120,12 +115,9 @@ ob_start();
                                      }       
                                      ?>
                                      " name="imagen producto" alt="">
-                                <p class="cat"><?php 
-                                $idc = new categorias($lista_prod['id_categoria']);
-                                echo $idc->nombre_categoria;
-                                ?>
-                                <p class="precio"><?php echo $lista_prod['precio'] ?></p>
-                                <p class="descripcion"><?php echo $lista_prod['descripcion'] ?> </p>
+                                <p class="cat"><?= $lista_prod['categoria']?>
+                                <p class="precio"><?= $lista_prod['precio'] ?></p>
+                                <p class="descripcion"><?= $lista_prod['descripcion'] ?> </p>
                             </div>
                         </td>
                     <?php } ?> 
@@ -137,7 +129,7 @@ ob_start();
             include './backend/views/partials/footer.php'
         ?>
     </section>
-<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
-<script src="./assets/js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script src="./assets/js/main.js"></script>
 </body>
 </html>

@@ -27,11 +27,10 @@ ob_start();
                     <tr class="fila">  
                         <?php 
                         //count($lista_prod);
-                        $lista_prod=productos::listar();
+                        $lista_prod = productos::listar();
                         foreach ($lista_prod as $lista_prod) {
-                            $idc = new categorias($lista_prod['id_categoria']);
                             $valorBusqueda = strtolower($_GET['valorBusqueda']);
-                            if (strpos(strtolower($lista_prod['nombre_producto']), $valorBusqueda) !==false || strpos (strtolower($idc->nombre_categoria), $valorBusqueda) !==false || strpos( strtolower($lista_prod['descripcion']), $valorBusqueda) ){
+                            if (strpos(strtolower($lista_prod['nombre_producto']), $valorBusqueda) !==false || strpos (strtolower($lista_prod['categoria']), $valorBusqueda) !==false || strpos( strtolower($lista_prod['descripcion']), $valorBusqueda) ){
                                 ?>
                                 <td>
                                     <div class="tarjetaProducto" onclick="document.location.href='<?php echo "/index.php?buy&id=".$lista_prod['id']; ?>'" >

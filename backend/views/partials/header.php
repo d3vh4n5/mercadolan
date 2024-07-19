@@ -13,6 +13,7 @@
             <a href="/index.php">Inicio</a>
             <a href="/index.php#ofertas">Ofertas</a>
             <a href="/backend/acerca_de.php">Acerca de</a>
+            <a href="/backend/contact.php">Contacto</a>
             <?php
             if (isset($_SESSION['session1']['nombre'])){ 
                 $carritos = carritos::listar();

@@ -1,19 +1,16 @@
 <?php
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/PHPClass.php to edit this template
- */
-
 /**
  * Description of Database
  *
  * @author Hans
  */
 
+require_once $_SERVER['DOCUMENT_ROOT'].DIRECTORY_SEPARATOR.'config/config.php';
+
 function conect(){
     try{
-        $db = new PDO("mysql:dbname=miproyecto;host=127.0.0.1","root","");
+        $db = new PDO("mysql:dbname=mercadolan;host=127.0.0.1","root","");
         //echo "<br>La conexión con el servidor se realizó correctamente..<br>";
         //echo "<pre>";
         //print_r($db);
@@ -43,6 +40,21 @@ class base_datos {
             throw new Exception("<br>No se ha podido realizar la conexión...");
         }
     }
+
+    function query($sql, $arr_prepare = null){
+        $resource = $this->gbd->prepare($sql);
+        if ($arr_prepare !== null){
+            $resource->execute($arr_prepare);
+        } else {
+            $resource->execute();
+        }
+        if ($resource){
+            return $resource->fetchAll(PDO::FETCH_ASSOC);
+        } else {
+            throw new Exception("<br>No se pudo realizar la consulta de selección");
+        }
+    }
+
     function select($tabla, $filtros = null, $arr_prepare = null, $orden = null, $limit = null){
         $sql = "SELECT * FROM ".$tabla;
         if ($filtros != null){
@@ -118,8 +130,10 @@ class base_datos {
     static function lastinsert(){
         return $gbd->lastInsertId();
     }
-    static function conect(){//Creo esta función porque a la hora de hostear me facilita todo
-        $db = new base_datos("mysql", "miproyecto", "127.0.0.1", "root", "");
+
+    //Creo esta función porque a la hora de hostear me facilita todo
+    static function conect(){
+        $db = new base_datos("mysql", DB_NAME, DB_HOST, DB_USER, DB_PASS);
         return $db;
     }
 

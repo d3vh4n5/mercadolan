@@ -41,5 +41,11 @@ Luego, deberan iniciar la base de datos y el servidor. Para clonar la base de da
 necesaria para el proyecto, deberán copiar y pegar el código SQL presente en la
 carpeta del proyecto con el mismo nombre.
 
+También puede ejecutarse desde cualqueir ubicacion con el siguiente comando: 
+
+```bash
+php -S localhost:8000
+```
+
 ---
 <em><b>!Gracias por visitar mi proyecto!¡Epero que te haya gustado!</b></em>

@@ -57,20 +57,15 @@
             
                 </div>
                 <div class="contenedorDatosCompra">
-                    <p class="nombre"><?php echo $compra['nombre_producto'] ?></p>
-                    <p class="cat"><?php 
-                    $idc = new categorias($compra['id_categoria']);
-                    echo $idc->nombre_categoria;
-                    ?>
+                    <p class="nombre"><?= $compra['nombre_producto'] ?></p>
+                    <p class="cat"><?= ($compra['categoria']) ?>
                         
-                    <p class="precio"><?php echo '$'.$compra['precio'] ?></p>
-                    <p class="descripcion"><?php echo $compra['descripcion'] ?> </p>
+                    <p class="precio"><?= '$'.$compra['precio'] ?></p>
+                    <p class="descripcion"><?= $compra['descripcion'] ?> </p>
                     <form method="POST">
                         <label>Cantidad:</label>
-                        <!-- Creo la variable $stock para reemplazar temporalmente a $compra['stock']  -->
-                        <?php $compra['stock']; ?>
                         <input type="number" class="stockCompra" name="cantidad" value='1' max="<?php echo $compra['stock'] ?>">  
-                        <p class="descripcion"><?php echo $compra['stock'].' disponibles' ?> </p>
+                        <p class="descripcion"><?= $compra['stock'].' disponibles' ?> </p>
                         <button class="btn compra" name="action" value="comprar">Comprar</button>
                         <button class="btn agregar" name="action" value="agregarAlCarrito">Agregar al carrito</button>
                     </form>

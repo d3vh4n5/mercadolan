@@ -9,7 +9,11 @@ $lista_prod = productos::listar();
 $lista_largo = count($lista_prod);
 $contador = 0;
 
-//$lp = productos::listar();
+// echo "<pre>";
+// print_r($lista_prod );
+// echo "</pre>";
+
+// die();
 
 if (isset($_GET['buy'])) {
     //header('location: ./backend/compra.php');
@@ -18,6 +22,6 @@ if (isset($_GET['buy'])) {
 }
 
 $basepath = $_SERVER['SCRIPT_NAME'];
-include './views/home.html';
+include './views/home.php';
 
 

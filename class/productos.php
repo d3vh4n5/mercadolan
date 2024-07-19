@@ -77,7 +77,9 @@ class productos {
     
     static function listar(){
         $db = base_datos::conect();
-        return $db->select("productos");
+        // return $db->select("productos");
+        // return $db->query("SELECT * FROM productos inner join categorias on categorias.id = productos.id_categoria");
+        return $db->query("SELECT p.id, p.nombre_producto, p.descripcion, p.precio, p.imagen, p.stock, c.nombre_categoria as categoria FROM productos p inner join categorias c on c.id = p.id_categoria");
     }
     public function get_codigo(){
         return $this->id;
