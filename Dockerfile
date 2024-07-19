@@ -6,10 +6,16 @@ FROM php:8.1-apache
 # Configuramos el directorio de trabajo
 WORKDIR /app
 
-# Instalamos las dependencias necesarias para Composer
+# Instalamos las dependencias necesarias para Composer y PDO MySQL
 RUN apt-get update && apt-get install -y \
     unzip \
     git \
+    libpq-dev \
+    libonig-dev \
+    libxml2-dev \
+    libsqlite3-dev \
+    libsqlite3-0 \
+    && docker-php-ext-install pdo_mysql \
     && rm -rf /var/lib/apt/lists/*
 
 # Instalamos Composer
