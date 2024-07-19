@@ -6,6 +6,15 @@ FROM php:8.1-apache
 # Configuramos el directorio de trabajo
 WORKDIR /app
 
+# Instalamos las dependencias necesarias para Composer
+RUN apt-get update && apt-get install -y \
+    unzip \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+
+# Instalamos Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
 # Copiamos los archivos de la aplicación al contenedor
 COPY . /app
 

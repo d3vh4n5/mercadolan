@@ -35,7 +35,7 @@ try {
     $mailer->Host = 'smtp-mail.outlook.com';
     $mailer->SMTPAuth = true;
     $mailer->Username = 'no-reply-devhans@outlook.com'; // Tu dirección de correo de Hotmail
-    $mailer->Password = 'b$EDZ-!5gULvkEK'; // Tu contraseña de Hotmail
+    $mailer->Password = ''; // Tu contraseña de Hotmail
     $mailer->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mailer->Port = 587;
 
