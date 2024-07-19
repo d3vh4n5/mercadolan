@@ -18,6 +18,9 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Copiamos los archivos de la aplicación al contenedor
 COPY . /app
 
+# Aseguramos que el archivo .env sea copiado
+COPY .env.example /app/.env
+
 # Instalamos las dependencias del proyecto con Composer
 RUN composer install
 

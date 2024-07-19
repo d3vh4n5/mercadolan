@@ -4,6 +4,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
 
 $dotenv = Dotenv\Dotenv::createImmutable($_SERVER['DOCUMENT_ROOT']);
 $dotenv->load();
+// $dotenv->safeLoad(); // Este no lanza error si no existe el archivo .env
 
 // DATABASE VARIABLES 
 
