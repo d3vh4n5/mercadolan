@@ -17,6 +17,9 @@ if (!isset($_SESSION['session1']['nombre']) || $_SESSION['session1']['nombre'] !
         <link rel="stylesheet" type="text/css" href="../assets/css/normalyze.css">
         <link rel="stylesheet" type="text/css" href="../assets/css/estilos.css">
         <link rel="stylesheet" type="text/css" href="../assets/css/tabla_productos_responsive.css">
+        <!-- Datatables -->
+        <link href="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.css" rel="stylesheet" type="text/css">
+        <script src="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.js" type="text/javascript"></script>
     </head>
     <body>
         <?php
@@ -26,7 +29,11 @@ if (!isset($_SESSION['session1']['nombre']) || $_SESSION['session1']['nombre'] !
         <center>  
             <h1 class="hAdmin">Admin</h1>
             <h2>✅ Lista de productos &#9989</h2>
-             <table >
+            <div>
+                <input type="button" class="botonFoot" value="Agregar Producto" onclick="document.location.href='<?php echo $basepath."?add" ?>'">
+                <input type="button" class="botonFoot" value="Agregar Categorías" onclick="document.location.href='./categorias.php'">
+            </div>
+             <table id="tablaProductos">
                <thead> 
                  <tr class="trNoHover"> 
                     <th class="titulosTablas">Accion</th>
@@ -35,7 +42,6 @@ if (!isset($_SESSION['session1']['nombre']) || $_SESSION['session1']['nombre'] !
                     <th class="titulosTablas">Descripcion</th>  
                     <th class="titulosTablas">Precio</th>  
                     <th class="titulosTablas">Stock</th>  
-                    <th class="titulosTablas">Categoria ID</th>
                     <th class="titulosTablas">Categoría</th>
                     <th class="titulosTablas">Imagen</th>
                  <tr>    
@@ -57,9 +63,8 @@ if (!isset($_SESSION['session1']['nombre']) || $_SESSION['session1']['nombre'] !
                        <td data-titulo="Descripción: " style="max-width: 500px;"><?php echo $listaProductos['descripcion'] ?></td>
                        <td data-titulo="Precio:" ><?php echo "$ ".$listaProductos['precio'] ?></td>
                        <td data-titulo="Stock:" ><?php echo $listaProductos['stock'] ?></td>
-                       <td data-titulo="Categoría: " ><?php echo $listaProductos['id_categoria'] ?></td>
-                       <td data-titulo="ID Cat: " ><?php echo categorias::nombrecat($listaProductos['id_categoria']); ?></td>
-                       <td data-titulo="Img: " ><?php echo $listaProductos['imagen'] ?></td>
+                       <td data-titulo="Categoría: " ><?= $listaProductos['categoria'] ?></td>
+                       <td data-titulo="Img: " ><?= $listaProductos['imagen'] ?></td>
                    </tr>
                    <?php } ?> 
                </tbody>  
@@ -77,5 +82,13 @@ if (!isset($_SESSION['session1']['nombre']) || $_SESSION['session1']['nombre'] !
     <!--
     <script src="../assets/js/tablaproductos.js"></script>
     -->
+    <script>
+        document.addEventListener('DOMContentLoaded', ()=>{
+
+            const $tabla = document.getElementById('tablaProductos')
+            const dataTable = new DataTable($tabla)
+
+        })
+    </script>
 </body>  
 </html> 

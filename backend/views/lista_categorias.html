@@ -16,6 +16,10 @@ if (!isset($_SESSION['session1']['nombre']) || $_SESSION['session1']['nombre'] !
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="../assets/css/normalyze.css">
         <link rel="stylesheet" type="text/css" href="../assets/css/estilos.css">
+    
+        <!-- Datatables -->
+        <link href="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.css" rel="stylesheet" type="text/css">
+        <script src="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.js" type="text/javascript"></script>
     </head>
     <body>
         <?php
@@ -26,7 +30,11 @@ if (!isset($_SESSION['session1']['nombre']) || $_SESSION['session1']['nombre'] !
                 <h1 class="hAdmin">Admin</h1>
                 <h2>✅ Lista de categorías &#9989️</h2>
                 <p class="warningMsj">⚠️ → Si la categoría está en uso no se podrá borrar ⚠ ⚠️</p>
-                <table>
+                <div>
+                    <input type="button" class="botonFoot" value="Agregar Categoría" onclick="document.location.href='<?php echo $basepath."?add" ?>'">
+                    <input type="button" class="botonFoot" value="Agregar Productos" onclick="document.location.href='./productos.php'">
+                </div>
+                <table id="tablaCategorias">
                     <thead> 
                         <tr class="trNoHover">
                             <th class="titulosTablas">Acción</th>
