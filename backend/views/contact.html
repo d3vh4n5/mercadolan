@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="../assets/css/estiloshp.css">
     <link rel="stylesheet" href="../assets/css/contact.css">
     <title>Mercado Lan</title>
+
+    <script src="https://www.google.com/recaptcha/enterprise.js" async defer></script>
 </head>
 <body>
     <?php
@@ -34,14 +36,14 @@
                 </div>
                 <div class="pair">
                     <label>Asunto:</label>
-                    <input type="text" name="subject" autocomplete="off"required>
+                    <input type="text" name="subject" autocomplete="off" required>
                 </div>
             </div>
             <label for="msg">Mensaje:</label>
             <textarea name="msg" placeholder="Mensaje" required></textarea>
             <input type="file" name="file" accept="image/*" hidden>
             <div>
-                WIP CAPTCHA Y MENSAGE DE EXITO/ERROR
+                <div class="g-recaptcha" data-sitekey="6LfqFrYpAAAAAACiPXbovNcQPkSmbWWKCry56WcS" data-action="CONTACT" class="my-3"></div>
             </div>
             <input type="submit" value="Enviar" name="enviar">
         </form>

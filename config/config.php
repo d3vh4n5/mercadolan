@@ -1,6 +1,8 @@
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
+$base_url = $_SERVER['DOCUMENT_ROOT'];
+
+require_once $base_url.'/vendor/autoload.php';
 
 $dotenv = Dotenv\Dotenv::createImmutable($_SERVER['DOCUMENT_ROOT']);
 $dotenv->safeLoad(); // Este no lanza error si no existe el archivo .env
@@ -27,3 +29,5 @@ define("APP_EMAIL_PASS", $_ENV['APP_EMAIL_PASS']);
 
 // CAPTCHA KEYS
 
+define('CAPTCHA_PUBLIC_KEY', $_ENV['CAPTCHA_PUBLIC_KEY']);
+define('CAPTCHA_SECRET_KEY', $_ENV['CAPTCHA_SECRET_KEY']);

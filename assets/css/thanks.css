@@ -1,0 +1,9 @@
+.thanks-msg{
+    margin: 0 auto;
+    padding: 100px 0;
+    width: 700px;
+
+    h1{
+        color: rgb(4, 190, 4);
+    }
+}

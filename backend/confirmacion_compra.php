@@ -4,10 +4,6 @@ ob_start();
 include '../class/autoload.php';
 
 
-
-
-
-
 if (isset($_POST['action'])){
     $mensaje = "<div class='alertaLog'>
             <h1>🎊</h1>
@@ -20,12 +16,6 @@ if (isset($_POST['action'])){
     ob_end_clean();
     echo $mensaje;
 }
-
-
-
-
-
-
 
 
 include './views/confirmacion_compra.html';

@@ -36,6 +36,17 @@
     }
 }
 
+.error{
+    position: absolute;
+    padding: 30px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: red;
+    border: 1px solid orangered;
+    background-color: rgba(255, 68, 0, 0.2);
+}
+
 @media (max-width: 600px) {
     #contactForm {
 
