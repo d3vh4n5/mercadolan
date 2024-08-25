@@ -10,7 +10,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].DIRECTORY_SEPARATOR.'config/config.php';
 
 function conect(){
     try{
-        $db = new PDO("mysql:dbname=mercadolan;host=127.0.0.1","root","");
+        $db = new PDO("mysql:dbname=mercadolan;host=127.0.0.1;charset=utf8mb4","root","");
         //echo "<br>La conexión con el servidor se realizó correctamente..<br>";
         //echo "<pre>";
         //print_r($db);
@@ -33,7 +33,7 @@ class base_datos {
     private $gbd;
     
     function __construct($driver, $base_datos, $host, $user, $pass){
-        $conection = $driver.":dbname=".$base_datos.";host=$host";
+        $conection = $driver.":dbname=".$base_datos.";host=$host;charset=utf8mb4";
         $this->gbd = new PDO($conection,$user,$pass);
         
         if (!$this->gbd){
